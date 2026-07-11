@@ -53,3 +53,11 @@
 	opacity: 1;
 	transform: translateY(-1px);
 }
+
+.header__logout {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-family: inherit;
+}
