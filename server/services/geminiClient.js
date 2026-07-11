@@ -125,4 +125,38 @@ async function synthesizeGreenBenefits({ product, facts = {}, articles }) {
   };
 }
 
-module.exports = { identifyNeededItems, synthesizeGreenBenefits };
+// GREEN EXPLANATION (per AI pick): one grounded sentence on why this product
+// is the greener choice. Facts come from Member 1's reason chips and (when
+// backfilled) Member 2's ecoscoreDetails — the model phrases them, nothing more.
+async function explainGreenPick({ product, reasons, ecoscoreDetails }) {
+  const instruction =
+    `You are a sustainable-grocery assistant. Write EXACTLY ONE friendly sentence ` +
+    `explaining why this product is a greener/better choice. ` +
+    `Use ONLY the provided facts — do not invent claims, numbers, or certifications. ` +
+    `If the facts include negatives, you may acknowledge one honestly. Respond as JSON.`;
+
+  const reasonLines = (reasons || [])
+    .map((r) => `- (${r.polarity}) ${r.label}`)
+    .join('\n');
+
+  const userText =
+    `PRODUCT: ${product.name} — $${product.price}\n` +
+    `FACTS:\n${reasonLines || '(none)'}\n` +
+    (ecoscoreDetails
+      ? `ECO-SCORE BREAKDOWN: ${JSON.stringify(ecoscoreDetails).slice(0, 1500)}\n`
+      : '');
+
+  const parsed = await callGemini({
+    instruction,
+    userText,
+    responseSchema: {
+      type: 'object',
+      properties: { explanation: { type: 'string' } },
+      required: ['explanation'],
+    },
+  });
+
+  return parsed.explanation || '';
+}
+
+module.exports = { identifyNeededItems, synthesizeGreenBenefits, explainGreenPick };
