@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Header from './Header';
+import { api } from "../../api";
 import "./Home.css"
 
 function Home() {
@@ -21,7 +22,7 @@ function Home() {
         messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }, [messages]);
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
         const trimmedMessage = draftMessage.trim();
 
@@ -31,13 +32,40 @@ function Home() {
 
         setMessages((currentMessages) => [
             ...currentMessages,
-            {
-                id: Date.now(),
-                role: "user",
-                text: trimmedMessage
-            }
+            { id: Date.now(), role: "user", text: trimmedMessage },
+            { id: "loading", role: "bot", text: "Finding greener ingredients…" }
         ]);
         setDraftMessage("");
+
+        try {
+            // no stores => search all stores; backend picks by overallScore
+            const res = await api.suggest(trimmedMessage);
+
+            const lines = res.picks?.length
+                ? res.picks
+                      .map((p) => `• ${p.name} — ${p.store}${p.price != null ? ` · $${p.price}` : ""}${p.overallScore != null ? ` · score ${p.overallScore}` : ""}`)
+                      .join("\n")
+                : "I couldn't find matching products for that.";
+
+            const summary = res.picks?.length
+                ? `\n\nTotal: $${res.totalCost} · avg score ${res.avgOverallScore}`
+                : "";
+
+            const text = `Here's a greener cart for "${trimmedMessage}":\n${lines}${summary}`;
+
+            setMessages((cur) => [
+                ...cur.filter((m) => m.id !== "loading"),
+                { id: Date.now() + 1, role: "bot", text }
+            ]);
+        } catch (err) {
+            const msg = /not authorized|token/i.test(err.message)
+                ? "Please log in again to use the chat."
+                : err.message;
+            setMessages((cur) => [
+                ...cur.filter((m) => m.id !== "loading"),
+                { id: Date.now() + 1, role: "bot", text: `⚠️ ${msg}` }
+            ]);
+        }
     }
 
     function handleTextareaKeyDown(event) {
@@ -62,6 +90,7 @@ function Home() {
                         <p
                             key={message.id}
                             className={`chatbot-card__message chatbot-card__message--${message.role}`}
+                            style={{ whiteSpace: "pre-line" }}
                         >
                             {message.text}
                         </p>
