@@ -15,7 +15,10 @@ function Header() {
             <nav className="header__nav">
                 <Link to="/" className="header__link">Home</Link>
                 {isLoggedIn ? (
-                    <button className="header__link header__logout" onClick={handleLogout}>Logout</button>
+                    <>
+                        <Link to="/dashboard" className="header__link">Dashboard</Link>
+                        <button className="header__link header__logout" onClick={handleLogout}>Logout</button>
+                    </>
                 ) : (
                     <>
                         <Link to="/login" className="header__link">Login</Link>

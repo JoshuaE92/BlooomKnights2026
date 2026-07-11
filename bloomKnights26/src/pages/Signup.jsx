@@ -20,7 +20,7 @@ function Signup() {
                     </div>
 
                     <form className="signup-form" onSubmit={handleSubmit}>
-                        <label htmlFor="username">username</label>
+                        <label htmlFor="username">email</label>
                         <input type="text" id="username" name="username" placeholder="test@example.com" />
 
                         <label htmlFor="password">password</label>

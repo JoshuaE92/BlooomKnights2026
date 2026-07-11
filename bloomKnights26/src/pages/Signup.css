@@ -15,11 +15,6 @@
 		linear-gradient(135deg, color-mix(in srgb, var(--color-background) 92%, var(--color-primary)) 0%, color-mix(in srgb, var(--color-background) 86%, var(--color-secondary)) 52%, color-mix(in srgb, var(--color-background) 90%, var(--color-tertiary)) 100%);
 }
 
-.signup-page > .header {
-	width: 100%;
-	flex: 0 0 auto;
-}
-
 
 .signup-content {
 	display: flex;
