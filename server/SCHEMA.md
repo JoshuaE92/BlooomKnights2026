@@ -1,4 +1,4 @@
-# BloomKnights — Database Schema (for MongoDB)
+# GreenCart — Database Schema (for MongoDB)
 
 3 collections: **products**, **stores**, **recipequeries**.
 Convention: we use the human-readable slug as `_id` (e.g. `"walmart"`), not a random ObjectId, so keys stay stable across data sources.
@@ -58,7 +58,7 @@ Convention: we use the human-readable slug as `_id` (e.g. `"walmart"`), not a ra
 | Field    | Type          | Required | Notes                                                            |
 |----------|---------------|----------|------------------------------------------------------------------|
 | `_id`    | ObjectId      | auto     | Mongo generates this one                                         |
-| `userId` | String        | ✅       | **For now** a string. Change to `ObjectId` ref → `User` once auth is in |
+| `userId` | ObjectId → `User` | ✅   | Set from the JWT (`req.user`) — never from the request body          |
 | `prompt` | String        | ✅       | What the user typed                                              |
 | `result` | Mixed (any)   | ⬜       | The AI output: `{ picks, totalCost, avgGreenImpact, summary }`   |
 | `createdAt` / `updatedAt` | Date | auto  | Mongoose timestamps                                              |
