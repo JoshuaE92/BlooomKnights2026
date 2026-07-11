@@ -1,59 +1,96 @@
-// MOCK AI — the swap point for a real model call later.
+import { env } from '../config/env.js';
+import { identifyNeededItems } from './geminiClient.js';
+import { searchProducts, getProducts } from './externalProductAPI.js';
+import { withGreenImpact } from '../utils/greenImpactCalculator.js';
+
+// TWO-PHASE FLOW
+//   Phase 1: turn the user's request into a list of needed grocery items.
+//            (Gemini if live; a simple keyword split as the mock fallback.)
+//   Phase 2: for EACH needed item, search the user's stores and pick the
+//            greenest matching product. Our code does the picking, so green
+//            scores stay authoritative — the AI never touches prices/scores.
 //
-// Contract: given the user's prompt and a SHORTLIST of candidate products
-// (already fetched + green-scored by the controller), return the products the
-// "AI" picked for the recipe, plus a short explanation. It NEVER invents
-// products — it only chooses from the candidates it was handed.
-//
-// Today this is rule-based (keyword relevance + greenest-first). Tomorrow,
-// replace the body with a Claude call that receives the same shortlist and
-// returns the same shape. Nothing upstream changes.
+// Same return shape regardless of source:
+//   { prompt, neededItems, picks, totalCost, avgGreenImpact, summary, source }
+// Each pick is a full product object + `forItem` (which needed item it fills).
 
-// Turn free text into lowercase word tokens we can match against.
-function tokenize(text) {
-  return (text || '')
-    .toLowerCase()
-    .split(/[^a-z]+/)
-    .filter((w) => w.length > 2); // drop "a", "of", etc.
-}
-
-// How well does one product match the prompt? Count keyword hits in the
-// product's name + tags. 0 = not relevant to this recipe.
-function relevance(product, promptTokens) {
-  const haystack = `${product.name} ${product.tags.join(' ')}`.toLowerCase();
-  return promptTokens.reduce((score, token) => (haystack.includes(token) ? score + 1 : score), 0);
-}
-
-export function suggest({ prompt, products, maxPicks = 5 }) {
-  const tokens = tokenize(prompt);
-
-  // 1. Rank candidates: most relevant first, then greenest as the tiebreaker.
-  const ranked = products
-    .map((p) => ({ ...p, _relevance: relevance(p, tokens) }))
-    .sort((a, b) => b._relevance - a._relevance || b.greenImpact - a.greenImpact);
-
-  // 2. Prefer products that actually matched the prompt; if nothing matched,
-  //    fall back to the greenest overall so the user still gets a cart.
-  const matched = ranked.filter((p) => p._relevance > 0);
-  const chosen = (matched.length ? matched : ranked).slice(0, maxPicks);
-
-  // 3. Strip the internal _relevance field before returning.
-  const picks = chosen.map(({ _relevance, ...p }) => p);
-
-  // 4. Summary stats for the green-impact report.
+function computeStats(picks) {
   const totalCost = Number(picks.reduce((sum, p) => sum + p.price, 0).toFixed(2));
   const avgGreenImpact = picks.length
     ? Math.round(picks.reduce((sum, p) => sum + p.greenImpact, 0) / picks.length)
     : 0;
+  return { totalCost, avgGreenImpact };
+}
+
+// --- Phase 1 fallback: naive decomposition when Gemini is off/unavailable ---
+const STOPWORDS = new Set(['and', 'for', 'the', 'with', 'some', 'need', 'want', 'make', 'get']);
+
+function mockDecompose(prompt) {
+  return (prompt || '')
+    .toLowerCase()
+    .split(/[^a-z]+/)
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
+}
+
+// --- Phase 2: search stores per item, pick greenest not already chosen ------
+async function pickForItems({ stores, neededItems }) {
+  const picks = [];
+  const seen = new Set();
+
+  for (const item of neededItems) {
+    const candidates = (await searchProducts({ stores, query: item, limit: 10 }))
+      .map(withGreenImpact)
+      .sort((a, b) => b.greenImpact - a.greenImpact);
+
+    const best = candidates.find((c) => !seen.has(c.id)); // greenest still available
+    if (best) {
+      seen.add(best.id);
+      picks.push({ ...best, forItem: item });
+    }
+  }
+  return picks;
+}
+
+// --- public entry point -----------------------------------------------------
+export async function suggest({ prompt, stores, maxItems = 6 }) {
+  // Phase 1 — decompose the request into needed items.
+  let neededItems;
+  let summary = null;
+  let source = 'mock';
+
+  if (env.aiMode === 'live' && env.geminiApiKey) {
+    try {
+      const r = await identifyNeededItems({ prompt, maxItems });
+      neededItems = r.neededItems;
+      summary = r.summary;
+      source = 'gemini';
+    } catch (err) {
+      console.warn('[aiService] Gemini decompose failed, using mock:', err.message);
+    }
+  }
+  if (!neededItems || !neededItems.length) {
+    neededItems = mockDecompose(prompt);
+    source = 'mock';
+  }
+
+  // Phase 2 — search the stores for each item and pick the greenest.
+  let picks = await pickForItems({ stores, neededItems });
+
+  // Safety net: nothing matched any item → just offer the greenest in-store.
+  if (!picks.length) {
+    picks = (await getProducts({ stores }))
+      .map(withGreenImpact)
+      .sort((a, b) => b.greenImpact - a.greenImpact)
+      .slice(0, maxItems)
+      .map((p) => ({ ...p, forItem: null }));
+  }
 
   return {
     prompt,
+    neededItems,
     picks,
-    totalCost,
-    avgGreenImpact,
-    summary:
-      picks.length && matched.length
-        ? `Picked ${picks.length} greener items for "${prompt}" (avg green impact ${avgGreenImpact}/100).`
-        : `No direct matches for "${prompt}" — suggested your ${picks.length} greenest options instead.`,
+    ...computeStats(picks),
+    summary: summary || `Found ${picks.length} greener items for "${prompt}".`,
+    source,
   };
 }
