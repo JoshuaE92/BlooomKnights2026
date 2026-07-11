@@ -1,27 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import Header from "./Home/Header";
+import { api, saveAuth } from "../api";
 import "./Login.css";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-
-        const enteredEmail = email.trim().toLowerCase();
-        const enteredPassword = password.trim();
-        const correctEmail = "test@example.com";
-        const allowedPasswords = ["greenCart123", "password123"];
-
-        if (enteredEmail === correctEmail && allowedPasswords.includes(enteredPassword)) {
-            setError("");
-            localStorage.setItem("isLoggedIn", "true");
+        setError("");
+        setLoading(true);
+        try {
+            // backend login accepts an "identifier" (username OR email)
+            const data = await api.login(email.trim(), password);
+            saveAuth(data);
             window.location.replace("/");
-        } else {
-            setError("Incorrect email or password.");
+        } catch (err) {
+            setError(err.message || "Login failed.");
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -56,7 +57,7 @@ function Login() {
                             onChange={(event) => setPassword(event.target.value)}
                         />
 
-                        <button type="submit">login</button>
+                        <button type="submit" disabled={loading}>{loading ? "logging in…" : "login"}</button>
                     </form>
 
                     {error && <p>{error}</p>}
