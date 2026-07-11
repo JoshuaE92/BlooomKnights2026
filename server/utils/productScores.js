@@ -6,9 +6,30 @@
 // Input products must carry: { id, price, unitPrice, openFoodFacts }.
 
 const NUTRISCORE_TO_SCORE = { a: 100, b: 80, c: 60, d: 40, e: 20 };
-const ECOSCORE_TO_SCORE = { a: 100, b: 80, c: 60, d: 40, e: 20 };
+// OFF's Eco-Score is usually A-E, but a small number of products carry an
+// "a-plus" (above A) or "f" (not-applicable/worst-case, below E) grade -
+// map both onto the scale rather than letting them fall through to
+// unavailable/neutral.
+const ECOSCORE_TO_SCORE = { "a-plus": 100, a: 90, b: 80, c: 60, d: 40, e: 20, f: 5 };
+// Fallback used when no real Eco-Score exists but NOVA (processing level,
+// 1-4) does. NOVA is not an environmental measurement - it's a proxy: more
+// processing steps generally mean more industrial inputs, packaging, and
+// energy, which correlates loosely with footprint. Weaker signal than a
+// real Eco-Score; downstream code must treat isEstimate:true differently
+// from a confirmed grade (e.g. hedge the language in any explanation).
+const NOVA_TO_ESTIMATED_SCORE = { 1: 75, 2: 60, 3: 45, 4: 25 };
 const NEUTRAL_FALLBACK_SCORE = 60; // used only inside the weighted average
-const WEIGHTS = { price: 0.35, health: 0.35, environmental: 0.3 };
+// Score used in the weighted average when a metric has NO data at all
+// (product never matched to OFF), as opposed to data that was fetched but
+// came back genuinely neutral/middling. Deliberately below the neutral
+// fallback: a product we can't vouch for at all should not be able to
+// out-rank a competitor with a real, even mediocre, measured score -
+// otherwise unmeasured products systematically win on price alone. Never
+// shown to the user as a real score.
+const UNMEASURED_PENALTY_SCORE = 35;
+// Environmental impact is the primary factor per the project's core goal;
+// price and health remain meaningful but secondary.
+const WEIGHTS = { price: 0.25, health: 0.25, environmental: 0.5 };
 
 // --- HEALTH (Nutri-Score, with a nutrient-based fallback) -------------------
 function scoreFromNutrients(nutrients) {
@@ -38,16 +59,20 @@ function calculateHealthScore(openFoodFacts) {
   return { score: null, source: 'unavailable' };
 }
 
-// --- ENVIRONMENTAL (eco-score grade) ----------------------------------------
+// --- ENVIRONMENTAL (eco-score grade, with a NOVA-derived estimate fallback) -
 function calculateEnvironmentalScore(openFoodFacts) {
   if (!openFoodFacts?.matched) {
-    return { score: null, available: false, neutralFallback: NEUTRAL_FALLBACK_SCORE };
+    return { score: null, available: false, isEstimate: false, neutralFallback: NEUTRAL_FALLBACK_SCORE };
   }
   const grade = openFoodFacts.environment?.grade;
   if (grade && ECOSCORE_TO_SCORE[grade] != null) {
-    return { score: ECOSCORE_TO_SCORE[grade], available: true, neutralFallback: NEUTRAL_FALLBACK_SCORE };
+    return { score: ECOSCORE_TO_SCORE[grade], available: true, isEstimate: false, neutralFallback: NEUTRAL_FALLBACK_SCORE };
   }
-  return { score: null, available: false, neutralFallback: NEUTRAL_FALLBACK_SCORE };
+  const nova = openFoodFacts.nutrition?.novaGroup;
+  if (nova && NOVA_TO_ESTIMATED_SCORE[nova] != null) {
+    return { score: NOVA_TO_ESTIMATED_SCORE[nova], available: true, isEstimate: true, neutralFallback: NEUTRAL_FALLBACK_SCORE };
+  }
+  return { score: null, available: false, isEstimate: false, neutralFallback: NEUTRAL_FALLBACK_SCORE };
 }
 
 // --- AFFORDABILITY (relative to the comparison set) -------------------------
@@ -82,11 +107,14 @@ function calculateOverallScores(products) {
     const price = priceScores.get(p.id);
     const health = calculateHealthScore(p.openFoodFacts);
     const environmental = calculateEnvironmentalScore(p.openFoodFacts);
-    const envForAvg = environmental.available ? environmental.score : environmental.neutralFallback;
+    const envForAvg = environmental.available
+      ? environmental.score
+      : (p.openFoodFacts?.matched ? environmental.neutralFallback : UNMEASURED_PENALTY_SCORE);
+    const healthForAvg = health.score != null ? health.score : UNMEASURED_PENALTY_SCORE;
 
     const components = [
       price != null ? { value: price, weight: WEIGHTS.price } : null,
-      health.score != null ? { value: health.score, weight: WEIGHTS.health } : null,
+      { value: healthForAvg, weight: WEIGHTS.health },
       { value: envForAvg, weight: WEIGHTS.environmental },
     ].filter(Boolean);
 
@@ -101,6 +129,7 @@ function calculateOverallScores(products) {
       healthScore: health.score,
       environmentalScore: environmental.available ? environmental.score : null,
       environmentalDataAvailable: environmental.available,
+      environmentalScoreIsEstimate: environmental.isEstimate,
       overallScore: overall,
     };
   });

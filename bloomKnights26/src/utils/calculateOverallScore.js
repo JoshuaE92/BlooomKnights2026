@@ -2,7 +2,19 @@ import { calculateHealthScore } from "./calculateHealthScore.js";
 import { calculateEnvironmentalScore } from "./calculateEnvironmentalScore.js";
 import { calculateAffordabilityScores } from "./calculateAffordabilityScore.js";
 
-const WEIGHTS = { price: 0.35, health: 0.35, environmental: 0.3 };
+// Environmental impact is the primary factor per the project's core goal;
+// price and health remain meaningful but secondary.
+const WEIGHTS = { price: 0.25, health: 0.25, environmental: 0.5 };
+
+// Score used in the weighted average when a metric has NO data at all
+// (never fetched/matched), as opposed to data that was fetched but came
+// back genuinely neutral/middling. Deliberately below the neutral
+// fallback (60): a product we can't vouch for at all should not be able
+// to out-rank a competitor with a real, even mediocre, measured score -
+// otherwise unmeasured products systematically win on price alone, which
+// defeats the purpose of measuring anything. Never shown to the user as
+// a real score.
+const UNMEASURED_PENALTY_SCORE = 35;
 
 // Computes a balanced score for every product in a comparison set (e.g. all
 // products matched to one ingredient search). Returns an array parallel to
@@ -17,16 +29,21 @@ export function calculateOverallScores(products) {
     const health = calculateHealthScore(p.openFoodFacts);
     const environmental = calculateEnvironmentalScore(p.openFoodFacts);
 
-    // Environmental gaps use a neutral fallback inside the weighted average
-    // only - never surfaced to the user as a real score (see
-    // calculateEnvironmentalScore.js). Health gaps are excluded from the
-    // average entirely (renormalizing remaining weights) since there is
-    // no safe neutral guess for a genuinely unknown nutrition profile.
-    const environmentalForAverage = environmental.available ? environmental.score : environmental.neutralFallback;
+    // Both health and environmental gaps use a fallback inside the
+    // weighted average rather than being excluded (excluding them lets an
+    // unmeasured product win purely on price - see calculateOverallScore
+    // test findings). Environmental has its own softer neutral fallback
+    // for partial-data cases (see calculateEnvironmentalScore.js);
+    // genuinely absent data on either metric uses the harsher
+    // UNMEASURED_PENALTY_SCORE.
+    const environmentalForAverage = environmental.available
+      ? environmental.score
+      : (openFoodFactsHasAnyEnvSignal(p.openFoodFacts) ? environmental.neutralFallback : UNMEASURED_PENALTY_SCORE);
+    const healthForAverage = health.score != null ? health.score : UNMEASURED_PENALTY_SCORE;
 
     const components = [
       price != null ? { key: "price", value: price, weight: WEIGHTS.price } : null,
-      health.score != null ? { key: "health", value: health.score, weight: WEIGHTS.health } : null,
+      { key: "health", value: healthForAverage, weight: WEIGHTS.health },
       { key: "environmental", value: environmentalForAverage, weight: WEIGHTS.environmental },
     ].filter(Boolean);
 
@@ -42,9 +59,17 @@ export function calculateOverallScores(products) {
       healthScoreSource: health.source,
       environmentalScore: environmental.available ? environmental.score : null,
       environmentalDataAvailable: environmental.available,
+      environmentalScoreIsEstimate: environmental.isEstimate,
       overallScore: overall,
     };
   });
+}
+
+// A product counts as having "some" environmental signal (soft neutral
+// fallback) only if it was actually matched to Open Food Facts at all -
+// an unmatched product gets the harsher unmeasured penalty instead.
+function openFoodFactsHasAnyEnvSignal(openFoodFacts) {
+  return Boolean(openFoodFacts?.matched);
 }
 
 // Convenience helper: given calculateOverallScores output, returns the id
