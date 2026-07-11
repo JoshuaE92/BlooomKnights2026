@@ -22,24 +22,37 @@ async function getProducts({ stores } = {}) {
 // This is the per-item query in the two-phase AI flow: instead of dumping the
 // whole catalog at the AI, we narrow to a handful of relevant candidates here.
 async function searchProducts({ stores, query, limit = 10 } = {}) {
-  const filter = {};
+  const base = {};
   if (stores && stores.length) {
-    filter.store = { $in: stores.map((s) => s.toLowerCase()) };
+    base.store = { $in: stores.map((s) => s.toLowerCase()) };
   }
 
-  // Break "corn tortillas" -> ["corn","tortillas"]; a product matches if any
-  // meaningful term appears in its name or tags.
+  // Break "marinara sauce" -> ["marinara","sauce"].
   const terms = (query || '')
     .toLowerCase()
     .split(/[^a-z]+/)
     .filter((w) => w.length > 2);
 
-  if (terms.length) {
-    const rx = new RegExp(terms.map(escapeRegex).join('|'), 'i');
-    filter.$or = [{ name: rx }, { tags: rx }];
+  if (!terms.length) {
+    const docs = await Product.find(base).limit(limit).lean();
+    return docs.map(toApi);
   }
 
-  const docs = await Product.find(filter).limit(limit).lean();
+  // Each term must appear in the product's name OR tags.
+  const perTerm = (t) => {
+    const rx = new RegExp(escapeRegex(t), 'i');
+    return { $or: [{ name: rx }, { tags: rx }] };
+  };
+
+  // 1) Strict: require ALL terms (so "marinara sauce" won't match "applesauce").
+  let docs = await Product.find({ ...base, $and: terms.map(perTerm) }).limit(limit).lean();
+
+  // 2) Fallback: if nothing matched all terms, accept any single term.
+  if (!docs.length) {
+    const rx = new RegExp(terms.map(escapeRegex).join('|'), 'i');
+    docs = await Product.find({ ...base, $or: [{ name: rx }, { tags: rx }] }).limit(limit).lean();
+  }
+
   return docs.map(toApi);
 }
 
