@@ -126,7 +126,7 @@
 }
 
 .dashboard-score-arc__value {
-	stroke: var(--color-primary);
+	stroke: url(#dashboard-green-score-gradient);
 	transition: stroke-dashoffset 220ms ease;
 }
 
@@ -179,45 +179,162 @@
 	color: color-mix(in srgb, var(--color-text) 65%, var(--color-background));
 }
 
-.dashboard-items {
+.dashboard-cart-history {
 	display: flex;
 	flex: 1 1 auto;
-	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: flex-start;
 	gap: 0.8rem;
 	overflow-y: auto;
 	padding-right: 0.2rem;
 }
 
-.dashboard-item {
+.dashboard-cart-card {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
+	flex: 1 1 16rem;
+	min-width: 15rem;
+	flex-direction: column;
+	gap: 0.9rem;
 	padding: 0.9rem 1rem;
 	border-radius: 0.9rem;
 	border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
 	background: color-mix(in srgb, var(--color-background) 96%, var(--color-secondary));
 }
 
-.dashboard-item__name {
+.dashboard-cart-card__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.dashboard-cart-card__title {
 	font-weight: 600;
 	color: var(--color-text);
 }
 
-.dashboard-item__meta {
-	margin-top: 0.18rem;
-	font-size: 0.85rem;
+.dashboard-cart-card__items {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	padding-top: 0.5rem;
+	border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+.dashboard-cart-card__meter {
+	display: grid;
+	gap: 0.45rem;
+	padding-bottom: 0.35rem;
+}
+
+.dashboard-cart-card__meter-header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.dashboard-cart-card__meter-header strong {
+	font-size: 1rem;
+	color: var(--color-text);
+}
+
+.dashboard-cart-card__meter-bar {
+	height: 0.7rem;
+	border-radius: 999px;
+	overflow: hidden;
+	background: color-mix(in srgb, var(--color-text) 10%, var(--color-background));
+	border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+.dashboard-cart-card__meter-fill {
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 55%, var(--color-tertiary) 100%);
+}
+
+.dashboard-cart-card__receipt-head,
+.dashboard-cart-card__item-row,
+.dashboard-cart-card__receipt-total {
+	display: grid;
+	grid-template-columns: minmax(0, 2.4fr) 0.6fr 0.9fr 0.95fr;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.dashboard-cart-card__receipt-head {
+	padding: 0 0.2rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: color-mix(in srgb, var(--color-text) 60%, var(--color-background));
+}
+
+.dashboard-cart-card__item-row {
+	padding: 0.65rem 0.75rem;
+	border-radius: 0.8rem;
+	background: color-mix(in srgb, var(--color-background) 97%, var(--color-primary));
+}
+
+.dashboard-cart-card__item-name-cell {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.55rem;
+	min-width: 0;
+}
+
+.dashboard-cart-card__item-order {
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: color-mix(in srgb, var(--color-text) 66%, var(--color-background));
+}
+
+.dashboard-cart-card__item-name {
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.dashboard-cart-card__item-meta {
+	margin-top: 0.15rem;
+	font-size: 0.82rem;
 	color: color-mix(in srgb, var(--color-text) 72%, var(--color-background));
 }
 
-.dashboard-item__qty {
-	flex-shrink: 0;
-	padding: 0.25rem 0.55rem;
-	border-radius: 999px;
-	background: color-mix(in srgb, var(--color-primary) 12%, var(--color-background));
-	font-size: 0.8rem;
+.dashboard-cart-card__item-value {
+	text-align: right;
+	font-size: 0.84rem;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.dashboard-cart-card__item-value--total {
 	font-weight: 700;
-	color: var(--color-primary);
+}
+
+.dashboard-cart-card__receipt-total {
+	padding: 0.35rem 0.2rem 0;
+	border-top: 1px dashed color-mix(in srgb, var(--color-text) 18%, transparent);
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: var(--color-text);
+}
+
+.dashboard-cart-card__receipt-total span {
+	grid-column: 1 / 4;
+}
+
+.dashboard-cart-card__receipt-total strong {
+	text-align: right;
+}
+
+@media (max-width: 700px) {
+	.dashboard-cart-card__receipt-head,
+	.dashboard-cart-card__item-row,
+	.dashboard-cart-card__receipt-total {
+		grid-template-columns: minmax(0, 1.8fr) 0.55fr 0.85fr 0.9fr;
+		gap: 0.5rem;
+	}
 }
 
 .dashboard-empty {

@@ -4,6 +4,7 @@ import Header from "./Home/Header";
 import "./Cart.css";
 
 const DASHBOARD_CART_STORAGE_KEY = "dashboardCartSnapshot";
+const DASHBOARD_CART_HISTORY_STORAGE_KEY = "dashboardCartHistory";
 
 const INGREDIENTS = [
 	{ id: "avocado", name: "Avocado", category: "Produce", unit: "each", price: 1.5 },
@@ -112,16 +113,22 @@ function Cart() {
 			return;
 		}
 
-		localStorage.setItem(
-			DASHBOARD_CART_STORAGE_KEY,
-			JSON.stringify({
-				store: selectedStore,
-				progress,
-				items: cartItems,
-				total: Number(cartTotal.toFixed(2)),
-				savedAt: new Date().toISOString()
-			})
+		const snapshot = {
+			store: selectedStore,
+			progress,
+			items: cartItems,
+			total: Number(cartTotal.toFixed(2)),
+			savedAt: new Date().toISOString()
+		};
+
+		const existingHistory = JSON.parse(
+			localStorage.getItem(DASHBOARD_CART_HISTORY_STORAGE_KEY) ?? "[]"
 		);
+
+		const nextHistory = [snapshot, ...existingHistory].slice(0, 8);
+
+		localStorage.setItem(DASHBOARD_CART_STORAGE_KEY, JSON.stringify(snapshot));
+		localStorage.setItem(DASHBOARD_CART_HISTORY_STORAGE_KEY, JSON.stringify(nextHistory));
 
 		navigate("/dashboard");
 	}
