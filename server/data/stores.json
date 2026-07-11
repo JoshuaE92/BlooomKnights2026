@@ -1,0 +1,20 @@
+[
+  {
+    "id": "walmart",
+    "name": "Walmart Supercenter",
+    "location": "1200 Main St",
+    "zipcodes": ["10001", "10002", "07030"]
+  },
+  {
+    "id": "costco",
+    "name": "Costco Wholesale",
+    "location": "500 Market Ave",
+    "zipcodes": ["10001", "07030", "07302"]
+  },
+  {
+    "id": "sams-club",
+    "name": "Sam's Club",
+    "location": "88 Commerce Blvd",
+    "zipcodes": ["10002", "07302"]
+  }
+]

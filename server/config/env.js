@@ -17,6 +17,11 @@ const env = {
 
   // Used to build links inside emails (points at the frontend)
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
+
+  // Google Gemini (product/AI layer). Optional — if missing, aiService uses the mock.
+  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+  // 'mock' = never call Gemini (free, dev/testing). 'live' = use Gemini. Default: live.
+  AI_MODE: (process.env.AI_MODE || 'live').toLowerCase(),
 };
 
 // Fail fast if critical secrets are missing

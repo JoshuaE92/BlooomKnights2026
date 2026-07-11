@@ -39,5 +39,8 @@ Thumbs.db
 *.swp
 *.swo
 
+# Local throwaway smoke test (not part of the app)
+_smoke.js
+
 # Optional: dependency lock mismatches
 # (keep package-lock.json or yarn.lock committed — don't ignore these)

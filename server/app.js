@@ -25,10 +25,9 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
-// TODO: mount when implemented
-// app.use('/api/products', require('./routes/productRoutes'));
-// app.use('/api/stores', require('./routes/storeRoutes'));
-// app.use('/api/ai', require('./routes/aiRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/stores', require('./routes/storeRoutes'));
+app.use('/api/ai', require('./routes/aiRoutes'));
 
 app.use(notFound);
 app.use(errorHandler);
