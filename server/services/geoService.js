@@ -1,23 +1,18 @@
-const { readFile } = require('node:fs/promises');
-const path = require('node:path');
+const Store = require('../models/Store');
 
-const DATA_PATH = path.join(__dirname, '..', 'data', 'stores.json');
-
-async function loadStores() {
-  const raw = await readFile(DATA_PATH, 'utf-8');
-  return JSON.parse(raw);
-}
-
-// Another swap point (like externalProductAPI): today this matches a zip
-// against each store's served-zipcode list. Later it could call a real
-// geo/store-locator API — callers only depend on the return shape.
+// Another swap point (like externalProductAPI): now backed by MongoDB,
+// matching a zip against each store's served-zipcode list. Later it could
+// call a real geo/store-locator API — callers only depend on the return shape.
 //
 // Contract: resolves to an array of stores that serve the given zipcode.
 // No zip -> return all stores.
+
+const toApi = ({ _id, __v, ...rest }) => ({ id: _id, ...rest });
+
 async function getStoresForZip(zip) {
-  const stores = await loadStores();
-  if (!zip) return stores;
-  return stores.filter((s) => s.zipcodes.includes(String(zip)));
+  const filter = zip ? { zipcodes: String(zip) } : {};
+  const docs = await Store.find(filter).lean();
+  return docs.map(toApi);
 }
 
 module.exports = { getStoresForZip };

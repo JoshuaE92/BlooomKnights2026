@@ -4,9 +4,7 @@ const mongoose = require('mongoose');
 // This is the "chat history per user" store (replaces the in-memory recipeStore).
 const recipeQuerySchema = new mongoose.Schema(
   {
-    // String for now (mock userId). When auth is wired end-to-end, change this
-    // to: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
-    userId: { type: String, required: true, index: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
 
     prompt: { type: String, required: true },
 
