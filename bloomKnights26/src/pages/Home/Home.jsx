@@ -2,6 +2,10 @@ import Header from './Header';
 import "./Home.css"
 
 function Home() {
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
     return (
     <main className="home-page">
         <Header />
@@ -17,7 +21,7 @@ function Home() {
                         Hi, I can help you build a recipe from what you have on hand.
                     </p>
                 </div>
-                <form className="chatbot-form">
+                <form className="chatbot-form" onSubmit={handleSubmit}>
                     <label htmlFor="chatbot-message">message</label>
                     <textarea
                         id="chatbot-message"

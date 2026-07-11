@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import Header from "./Home/Header";
 import "./Login.css";
 
 function Login() {
-    const navigate = useNavigate();
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -13,13 +11,15 @@ function Login() {
     function handleSubmit(event) {
         event.preventDefault();
 
+        const enteredEmail = email.trim().toLowerCase();
+        const enteredPassword = password.trim();
         const correctEmail = "test@example.com";
-        const correctPassword = "password123";
+        const allowedPasswords = ["greenCart123", "password123"];
 
-        if (email === correctEmail && password === correctPassword) {
+        if (enteredEmail === correctEmail && allowedPasswords.includes(enteredPassword)) {
             setError("");
             localStorage.setItem("isLoggedIn", "true");
-            navigate("/");
+            window.location.replace("/");
         } else {
             setError("Incorrect email or password.");
         }
@@ -41,7 +41,7 @@ function Login() {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="test@example.com"
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                         />
@@ -51,7 +51,7 @@ function Login() {
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Enter your password"
+                            placeholder="greenCart123"
                             value={password}
                             onChange={(event) => setPassword(event.target.value)}
                         />

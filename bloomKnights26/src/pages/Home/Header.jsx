@@ -4,6 +4,7 @@ import "./Header.css";
 function Header() {
     function handleLogout() {
         localStorage.removeItem("isLoggedIn");
+        window.location.replace("/login");
     }
 
     return (
