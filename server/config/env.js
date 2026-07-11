@@ -11,12 +11,9 @@ const env = {
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
 
-  // Gmail SMTP (use an App Password, not your real Gmail password)
-  SMTP_HOST: process.env.SMTP_HOST || 'smtp.gmail.com',
-  SMTP_PORT: process.env.SMTP_PORT || 465,
-  SMTP_USER: process.env.SMTP_USER,
-  SMTP_PASS: process.env.SMTP_PASS,
-  EMAIL_FROM: process.env.EMAIL_FROM || process.env.SMTP_USER,
+  // Resend HTTPS email API (works on Render free tier, which blocks SMTP)
+  RESEND_API_KEY: process.env.RESEND_API_KEY,
+  EMAIL_FROM: process.env.EMAIL_FROM,
 
   // Used to build links inside emails (points at the frontend)
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
@@ -34,6 +31,11 @@ for (const key of required) {
     console.error(`FATAL: Missing required environment variable: ${key}`);
     process.exit(1);
   }
+}
+
+// Emails fail without these, but the API can still run — warn, don't crash
+if (!env.RESEND_API_KEY || !env.EMAIL_FROM) {
+  console.warn('WARNING: RESEND_API_KEY / EMAIL_FROM not set — email sending will fail');
 }
 
 module.exports = env;
