@@ -1,5 +1,6 @@
 const { getProducts } = require('../services/externalProductAPI');
 const { calculateOverallScores } = require('../utils/productScores');
+const { synthesize } = require('../services/greenSynthesisService');
 
 // GET /api/products
 // Optional query: ?stores=target,walmart  -> only those stores' products.
@@ -39,4 +40,19 @@ async function listProducts(req, res, next) {
   }
 }
 
-module.exports = { listProducts };
+// GET /api/products/:id/green-synthesis   (protected)
+// Green Synthesis: a Gemini-written summary of the product's benefits based on
+// its tags, grounded in the reference articles in data/articles/.
+async function greenSynthesis(req, res, next) {
+  try {
+    const result = await synthesize(req.params.id);
+    if (!result) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    res.json(result);
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { listProducts, greenSynthesis };
