@@ -1,68 +1,87 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import Header from "./Home/Header";
+import { api } from "../api";
+import { AI_SUGGESTION_STORAGE_KEY } from "./Home/Home";
 import "./Cart.css";
 
-const DASHBOARD_CART_STORAGE_KEY = "dashboardCartSnapshot";
-const DASHBOARD_CART_HISTORY_STORAGE_KEY = "dashboardCartHistory";
+// Quantity-weighted average green score of the cart (0-100).
+// Items without a greenScore fall back to overallScore; unscored items are skipped.
+function computeGreenMeter(items) {
+	let weighted = 0;
+	let quantity = 0;
 
-const INGREDIENTS = [
-	{ id: "avocado", name: "Avocado", category: "Produce", unit: "each", price: 1.5 },
-	{ id: "tomatoes", name: "Tomatoes", category: "Produce", unit: "lb", price: 2.99 },
-	{ id: "onion", name: "Yellow Onion", category: "Produce", unit: "each", price: 0.79 },
-	{ id: "garlic", name: "Garlic", category: "Produce", unit: "head", price: 0.99 },
-	{ id: "spinach", name: "Baby Spinach", category: "Produce", unit: "bag", price: 3.49 },
-	{ id: "chicken", name: "Chicken Breast", category: "Protein", unit: "lb", price: 6.99 },
-	{ id: "salmon", name: "Salmon Fillet", category: "Protein", unit: "lb", price: 12.99 },
-	{ id: "tofu", name: "Firm Tofu", category: "Protein", unit: "block", price: 2.49 },
-	{ id: "eggs", name: "Eggs", category: "Protein", unit: "dozen", price: 4.99 },
-	{ id: "milk", name: "Whole Milk", category: "Dairy", unit: "gallon", price: 3.79 },
-	{ id: "butter", name: "Butter", category: "Dairy", unit: "stick", price: 1.99 },
-	{ id: "cheese", name: "Cheddar Cheese", category: "Dairy", unit: "block", price: 4.49 },
-	{ id: "yogurt", name: "Greek Yogurt", category: "Dairy", unit: "cup", price: 1.49 },
-	{ id: "rice", name: "Basmati Rice", category: "Pantry", unit: "lb", price: 2.29 },
-	{ id: "pasta", name: "Spaghetti", category: "Pantry", unit: "box", price: 1.99 },
-	{ id: "olive-oil", name: "Olive Oil", category: "Pantry", unit: "bottle", price: 8.99 },
-	{ id: "flour", name: "All-Purpose Flour", category: "Pantry", unit: "lb", price: 1.89 },
-	{ id: "sugar", name: "Granulated Sugar", category: "Pantry", unit: "lb", price: 1.99 },
-	{ id: "salt", name: "Sea Salt", category: "Pantry", unit: "container", price: 2.99 },
-	{ id: "bread", name: "Sourdough Bread", category: "Bakery", unit: "loaf", price: 5.49 },
-	{ id: "bagels", name: "Bagels", category: "Bakery", unit: "pack", price: 4.29 },
-	{ id: "bananas", name: "Bananas", category: "Produce", unit: "bunch", price: 1.29 }
-];
+	for (const item of items) {
+		const score = item.greenScore ?? item.overallScore;
+		if (score == null) continue;
+		weighted += score * item.quantity;
+		quantity += item.quantity;
+	}
 
-const STORE_OPTIONS = ["Walmart", "Target", "Publix"];
+	return quantity ? Math.round(weighted / quantity) : 0;
+}
 
 function Cart() {
 	const navigate = useNavigate();
-	const [progress, setProgress] = useState(0);
-	const [cart, setCart] = useState({});
-	const [selectedStore, setSelectedStore] = useState(STORE_OPTIONS[0]);
+	const [stores, setStores] = useState([]);
+	const [selectedStore, setSelectedStore] = useState("");
+	const [products, setProducts] = useState([]);
+	const [loadingProducts, setLoadingProducts] = useState(true);
+	const [saving, setSaving] = useState(false);
+	const [error, setError] = useState("");
+	const [cart, setCart] = useState(() => {
+		// Preload the AI chatbot's picks (saved by the Home page), one of each.
+		try {
+			const stored = localStorage.getItem(AI_SUGGESTION_STORAGE_KEY);
+			if (!stored) return {};
+			localStorage.removeItem(AI_SUGGESTION_STORAGE_KEY);
 
-	const filteredIngredients = useMemo(() => INGREDIENTS, []);
+			const suggestion = JSON.parse(stored);
+			const preloaded = {};
+			for (const pick of suggestion.picks || []) {
+				preloaded[pick.id] = { ...pick, quantity: 1 };
+			}
+			return preloaded;
+		} catch {
+			return {};
+		}
+	});
+
+	// Load the store list once.
+	useEffect(() => {
+		api.stores()
+			.then((data) => {
+				setStores(data.stores || []);
+				if (data.stores?.length) setSelectedStore(data.stores[0].id);
+			})
+			.catch((err) => setError(err.message));
+	}, []);
+
+	// Load products whenever the selected store changes.
+	useEffect(() => {
+		if (!selectedStore) return;
+		setLoadingProducts(true);
+		api.products([selectedStore])
+			.then((data) => setProducts(data.products || []))
+			.catch((err) => setError(err.message))
+			.finally(() => setLoadingProducts(false));
+	}, [selectedStore]);
+
 	const cartItems = useMemo(() => Object.values(cart), [cart]);
 	const cartTotal = useMemo(
-		() => cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
+		() => cartItems.reduce((total, item) => total + (item.price ?? 0) * item.quantity, 0),
 		[cartItems]
 	);
+	const progress = useMemo(() => computeGreenMeter(cartItems), [cartItems]);
 
-	function incrementProgress() {
-		setProgress((currentProgress) => Math.min(currentProgress + 10, 100));
-	}
-
-	function decrementProgress() {
-		setProgress((currentProgress) => Math.max(currentProgress - 10, 0));
-	}
-
-	function handleAddIngredient(ingredient) {
-		incrementProgress();
+	function handleAddIngredient(product) {
 		setCart((previousCart) => {
-			const existingItem = previousCart[ingredient.id];
+			const existingItem = previousCart[product.id];
 
 			return {
 				...previousCart,
-				[ingredient.id]: {
-					...ingredient,
+				[product.id]: {
+					...product,
 					quantity: existingItem ? existingItem.quantity + 1 : 1
 				}
 			};
@@ -70,7 +89,6 @@ function Cart() {
 	}
 
 	function handleRemoveOneItem(itemId) {
-		decrementProgress();
 		setCart((previousCart) => {
 			const existingItem = previousCart[itemId];
 
@@ -95,7 +113,6 @@ function Cart() {
 	}
 
 	function handleClearItem(itemId) {
-		decrementProgress();
 		setCart((previousCart) => {
 			const updatedCart = { ...previousCart };
 			delete updatedCart[itemId];
@@ -104,33 +121,36 @@ function Cart() {
 	}
 
 	function handleClearCart() {
-		setProgress(0);
 		setCart({});
 	}
 
-	function handleContinue() {
-		if (cartItems.length === 0) {
+	async function handleContinue() {
+		if (cartItems.length === 0 || saving) {
 			return;
 		}
 
-		const snapshot = {
-			store: selectedStore,
-			progress,
-			items: cartItems,
-			total: Number(cartTotal.toFixed(2)),
-			savedAt: new Date().toISOString()
-		};
-
-		const existingHistory = JSON.parse(
-			localStorage.getItem(DASHBOARD_CART_HISTORY_STORAGE_KEY) ?? "[]"
-		);
-
-		const nextHistory = [snapshot, ...existingHistory].slice(0, 8);
-
-		localStorage.setItem(DASHBOARD_CART_STORAGE_KEY, JSON.stringify(snapshot));
-		localStorage.setItem(DASHBOARD_CART_HISTORY_STORAGE_KEY, JSON.stringify(nextHistory));
-
-		navigate("/dashboard");
+		setSaving(true);
+		setError("");
+		try {
+			await api.saveCart({
+				store: selectedStore,
+				greenScore: progress,
+				total: Number(cartTotal.toFixed(2)),
+				items: cartItems.map((item) => ({
+					id: item.id,
+					name: item.name,
+					price: item.price,
+					unit: item.unit,
+					quantity: item.quantity,
+					greenScore: item.greenScore ?? item.overallScore ?? null
+				}))
+			});
+			navigate("/dashboard");
+		} catch (err) {
+			setError(err.message || "Could not save your cart.");
+		} finally {
+			setSaving(false);
+		}
 	}
 
 	return (
@@ -140,7 +160,7 @@ function Cart() {
 				<div className="cart-top-panel">
 					<h1>Green Meter</h1>
 					<p>Measures the average green rating of your cart!</p>
-					<div className="cart-progress" aria-label="Cart loading progress">
+					<div className="cart-progress" aria-label="Cart green score">
 						<div
 							className="cart-progress__fill"
 							style={{ width: `${progress}%` }}
@@ -152,6 +172,8 @@ function Cart() {
 					</div>
 					<p className="cart-progress__value">{progress}%</p>
 				</div>
+
+				{error && <p className="cart-error" role="alert">{error}</p>}
 
 				<div className="cart-panels">
 					<div className="cart-panel cart-panel--ingredients">
@@ -165,9 +187,9 @@ function Cart() {
 									onChange={(event) => setSelectedStore(event.target.value)}
 									aria-label="Select store"
 								>
-									{STORE_OPTIONS.map((store) => (
-										<option key={store} value={store}>
-											{store}
+									{stores.map((store) => (
+										<option key={store.id} value={store.id}>
+											{store.name}
 										</option>
 									))}
 								</select>
@@ -175,25 +197,35 @@ function Cart() {
 						</div>
 
 						<div className="cart-list" aria-label="Ingredient list">
-							{filteredIngredients.map((ingredient) => (
-								<div key={ingredient.id} className="ingredient-item">
-									<div className="ingredient-item__info">
-										<p className="ingredient-item__name">{ingredient.name}</p>
-										<p className="ingredient-item__meta">
-											${ingredient.price.toFixed(2)} / {ingredient.unit}
-										</p>
-										<span className="ingredient-item__badge">{ingredient.category}</span>
-									</div>
-									<button
-										type="button"
-										className="ingredient-item__add"
-										onClick={() => handleAddIngredient(ingredient)}
-										aria-label={`Add ${ingredient.name} to cart`}
-									>
-										+
-									</button>
+							{loadingProducts ? (
+								<div className="cart-empty">
+									<p className="cart-empty__title">Loading products…</p>
 								</div>
-							))}
+							) : (
+								products.map((product) => (
+									<div key={product.id} className="ingredient-item">
+										<div className="ingredient-item__info">
+											<p className="ingredient-item__name">{product.name}</p>
+											<p className="ingredient-item__meta">
+												${(product.price ?? 0).toFixed(2)}{product.unit ? ` / ${product.unit}` : ""}
+											</p>
+											{(product.greenScore ?? product.overallScore) != null && (
+												<span className="ingredient-item__badge">
+													green {product.greenScore ?? product.overallScore}
+												</span>
+											)}
+										</div>
+										<button
+											type="button"
+											className="ingredient-item__add"
+											onClick={() => handleAddIngredient(product)}
+											aria-label={`Add ${product.name} to cart`}
+										>
+											+
+										</button>
+									</div>
+								))
+							)}
 						</div>
 					</div>
 
@@ -220,7 +252,7 @@ function Cart() {
 											<div className="cart-item__info">
 												<p>{item.name}</p>
 												<p className="cart-item__meta">
-													${item.price.toFixed(2)} / {item.unit}
+													${(item.price ?? 0).toFixed(2)}{item.unit ? ` / ${item.unit}` : ""}
 												</p>
 											</div>
 											<div className="cart-item__actions">
@@ -263,8 +295,13 @@ function Cart() {
 										<span>Total</span>
 										<span>${cartTotal.toFixed(2)}</span>
 									</div>
-									<button type="button" className="cart-total__checkout" onClick={handleContinue}>
-										Continue
+									<button
+										type="button"
+										className="cart-total__checkout"
+										onClick={handleContinue}
+										disabled={saving}
+									>
+										{saving ? "Saving…" : "Continue"}
 									</button>
 								</div>
 							)}

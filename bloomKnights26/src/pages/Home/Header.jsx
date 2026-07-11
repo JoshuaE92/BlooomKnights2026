@@ -1,11 +1,12 @@
 import { Link } from "react-router"
+import { logout } from "../../api";
 import "./Header.css";
 
 function Header() {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
     function handleLogout() {
-        localStorage.removeItem("isLoggedIn");
+        logout(); // clears token + user + isLoggedIn
         window.location.replace("/login");
     }
 

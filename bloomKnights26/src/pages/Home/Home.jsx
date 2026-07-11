@@ -4,8 +4,23 @@ import Header from './Header';
 import { api } from "../../api";
 import "./Home.css"
 
+// Cart page reads this to preload the AI's picks.
+export const AI_SUGGESTION_STORAGE_KEY = "aiSuggestion";
+
+function formatSuggestion(result) {
+    const lines = (result.picks || []).map((pick) => {
+        const price = pick.price != null ? ` — $${pick.price.toFixed(2)}` : "";
+        const why = pick.greenExplanation ? `\n   ${pick.greenExplanation}` : "";
+        return `• ${pick.name}${price}${why}`;
+    });
+
+    const total = result.totalCost != null ? `\n\nEstimated total: $${result.totalCost.toFixed(2)}` : "";
+    return `${result.summary}\n\n${lines.join("\n")}${total}\n\nTaking you to your cart…`;
+}
+
 function Home() {
     const [draftMessage, setDraftMessage] = useState("");
+    const [sending, setSending] = useState(false);
     const messagesContainerRef = useRef(null);
     const navigationTimerRef = useRef(null);
     const navigate = useNavigate();
@@ -33,36 +48,47 @@ function Home() {
         };
     }, []);
 
-    function handleSubmit(event) {
+    function appendMessage(role, text) {
+        setMessages((currentMessages) => [
+            ...currentMessages,
+            { id: Date.now() + Math.random(), role, text }
+        ]);
+    }
+
+    async function handleSubmit(event) {
         event.preventDefault()
         const trimmedMessage = draftMessage.trim();
 
-        if (!trimmedMessage) {
+        if (!trimmedMessage || sending) {
             return;
         }
 
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            {
-                id: Date.now(),
-                role: "user",
-                text: trimmedMessage
-            },
-            {
-                id: Date.now() + 1,
-                role: "bot",
-                text: "gathering your ingredients..."
-            }
-        ]);
+        appendMessage("user", trimmedMessage);
+        appendMessage("bot", "gathering your ingredients...");
         setDraftMessage("");
+        setSending(true);
 
-        if (navigationTimerRef.current) {
-            clearTimeout(navigationTimerRef.current);
+        try {
+            const result = await api.suggest(trimmedMessage);
+
+            if (!result.picks?.length) {
+                appendMessage("bot", "I couldn't find matching products for that — try describing the meal differently.");
+                return;
+            }
+
+            // Cart page preloads these picks.
+            localStorage.setItem(AI_SUGGESTION_STORAGE_KEY, JSON.stringify(result));
+
+            appendMessage("bot", formatSuggestion(result));
+
+            navigationTimerRef.current = window.setTimeout(() => {
+                navigate("/cart");
+            }, 2500);
+        } catch (err) {
+            appendMessage("bot", `Something went wrong: ${err.message}. Please try again.`);
+        } finally {
+            setSending(false);
         }
-
-        navigationTimerRef.current = window.setTimeout(() => {
-            navigate("/cart");
-        }, 1500);
     }
 
     function handleTextareaKeyDown(event) {
@@ -104,7 +130,7 @@ function Home() {
                         onChange={(event) => setDraftMessage(event.target.value)}
                         onKeyDown={handleTextareaKeyDown}
                     />
-                    <button type="submit">send</button>
+                    <button type="submit" disabled={sending}>{sending ? "thinking…" : "send"}</button>
                 </form>
             </section>
         </div>
