@@ -30,6 +30,13 @@ export const api = {
     request('/api/auth/register', { method: 'POST', body: { username, email, password } }),
   login: (identifier, password) =>
     request('/api/auth/login', { method: 'POST', body: { identifier, password } }),
+  verifyEmail: (token) => request(`/api/auth/verify-email/${token}`),
+  resendVerification: (email) =>
+    request('/api/auth/resend-verification', { method: 'POST', body: { email } }),
+  forgotPassword: (email) =>
+    request('/api/auth/forgot-password', { method: 'POST', body: { email } }),
+  resetPassword: (token, password) =>
+    request(`/api/auth/reset-password/${token}`, { method: 'POST', body: { password } }),
   suggest: (prompt, stores) =>
     request('/api/ai/suggest', { method: 'POST', auth: true, body: { prompt, stores } }),
   history: () => request('/api/ai/history', { auth: true }),
