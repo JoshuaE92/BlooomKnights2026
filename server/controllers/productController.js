@@ -1,10 +1,11 @@
 const { getProducts } = require('../services/externalProductAPI');
-const { withGreenImpact } = require('../utils/greenImpactCalculator');
+const { calculateOverallScores } = require('../utils/productScores');
 
 // GET /api/products
-// Optional query: ?stores=walmart,costco  -> only those stores' products.
-// The controller's job is HTTP glue: read the request, call the service,
-// shape the response. It never touches files or knows where data comes from.
+// Optional query: ?stores=target,walmart  -> only those stores' products.
+// Attaches the balanced score breakdown (health / environmental / price /
+// overall) to each product, ranked best-overall first. Scores are computed
+// across the returned set (affordability is relative to its competitors).
 async function listProducts(req, res, next) {
   try {
     const stores = req.query.stores
@@ -13,14 +14,28 @@ async function listProducts(req, res, next) {
 
     const raw = await getProducts({ stores });
 
-    // Attach the computed green score at the edge, then rank greenest-first.
+    const scoreById = new Map(
+      calculateOverallScores(
+        raw.map((p) => ({ id: p.id, price: p.price, unitPrice: p.raw?.unitPrice, openFoodFacts: p.raw?.openFoodFacts }))
+      ).map((s) => [s.id, s])
+    );
+
     const products = raw
-      .map(withGreenImpact)
-      .sort((a, b) => b.greenImpact - a.greenImpact);
+      .map(({ raw: _raw, ...p }) => {
+        const s = scoreById.get(p.id) || {};
+        return {
+          ...p,
+          overallScore: s.overallScore ?? null,
+          healthScore: s.healthScore ?? null,
+          environmentalScore: s.environmentalScore ?? null,
+          priceScore: s.priceScore ?? null,
+        };
+      })
+      .sort((a, b) => (b.overallScore ?? -1) - (a.overallScore ?? -1));
 
     res.json({ count: products.length, products });
   } catch (err) {
-    next(err); // hand off to errorHandler
+    next(err);
   }
 }
 
