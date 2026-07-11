@@ -1,0 +1,98 @@
+[
+  {
+    "id": "walmart-organic-black-beans-15oz",
+    "name": "Organic Black Beans",
+    "store": "walmart",
+    "price": 1.98,
+    "unit": "15 oz can",
+    "tags": ["organic", "canned", "vegan", "local"]
+  },
+  {
+    "id": "walmart-conventional-black-beans-15oz",
+    "name": "Black Beans",
+    "store": "walmart",
+    "price": 0.88,
+    "unit": "15 oz can",
+    "tags": ["canned", "vegan", "imported"]
+  },
+  {
+    "id": "walmart-organic-brown-rice-2lb",
+    "name": "Organic Brown Rice",
+    "store": "walmart",
+    "price": 3.44,
+    "unit": "2 lb bag",
+    "tags": ["organic", "whole-grain", "vegan"]
+  },
+  {
+    "id": "walmart-white-rice-5lb",
+    "name": "Enriched White Rice",
+    "store": "walmart",
+    "price": 2.62,
+    "unit": "5 lb bag",
+    "tags": ["vegan", "imported"]
+  },
+  {
+    "id": "walmart-grass-fed-ground-beef-1lb",
+    "name": "Grass-Fed Ground Beef",
+    "store": "walmart",
+    "price": 7.98,
+    "unit": "1 lb",
+    "tags": ["grass-fed", "local", "meat"]
+  },
+  {
+    "id": "walmart-ground-beef-1lb",
+    "name": "80/20 Ground Beef",
+    "store": "walmart",
+    "price": 5.24,
+    "unit": "1 lb",
+    "tags": ["meat", "imported"]
+  },
+  {
+    "id": "walmart-organic-roma-tomatoes-1lb",
+    "name": "Organic Roma Tomatoes",
+    "store": "walmart",
+    "price": 2.47,
+    "unit": "1 lb",
+    "tags": ["organic", "produce", "local", "vegan"]
+  },
+  {
+    "id": "costco-organic-black-beans-8pk",
+    "name": "Organic Black Beans (8-pack)",
+    "store": "costco",
+    "price": 9.49,
+    "unit": "8 x 15 oz cans",
+    "tags": ["organic", "canned", "vegan", "bulk"]
+  },
+  {
+    "id": "costco-organic-brown-rice-12lb",
+    "name": "Organic Brown Rice",
+    "store": "costco",
+    "price": 15.99,
+    "unit": "12 lb bag",
+    "tags": ["organic", "whole-grain", "vegan", "bulk"]
+  },
+  {
+    "id": "costco-grass-fed-ground-beef-4lb",
+    "name": "Organic Grass-Fed Ground Beef",
+    "store": "costco",
+    "price": 28.99,
+    "unit": "4 lb",
+    "tags": ["organic", "grass-fed", "local", "meat", "bulk"]
+  },
+  {
+    "id": "costco-shredded-cheese-2lb",
+    "name": "Shredded Cheddar Cheese",
+    "store": "costco",
+    "price": 8.99,
+    "unit": "2 lb bag",
+    "tags": ["dairy", "bulk"]
+  },
+  {
+    "id": "costco-organic-tortillas-30ct",
+    "name": "Organic Corn Tortillas",
+    "store": "costco",
+    "price": 4.79,
+    "unit": "30 count",
+    "tags": ["organic", "vegan", "bulk"]
+  }
+]
