@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { suggestCart, getHistory } = require('../controllers/aiController');
+const { suggestCart, getHistory, getArticles } = require('../controllers/aiController');
 const { protect } = require('../middleware/authMiddleware');
 const validateRequest = require('../middleware/validateRequest');
 
@@ -9,5 +9,6 @@ const router = Router();
 
 router.post('/suggest', protect, validateRequest(['prompt']), suggestCart);
 router.get('/history', protect, getHistory);
+router.get('/articles', protect, getArticles);
 
 module.exports = router;
