@@ -1,0 +1,167 @@
+.signup-page {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 0;
+	padding: 0;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 30%),
+		radial-gradient(circle at top right, color-mix(in srgb, var(--color-secondary) 12%, transparent), transparent 28%),
+		radial-gradient(circle at bottom left, color-mix(in srgb, var(--color-tertiary) 14%, transparent), transparent 30%),
+		linear-gradient(135deg, color-mix(in srgb, var(--color-background) 92%, var(--color-primary)) 0%, color-mix(in srgb, var(--color-background) 86%, var(--color-secondary)) 52%, color-mix(in srgb, var(--color-background) 90%, var(--color-tertiary)) 100%);
+}
+
+.signup-page > .header {
+	width: 100%;
+	flex: 0 0 auto;
+}
+
+
+.signup-content {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 2rem 1.25rem;
+}
+
+.signup-content > .subheader {
+	margin: 0;
+	text-align: center;
+	color: var(--color-text);
+	font-size: 1.5rem;
+	text-transform: lowercase;
+}
+
+.signup-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	background-color: var(--color-background);
+	border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+	border-radius: 1.5rem;
+	box-shadow: 0 20px 45px color-mix(in srgb, var(--color-text) 10%, transparent);
+	backdrop-filter: blur(10px);
+
+	width: min(30rem, 86vw);
+	aspect-ratio: 1;
+	height: auto;
+
+	padding: 2rem;
+}
+
+.signup-card__header {
+	display: grid;
+	gap: 0.35rem;
+	width: 100%;
+	text-align: center;
+}
+
+#signup-title {
+	margin: 0;
+	font-size: clamp(1.8rem, 3vw, 2.2rem);
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.signup-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	width: 100%;
+}
+
+.signup-form label {
+	margin-top: 0.25rem;
+	font-size: 0.72rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: var(--color-primary);
+}
+
+.signup-form input {
+	width: 100%;
+	padding: 0.95rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+	border-radius: 0.95rem;
+	background: color-mix(in srgb, var(--color-background) 94%, var(--color-secondary));
+	color: var(--color-text);
+	outline: none;
+	transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.signup-form input::placeholder {
+	color: color-mix(in srgb, var(--color-text) 36%, var(--color-background));
+}
+
+.signup-form input:focus {
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+	transform: translateY(-1px);
+}
+
+.signup-form button {
+	margin-top: 0.35rem;
+	padding: 0.95rem 1rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--color-primary);
+	color: var(--color-background);
+	font-size: 0.96rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.signup-form button:hover {
+	background: color-mix(in srgb, var(--color-primary) 90%, var(--color-text));
+	box-shadow: 0 10px 20px color-mix(in srgb, var(--color-text) 16%, transparent);
+	transform: translateY(-1px);
+}
+
+.signup-form button:focus-visible,
+.signup-footer a:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 3px;
+}
+
+.signup-footer {
+	margin: 0.5rem 0 0;
+	color: var(--color-text);
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+.signup-footer a {
+	color: var(--color-text);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+.signup-footer a:hover {
+	color: color-mix(in srgb, var(--color-text) 82%, var(--color-background));
+}
+
+@media (max-width: 480px) {
+	.signup-page {
+		padding: 0;
+	}
+
+	.signup-content {
+		padding: 1rem;
+	}
+
+	.signup-card {
+		width: min(100%, 24rem);
+		padding: 1.4rem;
+		border-radius: 1.25rem;
+	}
+}

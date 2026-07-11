@@ -1,4 +1,4 @@
-.login-page {
+.home-page {
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -15,12 +15,12 @@
         linear-gradient(135deg, color-mix(in srgb, var(--color-background) 92%, var(--color-primary)) 0%, color-mix(in srgb, var(--color-background) 86%, var(--color-secondary)) 52%, color-mix(in srgb, var(--color-background) 90%, var(--color-tertiary)) 100%);
 }
 
-.login-page > .header {
+.home-page > .header {
     width: 100%;
     flex: 0 0 auto;
 }
 
-.login-content {
+.home-content {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -30,7 +30,7 @@
     padding: 2rem 1.25rem;
 }
 
-.login-content > .subheader {
+.home-subheader {
     margin: 0;
     text-align: center;
     color: var(--color-text);
@@ -38,7 +38,7 @@
     text-transform: lowercase;
 }
 
-.login-card {
+.chatbot-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,35 +50,63 @@
     box-shadow: 0 20px 45px color-mix(in srgb, var(--color-text) 10%, transparent);
     backdrop-filter: blur(10px);
 
-    width: min(30rem, 86vw);
-    aspect-ratio: 1;
-    height: auto;
-
+    width: min(36rem, 90vw);
+    min-height: 32rem;
     padding: 2rem;
 }
 
-.login-card__header {
+.chatbot-card__header {
     display: grid;
     gap: 0.35rem;
     width: 100%;
     text-align: center;
 }
 
-#login-title {
+.chatbot-card__header h2 {
     margin: 0;
     font-size: clamp(1.8rem, 3vw, 2.2rem);
     font-weight: 600;
     color: var(--color-text);
 }
 
-.login-form {
+.chatbot-card__header p {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-text) 78%, var(--color-background));
+    font-size: 0.95rem;
+}
+
+.chatbot-card__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 0.25rem 0;
+}
+
+.chatbot-card__message {
+    margin: 0;
+    max-width: 85%;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.chatbot-card__message--bot {
+    align-self: flex-start;
+    background: color-mix(in srgb, var(--color-secondary) 14%, var(--color-background));
+    color: var(--color-text);
+}
+
+.chatbot-form {
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
     width: 100%;
 }
 
-.login-form label {
+.chatbot-form label {
     margin-top: 0.25rem;
     font-size: 0.72rem;
     font-weight: 600;
@@ -86,8 +114,10 @@
     color: var(--color-primary);
 }
 
-.login-form input {
+.chatbot-form textarea {
     width: 100%;
+    min-height: 6.5rem;
+    resize: vertical;
     padding: 0.95rem 1rem;
     border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
     border-radius: 0.95rem;
@@ -95,19 +125,20 @@
     color: var(--color-text);
     outline: none;
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    font: inherit;
 }
 
-.login-form input::placeholder {
+.chatbot-form textarea::placeholder {
     color: color-mix(in srgb, var(--color-text) 36%, var(--color-background));
 }
 
-.login-form input:focus {
+.chatbot-form textarea:focus {
     border-color: var(--color-primary);
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
     transform: translateY(-1px);
 }
 
-.login-form button {
+.chatbot-form button {
     margin-top: 0.35rem;
     padding: 0.95rem 1rem;
     border: 0;
@@ -120,46 +151,25 @@
     transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
 }
 
-.login-form button:hover {
+.chatbot-form button:hover {
     background: color-mix(in srgb, var(--color-primary) 90%, var(--color-text));
     box-shadow: 0 10px 20px color-mix(in srgb, var(--color-text) 16%, transparent);
     transform: translateY(-1px);
 }
 
-.login-form button:focus-visible,
-.login-footer a:focus-visible {
+.chatbot-form button:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
 }
 
-.login-footer {
-    margin: 0.5rem 0 0;
-    color: var(--color-text);
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.login-footer a {
-    color: var(--color-text);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
-}
-
-.login-footer a:hover {
-    color: color-mix(in srgb, var(--color-text) 82%, var(--color-background));
-}
-
 @media (max-width: 480px) {
-    .login-page {
-        padding: 0;
-    }
-
-    .login-content {
+    .home-content {
         padding: 1rem;
     }
 
-    .login-card {
+    .chatbot-card {
         width: min(100%, 24rem);
+        min-height: 30rem;
         padding: 1.4rem;
         border-radius: 1.25rem;
     }
