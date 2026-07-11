@@ -1,11 +1,16 @@
-import Login from "./Login"
+import { Routes, Route, Link } from "react-router"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 import "./App.css"
 
 function App() {
 
   return (
     <>
-      <Login />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </>
   )
 }
