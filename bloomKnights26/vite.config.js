@@ -2,9 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // In dev, proxy /api/* to the backend so the browser sees same-origin
-// (no CORS). Override the target with VITE_API_TARGET if you run the
-// backend locally (e.g. http://localhost:5050).
-const API_TARGET = process.env.VITE_API_TARGET || 'https://bloomknights2026.onrender.com'
+// (no CORS). Defaults to the local backend; set VITE_API_TARGET to point
+// elsewhere (e.g. https://bloomknights2026.onrender.com).
+const API_TARGET = process.env.VITE_API_TARGET || 'http://localhost:5000'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,14 +12,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-<<<<<<< HEAD
         target: API_TARGET,
         changeOrigin: true,
-        secure: true,
-=======
-        target: 'http://localhost:5000',
-        changeOrigin: true,
->>>>>>> cart
+        secure: API_TARGET.startsWith('https'),
       },
     },
   },

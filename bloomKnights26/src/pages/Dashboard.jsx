@@ -1,98 +1,40 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Header from "./Home/Header";
+import { api } from "../api";
 import "./Dashboard.css";
-
-const DASHBOARD_CART_STORAGE_KEY = "dashboardCartSnapshot";
-const DASHBOARD_CART_HISTORY_STORAGE_KEY = "dashboardCartHistory";
-
-const MOCK_CART_HISTORY = [
-    {
-        store: "Publix",
-        progress: 82,
-        total: 41.37,
-        savedAt: "2026-07-10T17:45:00.000Z",
-        items: [
-            { id: "spinach", name: "Baby Spinach", quantity: 2, price: 3.49, unit: "bag" },
-            { id: "salmon", name: "Salmon Fillet", quantity: 1, price: 12.99, unit: "lb" },
-            { id: "rice", name: "Basmati Rice", quantity: 1, price: 2.29, unit: "lb" },
-            { id: "olive-oil", name: "Olive Oil", quantity: 1, price: 8.99, unit: "bottle" }
-        ]
-    },
-    {
-        store: "Target",
-        progress: 68,
-        total: 27.14,
-        savedAt: "2026-07-08T13:10:00.000Z",
-        items: [
-            { id: "tofu", name: "Firm Tofu", quantity: 2, price: 2.49, unit: "block" },
-            { id: "tomatoes", name: "Tomatoes", quantity: 1, price: 2.99, unit: "lb" },
-            { id: "pasta", name: "Spaghetti", quantity: 2, price: 1.99, unit: "box" }
-        ]
-    },
-    {
-        store: "Walmart",
-        progress: 54,
-        total: 33.92,
-        savedAt: "2026-07-06T19:20:00.000Z",
-        items: [
-            { id: "chicken", name: "Chicken Breast", quantity: 2, price: 6.99, unit: "lb" },
-            { id: "milk", name: "Whole Milk", quantity: 1, price: 3.79, unit: "gallon" },
-            { id: "bread", name: "Sourdough Bread", quantity: 1, price: 5.49, unit: "loaf" },
-            { id: "bananas", name: "Bananas", quantity: 1, price: 1.29, unit: "bunch" }
-        ]
-    }
-];
 
 function formatCartItemName(item) {
     if (item.name) {
         return item.name;
     }
 
-    return item.id
+    return String(item.id)
         .split("-")
         .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
         .join(" ");
 }
 
-function readCartSnapshot() {
-    const storedSnapshot = localStorage.getItem(DASHBOARD_CART_STORAGE_KEY);
-
-    if (!storedSnapshot) {
-        return null;
-    }
-
-    try {
-        return JSON.parse(storedSnapshot);
-    } catch {
-        localStorage.removeItem(DASHBOARD_CART_STORAGE_KEY);
-        return null;
-    }
-}
-
-function readCartHistory() {
-    const storedHistory = localStorage.getItem(DASHBOARD_CART_HISTORY_STORAGE_KEY);
-
-    if (!storedHistory) {
-		return MOCK_CART_HISTORY;
-    }
-
-    try {
-        const parsedHistory = JSON.parse(storedHistory);
-		return Array.isArray(parsedHistory) && parsedHistory.length ? parsedHistory : MOCK_CART_HISTORY;
-    } catch {
-        localStorage.removeItem(DASHBOARD_CART_HISTORY_STORAGE_KEY);
-		return MOCK_CART_HISTORY;
-    }
-}
-
 function Dashboard() {
-    const snapshot = readCartSnapshot();
-    const cartHistory = readCartHistory();
+    const [carts, setCarts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        api.carts()
+            .then((data) => setCarts(data.carts || []))
+            .catch((err) => setError(err.message))
+            .finally(() => setLoading(false));
+    }, []);
+
+    // Latest saved cart drives the overview; the rest are "Previous Carts".
+    const snapshot = carts[0] ?? null;
+    const cartHistory = carts;
+
     const ingredientCount = useMemo(
         () => snapshot?.items?.reduce((total, item) => total + item.quantity, 0) ?? 0,
         [snapshot]
     );
-    const greenScore = snapshot?.progress ?? 0;
+    const greenScore = snapshot?.greenScore ?? 0;
     const arcLength = 100;
     const arcOffset = arcLength - greenScore;
 
@@ -101,6 +43,7 @@ function Dashboard() {
             <Header />
             <div className="dashboard-shell">
                 <h1>Dashboard</h1>
+                {error && <p className="dashboard-empty" role="alert">{error}</p>}
                 <div className="dashboard-content">
                     <div className="dashboard-top-row">
                         <section className="dashboard-section dashboard-section--overview">
@@ -135,7 +78,9 @@ function Dashboard() {
                                 </div>
                             ) : (
                                 <p className="dashboard-empty">
-                                    No saved cart yet. Add ingredients in the cart and continue to send them here.
+                                    {loading
+                                        ? "Loading your carts…"
+                                        : "No saved cart yet. Add ingredients in the cart and continue to send them here."}
                                 </p>
                             )}
                         </section>
@@ -166,7 +111,7 @@ function Dashboard() {
                                         </div>
                                         <div className="dashboard-stat">
                                             <span className="dashboard-stat__label">Green Meter</span>
-                                            <strong>{snapshot.progress}%</strong>
+                                            <strong>{greenScore}%</strong>
                                         </div>
                                     </div>
                                 </>
@@ -179,9 +124,9 @@ function Dashboard() {
                     <section className="dashboard-section dashboard-section--items">
                         <div className="dashboard-section__header">
                             <h2>Previous Carts</h2>
-                            {snapshot?.savedAt && (
+                            {snapshot?.createdAt && (
                                 <span className="dashboard-chip">
-                                    {new Date(snapshot.savedAt).toLocaleDateString()}
+                                    {new Date(snapshot.createdAt).toLocaleDateString()}
                                 </span>
                             )}
                         </div>
@@ -190,23 +135,23 @@ function Dashboard() {
                             <div className="dashboard-cart-history" aria-label="Previous carts">
                                 {cartHistory.map((cartEntry) => {
                                     return (
-                                        <div key={cartEntry.savedAt} className="dashboard-cart-card">
+                                        <div key={cartEntry.id} className="dashboard-cart-card">
                                             <div className="dashboard-cart-card__header">
                                                 <p className="dashboard-cart-card__title">{cartEntry.store}</p>
                                                 <span className="dashboard-chip">
-                                                    {new Date(cartEntry.savedAt).toLocaleDateString()}
+                                                    {new Date(cartEntry.createdAt).toLocaleDateString()}
                                                 </span>
                                             </div>
                                             <div className="dashboard-cart-card__items" aria-label={`${cartEntry.store} saved cart items`}>
                                                 <div className="dashboard-cart-card__meter">
                                                     <div className="dashboard-cart-card__meter-header">
                                                         <span className="dashboard-stat__label">Green Score</span>
-                                                        <strong>{cartEntry.progress}%</strong>
+                                                        <strong>{cartEntry.greenScore ?? 0}%</strong>
                                                     </div>
                                                     <div className="dashboard-cart-card__meter-bar" aria-hidden="true">
                                                         <div
                                                             className="dashboard-cart-card__meter-fill"
-                                                            style={{ width: `${cartEntry.progress}%` }}
+                                                            style={{ width: `${cartEntry.greenScore ?? 0}%` }}
                                                         />
                                                     </div>
                                                 </div>
@@ -221,7 +166,7 @@ function Dashboard() {
                                                     const lineTotal = itemPrice * item.quantity;
 
                                                     return (
-                                                        <div key={`${cartEntry.savedAt}-${item.id}`} className="dashboard-cart-card__item-row">
+                                                        <div key={`${cartEntry.id}-${item.id}`} className="dashboard-cart-card__item-row">
                                                             <div className="dashboard-cart-card__item-name-cell">
                                                                 <span className="dashboard-cart-card__item-order">{index + 1}.</span>
                                                                 <div>

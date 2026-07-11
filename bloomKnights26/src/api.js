@@ -33,6 +33,15 @@ export const api = {
   suggest: (prompt, stores) =>
     request('/api/ai/suggest', { method: 'POST', auth: true, body: { prompt, stores } }),
   history: () => request('/api/ai/history', { auth: true }),
+
+  // catalog
+  products: (stores) =>
+    request(`/api/products${stores?.length ? `?stores=${stores.join(',')}` : ''}`),
+  stores: (zip) => request(`/api/stores${zip ? `?zip=${zip}` : ''}`),
+
+  // saved carts (dashboard)
+  saveCart: (snapshot) => request('/api/carts', { method: 'POST', auth: true, body: snapshot }),
+  carts: () => request('/api/carts', { auth: true }),
 };
 
 // Persist auth after a successful register/login.
