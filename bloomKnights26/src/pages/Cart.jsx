@@ -1,6 +1,9 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import Header from "./Home/Header";
 import "./Cart.css";
+
+const DASHBOARD_CART_STORAGE_KEY = "dashboardCartSnapshot";
 
 const INGREDIENTS = [
 	{ id: "avocado", name: "Avocado", category: "Produce", unit: "each", price: 1.5 },
@@ -30,6 +33,7 @@ const INGREDIENTS = [
 const STORE_OPTIONS = ["Walmart", "Target", "Publix"];
 
 function Cart() {
+	const navigate = useNavigate();
 	const [progress, setProgress] = useState(0);
 	const [cart, setCart] = useState({});
 	const [selectedStore, setSelectedStore] = useState(STORE_OPTIONS[0]);
@@ -101,6 +105,25 @@ function Cart() {
 	function handleClearCart() {
 		setProgress(0);
 		setCart({});
+	}
+
+	function handleContinue() {
+		if (cartItems.length === 0) {
+			return;
+		}
+
+		localStorage.setItem(
+			DASHBOARD_CART_STORAGE_KEY,
+			JSON.stringify({
+				store: selectedStore,
+				progress,
+				items: cartItems,
+				total: Number(cartTotal.toFixed(2)),
+				savedAt: new Date().toISOString()
+			})
+		);
+
+		navigate("/dashboard");
 	}
 
 	return (
@@ -233,7 +256,7 @@ function Cart() {
 										<span>Total</span>
 										<span>${cartTotal.toFixed(2)}</span>
 									</div>
-									<button type="button" className="cart-total__checkout">
+									<button type="button" className="cart-total__checkout" onClick={handleContinue}>
 										Continue
 									</button>
 								</div>
