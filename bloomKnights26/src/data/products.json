@@ -58,6 +58,32 @@
           "en:no-gmos",
           "en:non-gmo-project"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": false
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -133,6 +159,34 @@
           "en:no-gmos",
           "en:non-gmo-project"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:cardboard"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 1,
+            "usTransportationScore": 100,
+            "knownOrigins": [],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -208,6 +262,46 @@
           "en:no-gmos",
           "en:non-gmo-project"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.47,
+          "carbonFootprintByStage": {
+            "agriculture": 0.246,
+            "processing": 0.168,
+            "packaging": 0.649,
+            "transportation": 0.338,
+            "distribution": 0.0478,
+            "consumption": 0.0181
+          },
+          "lifeCycleScore": 90,
+          "foodCategory": "Tomato sauce, with onions, prepacked"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -2,
+            "materialScore": 81,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:glass"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -277,6 +371,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.46,
+          "carbonFootprintByStage": {
+            "agriculture": 1.11,
+            "processing": 0.0124,
+            "packaging": 0.0959,
+            "transportation": 0.22,
+            "distribution": 0.0162,
+            "consumption": 0
+          },
+          "lifeCycleScore": 53,
+          "foodCategory": "Milk, whole, pasteurised"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -346,6 +478,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -417,6 +575,44 @@
           "en:kosher",
           "en:real-california-milk"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.27,
+          "carbonFootprintByStage": {
+            "agriculture": 0.934,
+            "processing": 0.0124,
+            "packaging": 0.0959,
+            "transportation": 0.216,
+            "distribution": 0.0162,
+            "consumption": 0
+          },
+          "lifeCycleScore": 58,
+          "foodCategory": "Milk, semi-skimmed, UHT"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -499,6 +695,47 @@
           "en:non-gmo-project",
           "en:vegan-action"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "c",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.565,
+          "carbonFootprintByStage": {
+            "agriculture": 0.208,
+            "processing": 0.1,
+            "packaging": 0.0964,
+            "transportation": 0.145,
+            "distribution": 0.0148,
+            "consumption": 0
+          },
+          "lifeCycleScore": 72,
+          "foodCategory": "Oat-based drink, plain, prepacked"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -12,
+            "materialScore": -15.8,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:composite-material",
+              "en:hdpe-2-high-density-polyethylene"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -577,6 +814,47 @@
           "en:no-artificial-flavors",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "c",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.4,
+          "carbonFootprintByStage": {
+            "agriculture": 2.12,
+            "processing": 0.33,
+            "packaging": 0.629,
+            "transportation": 0.287,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 61,
+          "foodCategory": "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -11,
+            "materialScore": -8,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:cardboard",
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -648,6 +926,46 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "c",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.4,
+          "carbonFootprintByStage": {
+            "agriculture": 2.12,
+            "processing": 0.33,
+            "packaging": 0.629,
+            "transportation": 0.287,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 61,
+          "foodCategory": "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:cardboard"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -717,6 +1035,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.1682563777,
+          "carbonFootprintByStage": {
+            "agriculture": 2.7858188,
+            "processing": 0,
+            "packaging": 0.12481309,
+            "transportation": 0.16886546,
+            "distribution": 0.0084079787,
+            "consumption": 0.080351049
+          },
+          "lifeCycleScore": 51,
+          "foodCategory": "Egg, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -785,6 +1141,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -854,6 +1236,44 @@
         "grade": "f",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "f",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.754298121,
+          "carbonFootprintByStage": {
+            "agriculture": 2.1560981,
+            "processing": 0,
+            "packaging": 0.26506589,
+            "transportation": 0.31435761,
+            "distribution": 0.018776521,
+            "consumption": 0
+          },
+          "lifeCycleScore": 32,
+          "foodCategory": "Rice, parboiled, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -924,6 +1344,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": true,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -994,6 +1440,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 5.14,
+          "carbonFootprintByStage": {
+            "agriculture": 4.42,
+            "processing": 0.22,
+            "packaging": 0.213,
+            "transportation": 0.247,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 54,
+          "foodCategory": "Camembert cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1064,6 +1548,46 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 6.59,
+          "carbonFootprintByStage": {
+            "agriculture": 5.31,
+            "processing": 0.349,
+            "packaging": 0.625,
+            "transportation": 0.265,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 43,
+          "foodCategory": "Cheddar cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 5,
+            "usTransportationScore": 0,
+            "knownOrigins": [
+              "en:united-kingdom"
+            ],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1133,6 +1657,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1210,6 +1760,47 @@
           "en:no-gluten",
           "en:no-added-sugar"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.89,
+          "carbonFootprintByStage": {
+            "agriculture": 1.03,
+            "processing": 0.152,
+            "packaging": 0.422,
+            "transportation": 0.247,
+            "distribution": 0.0369,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 91,
+          "foodCategory": "Yogurt, fermented milk or dairy specialty, plain"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": -4.8,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:pet-1-polyethylene-terephthalate",
+              "en:pp-5-polypropylene"
+            ],
+            "dataAvailable": false
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1280,6 +1871,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1352,6 +1969,32 @@
         "labels": [
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1424,6 +2067,32 @@
         "labels": [
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -1497,6 +2166,32 @@
         "labels": [
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": true,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -1566,6 +2261,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -1635,6 +2356,9 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": false
       }
     },
     "scores": {
@@ -1705,6 +2429,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": true,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -1774,6 +2524,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.06,
+          "carbonFootprintByStage": {
+            "agriculture": 1.86,
+            "processing": 0.472,
+            "packaging": 0.99,
+            "transportation": 0.383,
+            "distribution": 0.0351,
+            "consumption": 0.323
+          },
+          "lifeCycleScore": 49,
+          "foodCategory": "Peanut butter or peanut paste"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1849,6 +2637,46 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.06,
+          "carbonFootprintByStage": {
+            "agriculture": 1.86,
+            "processing": 0.472,
+            "packaging": 0.99,
+            "transportation": 0.383,
+            "distribution": 0.0351,
+            "consumption": 0.323
+          },
+          "lifeCycleScore": 49,
+          "foodCategory": "Peanut butter or peanut paste"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1917,6 +2745,44 @@
         "grade": "f",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "f",
+        "agribalyse": {
+          "carbonFootprintTotal": 8.4,
+          "carbonFootprintByStage": {
+            "agriculture": 7.48,
+            "processing": 0.305,
+            "packaging": 0.171,
+            "transportation": 0.43,
+            "distribution": 0.0165,
+            "consumption": 0
+          },
+          "lifeCycleScore": 22,
+          "foodCategory": "Coffee, ground"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -1988,6 +2854,44 @@
           "en:no-gmos",
           "en:non-gmo-project"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.072206051,
+          "carbonFootprintByStage": {
+            "agriculture": 0.063159615,
+            "processing": 0.71145763,
+            "packaging": 0.067418723,
+            "transportation": 0.21568843,
+            "distribution": 0.014481653,
+            "consumption": 0
+          },
+          "lifeCycleScore": 63,
+          "foodCategory": "Mixed fruits juice, orange based, multivitamin"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -2036,7 +2940,10 @@
     "openFoodFacts": {
       "matched": false,
       "matchMethod": null,
-      "matchConfidence": "low"
+      "matchConfidence": "low",
+      "ecoscoreDetails": {
+        "available": false
+      }
     },
     "scores": {
       "priceScore": 100,
@@ -2106,6 +3013,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2176,6 +3109,44 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 7.88,
+          "carbonFootprintByStage": {
+            "agriculture": 7.25,
+            "processing": 0.0508,
+            "packaging": 0.124,
+            "transportation": 0.407,
+            "distribution": 0.0403,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 39,
+          "foodCategory": "Butter, 80% fat, salted"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2244,6 +3215,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 7.7269657339,
+          "carbonFootprintByStage": {
+            "agriculture": 7.2112227,
+            "processing": 0.056330616,
+            "packaging": 0.18031662,
+            "transportation": 0.23295424,
+            "distribution": 0.03946786,
+            "consumption": 0.0066736979
+          },
+          "lifeCycleScore": 40,
+          "foodCategory": "Butter, 80% fat, salted"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2314,6 +3323,32 @@
         "labels": [
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2388,6 +3423,46 @@
           "en:no-artificial-flavors",
           "en:pasteurized"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 5.22,
+          "carbonFootprintByStage": {
+            "agriculture": 4.41,
+            "processing": 0.22,
+            "packaging": 0.216,
+            "transportation": 0.329,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 54,
+          "foodCategory": "Processed cheese, in slices"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2458,6 +3533,46 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 6.59,
+          "carbonFootprintByStage": {
+            "agriculture": 5.31,
+            "processing": 0.349,
+            "packaging": 0.625,
+            "transportation": 0.265,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 43,
+          "foodCategory": "Cheddar cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 5,
+            "usTransportationScore": 0,
+            "knownOrigins": [
+              "en:united-kingdom"
+            ],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2526,6 +3641,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -2595,6 +3736,44 @@
         "grade": "c",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "c",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.816999134,
+          "carbonFootprintByStage": {
+            "agriculture": 0.72055547,
+            "processing": 0.23638468,
+            "packaging": 0.62309639,
+            "transportation": 0.2175247,
+            "distribution": 0.019437894,
+            "consumption": 0
+          },
+          "lifeCycleScore": 75,
+          "foodCategory": "Mustard"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2663,6 +3842,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.69,
+          "carbonFootprintByStage": {
+            "agriculture": 1.57,
+            "processing": 0.318,
+            "packaging": 0.414,
+            "transportation": 0.327,
+            "distribution": 0.0478,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 57,
+          "foodCategory": "Mayonnaise (70% fat and more)"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2732,6 +3949,44 @@
         "grade": "a",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.6123659626,
+          "carbonFootprintByStage": {
+            "agriculture": 0.28460326,
+            "processing": 0.1853903,
+            "packaging": 0.0063020386,
+            "transportation": 0.11880716,
+            "distribution": 0.017263204,
+            "consumption": 0
+          },
+          "lifeCycleScore": 96,
+          "foodCategory": "Sugar, white"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2805,6 +4060,34 @@
           "en:no-antibiotics",
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:metal"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -2874,6 +4157,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -2947,6 +4256,34 @@
           "en:no-gmos",
           "en:non-gmo-project"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:paper"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3022,6 +4359,34 @@
           "en:non-gmo-project",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:paper"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3092,6 +4457,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3159,6 +4550,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3230,6 +4647,32 @@
         "labels": [
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": true,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -3306,6 +4749,47 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.85,
+          "carbonFootprintByStage": {
+            "agriculture": 2.27,
+            "processing": 0.217,
+            "packaging": 1.09,
+            "transportation": 0.25,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 53,
+          "foodCategory": "Cereal bar with almonds or hazelnuts"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -11,
+            "materialScore": -8,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic",
+              "en:paperboard"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3377,6 +4861,44 @@
           "en:no-gluten",
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.8440171009,
+          "carbonFootprintByStage": {
+            "agriculture": 0.11870141,
+            "processing": 0.1881174,
+            "packaging": 0.27727707,
+            "transportation": 0.21547949,
+            "distribution": 0.037768033,
+            "consumption": 0.0066736979
+          },
+          "lifeCycleScore": 96,
+          "foodCategory": "Apple compote"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3445,6 +4967,44 @@
         "grade": "a",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.8440171009,
+          "carbonFootprintByStage": {
+            "agriculture": 0.11870141,
+            "processing": 0.1881174,
+            "packaging": 0.27727707,
+            "transportation": 0.21547949,
+            "distribution": 0.037768033,
+            "consumption": 0.0066736979
+          },
+          "lifeCycleScore": 96,
+          "foodCategory": "Apple compote"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3514,6 +5074,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.953,
+          "carbonFootprintByStage": {
+            "agriculture": 0.751,
+            "processing": 0.000154,
+            "packaging": 0.0381,
+            "transportation": 0.146,
+            "distribution": 0.0176,
+            "consumption": 0
+          },
+          "lifeCycleScore": 88,
+          "foodCategory": "Oat, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3595,6 +5193,48 @@
           "en:whole-grain",
           "en:American Heart Association Certified"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.22,
+          "carbonFootprintByStage": {
+            "agriculture": 0.895,
+            "processing": 0.0086,
+            "packaging": 0.0186,
+            "transportation": 0.266,
+            "distribution": 0.0284,
+            "consumption": 0
+          },
+          "lifeCycleScore": 82,
+          "foodCategory": "Oatmeal flakes"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -12,
+            "materialScore": -20,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:recycled-paper",
+              "en:plastic",
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3667,6 +5307,32 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3735,6 +5401,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.3865126309,
+          "carbonFootprintByStage": {
+            "agriculture": 3.2822136,
+            "processing": 0,
+            "packaging": 0.27530877,
+            "transportation": 0.78496269,
+            "distribution": 0.037353873,
+            "consumption": 0.0066736979
+          },
+          "lifeCycleScore": 41,
+          "foodCategory": "Tuna, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3809,6 +5513,46 @@
           "en:orthodox-union-kosher",
           "en:sustainable-seafood-msc"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 6.74,
+          "carbonFootprintByStage": {
+            "agriculture": 3.54,
+            "processing": 1.55,
+            "packaging": 0.764,
+            "transportation": 0.854,
+            "distribution": 0.0254,
+            "consumption": 0
+          },
+          "lifeCycleScore": 25,
+          "foodCategory": "Tuna, flaked, in oil, canned, drained"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 0,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 10,
+            "labels": [
+              "en:sustainable-seafood-msc"
+            ],
+            "dataAvailable": true
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -3883,6 +5627,32 @@
           "en:non-gmo-project",
           "en:Snacks"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": false
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -3951,6 +5721,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.4,
+          "carbonFootprintByStage": {
+            "agriculture": 0.135,
+            "processing": 0.286,
+            "packaging": 0.512,
+            "transportation": 0.425,
+            "distribution": 0.0309,
+            "consumption": 0.0113
+          },
+          "lifeCycleScore": 93,
+          "foodCategory": "French bean, canned, drained"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -4020,6 +5828,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -4090,6 +5924,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -4162,6 +6022,32 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4236,6 +6122,44 @@
           "en:no-artificial-flavors",
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.56,
+          "carbonFootprintByStage": {
+            "agriculture": 3,
+            "processing": 0.83,
+            "packaging": 0.378,
+            "transportation": 0.305,
+            "distribution": 0.0406,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 39,
+          "foodCategory": "Turkey, meat and skin, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4309,6 +6233,32 @@
           "en:no-gluten",
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4379,6 +6329,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 5.14,
+          "carbonFootprintByStage": {
+            "agriculture": 4.42,
+            "processing": 0.22,
+            "packaging": 0.213,
+            "transportation": 0.247,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 54,
+          "foodCategory": "Camembert cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4449,6 +6437,44 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.33,
+          "carbonFootprintByStage": {
+            "agriculture": 0.756,
+            "processing": 0.233,
+            "packaging": 1.09,
+            "transportation": 0.23,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 83,
+          "foodCategory": "Corn chips or tortilla chips"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4527,6 +6553,46 @@
           "en:no-preservatives",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.541243724,
+          "carbonFootprintByStage": {
+            "agriculture": 0.82537493,
+            "processing": 0.2312449,
+            "packaging": 0.28118162,
+            "transportation": 0.18400438,
+            "distribution": 0.019437894,
+            "consumption": 0
+          },
+          "lifeCycleScore": 88,
+          "foodCategory": "Corn chips or tortilla chips"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4601,6 +6667,34 @@
           "en:no-preservatives",
           "en:No dyes"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -11,
+            "materialScore": -8,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:paper"
+            ],
+            "dataAvailable": false
+          },
+          "origins": {
+            "pointAdjustment": 2,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4672,6 +6766,32 @@
         "labels": [
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4742,6 +6862,46 @@
           "en:glass"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.75,
+          "carbonFootprintByStage": {
+            "agriculture": 0.49,
+            "processing": 0.158,
+            "packaging": 0.743,
+            "transportation": 0.323,
+            "distribution": 0.0269,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 77,
+          "foodCategory": "Jam, strawberry"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -2,
+            "materialScore": 81,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:glass"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4810,6 +6970,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4879,6 +7065,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.63,
+          "carbonFootprintByStage": {
+            "agriculture": 0.535,
+            "processing": 0.0699,
+            "packaging": 0.666,
+            "transportation": 0.337,
+            "distribution": 0.0179,
+            "consumption": 0
+          },
+          "lifeCycleScore": 47,
+          "foodCategory": "Olive oil, extra virgin"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -4947,6 +7171,34 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:paper"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -5016,6 +7268,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -5088,6 +7366,44 @@
           "en:pet-tray"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.3912991521,
+          "carbonFootprintByStage": {
+            "agriculture": 0.11750866,
+            "processing": 0,
+            "packaging": 0,
+            "transportation": 0.22561858,
+            "distribution": 0.038235667,
+            "consumption": 0.0099362451
+          },
+          "lifeCycleScore": 99,
+          "foodCategory": "Spinach, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -5157,6 +7473,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7024,6 +9366,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7099,6 +9467,32 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": -100,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7171,6 +9565,34 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:Paper Box"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7240,6 +9662,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7312,6 +9760,48 @@
           "en:hdpe-bottle"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.46,
+          "carbonFootprintByStage": {
+            "agriculture": 1.11,
+            "processing": 0.0124,
+            "packaging": 0.0959,
+            "transportation": 0.22,
+            "distribution": 0.0162,
+            "consumption": 0
+          },
+          "lifeCycleScore": 53,
+          "foodCategory": "Milk, whole, pasteurised"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": -60,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic",
+              "en:plastic",
+              "en:hdpe-2-high-density-polyethylene"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7382,6 +9872,44 @@
         "labels": [
           "en:kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.27,
+          "carbonFootprintByStage": {
+            "agriculture": 0.934,
+            "processing": 0.0124,
+            "packaging": 0.0959,
+            "transportation": 0.216,
+            "distribution": 0.0162,
+            "consumption": 0
+          },
+          "lifeCycleScore": 58,
+          "foodCategory": "Milk, semi-skimmed, UHT"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7451,6 +9979,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.88,
+          "carbonFootprintByStage": {
+            "agriculture": 1.49,
+            "processing": 0.0000803,
+            "packaging": 0.109,
+            "transportation": 0.189,
+            "distribution": 0.00933,
+            "consumption": 0.0806
+          },
+          "lifeCycleScore": 82,
+          "foodCategory": "Egg, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7522,6 +10088,32 @@
           "en:bag"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": false
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7591,6 +10183,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.02,
+          "carbonFootprintByStage": {
+            "agriculture": 1.61,
+            "processing": 0.000181,
+            "packaging": 0.0381,
+            "transportation": 0.346,
+            "distribution": 0.0203,
+            "consumption": 0
+          },
+          "lifeCycleScore": 60,
+          "foodCategory": "Rice, parboiled, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7662,6 +10292,46 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 6.59,
+          "carbonFootprintByStage": {
+            "agriculture": 5.31,
+            "processing": 0.349,
+            "packaging": 0.625,
+            "transportation": 0.265,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 43,
+          "foodCategory": "Cheddar cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 5,
+            "usTransportationScore": 0,
+            "knownOrigins": [
+              "en:united-kingdom"
+            ],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7731,6 +10401,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.4,
+          "carbonFootprintByStage": {
+            "agriculture": 0.135,
+            "processing": 0.286,
+            "packaging": 0.512,
+            "transportation": 0.425,
+            "distribution": 0.0309,
+            "consumption": 0.0113
+          },
+          "lifeCycleScore": 93,
+          "foodCategory": "French bean, canned, drained"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7802,6 +10510,44 @@
         "labels": [
           "en:source-of-fibre"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.4,
+          "carbonFootprintByStage": {
+            "agriculture": 2.12,
+            "processing": 0.33,
+            "packaging": 0.629,
+            "transportation": 0.287,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 61,
+          "foodCategory": "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7875,6 +10621,44 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.4,
+          "carbonFootprintByStage": {
+            "agriculture": 2.12,
+            "processing": 0.33,
+            "packaging": 0.629,
+            "transportation": 0.287,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 61,
+          "foodCategory": "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -7950,6 +10734,44 @@
           "en:no-gluten",
           "en:Grade A"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.89,
+          "carbonFootprintByStage": {
+            "agriculture": 1.03,
+            "processing": 0.152,
+            "packaging": 0.422,
+            "transportation": 0.247,
+            "distribution": 0.0369,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 91,
+          "foodCategory": "Yogurt, Greek-style, plain"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8018,6 +10840,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 7.88,
+          "carbonFootprintByStage": {
+            "agriculture": 7.25,
+            "processing": 0.0508,
+            "packaging": 0.124,
+            "transportation": 0.407,
+            "distribution": 0.0403,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 39,
+          "foodCategory": "Butter, 80% fat, salted"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8086,6 +10946,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.6,
+          "carbonFootprintByStage": {
+            "agriculture": 2,
+            "processing": 0.171,
+            "packaging": 0.25,
+            "transportation": 0.163,
+            "distribution": 0.0162,
+            "consumption": 0
+          },
+          "lifeCycleScore": 82,
+          "foodCategory": "Liquid cream, light, 15-20% fat, UHT"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8155,6 +11053,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.06,
+          "carbonFootprintByStage": {
+            "agriculture": 1.86,
+            "processing": 0.472,
+            "packaging": 0.99,
+            "transportation": 0.383,
+            "distribution": 0.0351,
+            "consumption": 0.323
+          },
+          "lifeCycleScore": 49,
+          "foodCategory": "Peanut butter or peanut paste"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8224,6 +11160,44 @@
         "grade": "a",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.75,
+          "carbonFootprintByStage": {
+            "agriculture": 0.325,
+            "processing": 0,
+            "packaging": 0,
+            "transportation": 0.319,
+            "distribution": 0.025,
+            "consumption": 0.0806
+          },
+          "lifeCycleScore": 98,
+          "foodCategory": "Tomato, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8298,6 +11272,46 @@
         "labels": [
           "en:kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.951,
+          "carbonFootprintByStage": {
+            "agriculture": 0.537,
+            "processing": 0.000205,
+            "packaging": 0,
+            "transportation": 0.298,
+            "distribution": 0.0349,
+            "consumption": 0.0806
+          },
+          "lifeCycleScore": 97,
+          "foodCategory": "Broccoli, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": true,
+            "materials": [
+              "en:plastic"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -3,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8370,6 +11384,46 @@
           "en:kosher",
           "en:orthodox-union-kosher"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.39,
+          "carbonFootprintByStage": {
+            "agriculture": 0.431,
+            "processing": 0.176,
+            "packaging": 0.402,
+            "transportation": 0.36,
+            "distribution": 0.0246,
+            "consumption": 0
+          },
+          "lifeCycleScore": 92,
+          "foodCategory": "Sweet corn, canned, drained"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 0,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:metal"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8439,6 +11493,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8510,6 +11590,46 @@
           "en:paper-bag"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a-plus",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.746,
+          "carbonFootprintByStage": {
+            "agriculture": 0.593,
+            "processing": 0,
+            "packaging": 0.0158,
+            "transportation": 0.116,
+            "distribution": 0.0211,
+            "consumption": 0
+          },
+          "lifeCycleScore": 96,
+          "foodCategory": "Sugar, white"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -1,
+            "materialScore": 92,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:paper"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8580,6 +11700,44 @@
         "labels": [
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 3.73,
+          "carbonFootprintByStage": {
+            "agriculture": 1.55,
+            "processing": 0.15,
+            "packaging": 1.43,
+            "transportation": 0.584,
+            "distribution": 0.0181,
+            "consumption": 0
+          },
+          "lifeCycleScore": 64,
+          "foodCategory": "Soy oil"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8650,6 +11808,44 @@
         "labels": [
           "en:Verified"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.19,
+          "carbonFootprintByStage": {
+            "agriculture": 0.272,
+            "processing": 0.166,
+            "packaging": 0.414,
+            "transportation": 0.278,
+            "distribution": 0.0478,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 92,
+          "foodCategory": "Ketchup"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8721,6 +11917,44 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.33,
+          "carbonFootprintByStage": {
+            "agriculture": 0.756,
+            "processing": 0.233,
+            "packaging": 1.09,
+            "transportation": 0.23,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 83,
+          "foodCategory": "Corn chips or tortilla chips"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8790,6 +12024,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8864,6 +12124,46 @@
           "en:sustainable-fishery",
           "en:sustainable-seafood-msc"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 6.74,
+          "carbonFootprintByStage": {
+            "agriculture": 3.54,
+            "processing": 1.55,
+            "packaging": 0.764,
+            "transportation": 0.854,
+            "distribution": 0.0254,
+            "consumption": 0
+          },
+          "lifeCycleScore": 25,
+          "foodCategory": "Tuna, flaked, in oil, canned, drained"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 0,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 10,
+            "labels": [
+              "en:sustainable-seafood-msc"
+            ],
+            "dataAvailable": true
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -8932,6 +12232,44 @@
         "grade": "b",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.54,
+          "carbonFootprintByStage": {
+            "agriculture": 0.917,
+            "processing": 0.228,
+            "packaging": 0.183,
+            "transportation": 0.182,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 89,
+          "foodCategory": "Salty snacks, mini pretzels or sticks"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9001,6 +12339,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9073,6 +12437,32 @@
           "en:no-artificial-flavors",
           "en:no-preservatives"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9142,6 +12532,44 @@
         "grade": "f",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "f",
+        "agribalyse": {
+          "carbonFootprintTotal": 8.4,
+          "carbonFootprintByStage": {
+            "agriculture": 7.48,
+            "processing": 0.305,
+            "packaging": 0.171,
+            "transportation": 0.43,
+            "distribution": 0.0165,
+            "consumption": 0
+          },
+          "lifeCycleScore": 22,
+          "foodCategory": "Coffee, ground"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9211,6 +12639,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9283,6 +12737,44 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.922,
+          "carbonFootprintByStage": {
+            "agriculture": 0.645,
+            "processing": 0.0000889,
+            "packaging": 0,
+            "transportation": 0.246,
+            "distribution": 0.0205,
+            "consumption": 0.00997
+          },
+          "lifeCycleScore": 80,
+          "foodCategory": "Blueberry, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9352,6 +12844,44 @@
         "grade": "a",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.17,
+          "carbonFootprintByStage": {
+            "agriculture": 0.154,
+            "processing": 0.161,
+            "packaging": 0.553,
+            "transportation": 0.251,
+            "distribution": 0.0417,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 95,
+          "foodCategory": "Apple compote"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9427,6 +12957,48 @@
           "en:plastic-4"
         ],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "a",
+        "agribalyse": {
+          "carbonFootprintTotal": 0.953,
+          "carbonFootprintByStage": {
+            "agriculture": 0.751,
+            "processing": 0.000154,
+            "packaging": 0.0381,
+            "transportation": 0.146,
+            "distribution": 0.0176,
+            "consumption": 0
+          },
+          "lifeCycleScore": 88,
+          "foodCategory": "Oat, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -10,
+            "materialScore": 5,
+            "hasNonRecyclableMaterial": false,
+            "materials": [
+              "en:ldpe-4-low-density-polyethylene",
+              "en:cardboard",
+              "en:paper"
+            ],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": 2,
+            "usTransportationScore": 50,
+            "knownOrigins": [],
+            "dataAvailable": true
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9497,6 +13069,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 5.14,
+          "carbonFootprintByStage": {
+            "agriculture": 4.42,
+            "processing": 0.22,
+            "packaging": 0.213,
+            "transportation": 0.247,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 54,
+          "foodCategory": "Camembert cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9567,6 +13177,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 5.14,
+          "carbonFootprintByStage": {
+            "agriculture": 4.42,
+            "processing": 0.22,
+            "packaging": 0.213,
+            "transportation": 0.247,
+            "distribution": 0.0368,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 54,
+          "foodCategory": "Camembert cheese, from cow's milk"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9636,6 +13284,44 @@
         "grade": "d",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "d",
+        "agribalyse": {
+          "carbonFootprintTotal": 2.5331309009,
+          "carbonFootprintByStage": {
+            "agriculture": 0.69545095,
+            "processing": 1.1859248,
+            "packaging": 0.23981466,
+            "transportation": 0.36528991,
+            "distribution": 0.039976883,
+            "consumption": 0.0066736979
+          },
+          "lifeCycleScore": 57,
+          "foodCategory": "Mayonnaise (70% fat and more)"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9707,6 +13393,44 @@
         "labels": [
           "en:no-gluten"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "b",
+        "agribalyse": {
+          "carbonFootprintTotal": 1.59,
+          "carbonFootprintByStage": {
+            "agriculture": 0.362,
+            "processing": 0.164,
+            "packaging": 0.736,
+            "transportation": 0.303,
+            "distribution": 0.0269,
+            "consumption": 0
+          },
+          "lifeCycleScore": 87,
+          "foodCategory": "Mustard"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9776,6 +13500,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9846,6 +13596,44 @@
         "grade": "e",
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": "e",
+        "agribalyse": {
+          "carbonFootprintTotal": 4.18,
+          "carbonFootprintByStage": {
+            "agriculture": 3,
+            "processing": 0.83,
+            "packaging": 0.0478,
+            "transportation": 0.255,
+            "distribution": 0.0406,
+            "consumption": 0.00683
+          },
+          "lifeCycleScore": 40,
+          "foodCategory": "Chicken, meat and skin, raw"
+        },
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -9916,6 +13704,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -9985,6 +13799,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": true,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
@@ -10055,6 +13895,32 @@
         "labels": [
           "en:no-artificial-flavors"
         ]
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": true
+        }
       }
     },
     "scores": {
@@ -10123,6 +13989,32 @@
         "grade": null,
         "packagingTags": [],
         "labels": []
+      },
+      "ecoscoreDetails": {
+        "available": true,
+        "grade": null,
+        "agribalyse": null,
+        "adjustments": {
+          "packaging": {
+            "pointAdjustment": -15,
+            "materialScore": null,
+            "hasNonRecyclableMaterial": false,
+            "materials": [],
+            "dataAvailable": true
+          },
+          "origins": {
+            "pointAdjustment": -5,
+            "usTransportationScore": 0,
+            "knownOrigins": [],
+            "dataAvailable": false
+          },
+          "productionSystem": {
+            "pointAdjustment": 0,
+            "labels": [],
+            "dataAvailable": false
+          },
+          "hasThreatenedSpeciesImpact": false
+        }
       }
     },
     "scores": {
