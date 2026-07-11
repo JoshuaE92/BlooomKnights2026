@@ -2,6 +2,7 @@ const env = require('../config/env');
 const { identifyNeededItems } = require('./geminiClient');
 const { searchProducts, getProducts } = require('./externalProductAPI');
 const { calculateOverallScores, pickRecommended } = require('../utils/productScores');
+const { attachGreenExplanations } = require('./greenExplanationService');
 
 // TWO-PHASE FLOW
 //   Phase 1: turn the user's request into a list of needed grocery items.
@@ -14,7 +15,8 @@ const { calculateOverallScores, pickRecommended } = require('../utils/productSco
 // Return shape:
 //   { prompt, neededItems, picks, totalCost, avgOverallScore, summary, source }
 // Each pick = { id, name, store, price, unit, forItem, overallScore,
-//               healthScore, environmentalScore, priceScore, environmentalDataAvailable }
+//               healthScore, environmentalScore, priceScore, environmentalDataAvailable,
+//               greenExplanation /* one grounded sentence, null if no data */ }
 
 // Products carry the original scraped record in `raw`; scoring reads from there.
 function toScoreInput(p) {
@@ -124,6 +126,9 @@ async function suggest({ prompt, stores, maxItems = 6 }) {
       .slice(0, maxItems)
       .map((s) => toPick(byId.get(s.id), s, null));
   }
+
+  // Attach the grounded "why greener" one-liner to each pick (cached per product).
+  picks = await attachGreenExplanations(picks);
 
   return {
     prompt,
