@@ -12,9 +12,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
+<<<<<<< HEAD
         target: API_TARGET,
         changeOrigin: true,
         secure: true,
+=======
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+>>>>>>> cart
       },
     },
   },

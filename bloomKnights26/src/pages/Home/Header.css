@@ -20,12 +20,7 @@
 	right: 0;
 	bottom: -1px;
 	height: 4px;
-	background: linear-gradient(
-		to right,
-		var(--color-primary) 0 33.333%,
-		var(--color-secondary) 33.333% 66.666%,
-		var(--color-tertiary) 66.666% 100%
-	);
+	background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 52%, var(--color-tertiary) 100%);
 }
 
 .header__title {

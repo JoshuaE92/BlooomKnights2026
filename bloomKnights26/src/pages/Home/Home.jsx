@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import Header from './Header';
 import { api } from "../../api";
 import "./Home.css"
@@ -6,6 +7,8 @@ import "./Home.css"
 function Home() {
     const [draftMessage, setDraftMessage] = useState("");
     const messagesContainerRef = useRef(null);
+    const navigationTimerRef = useRef(null);
+    const navigate = useNavigate();
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -22,7 +25,15 @@ function Home() {
         messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }, [messages]);
 
-    async function handleSubmit(event) {
+    useEffect(() => {
+        return () => {
+            if (navigationTimerRef.current) {
+                clearTimeout(navigationTimerRef.current);
+            }
+        };
+    }, []);
+
+    function handleSubmit(event) {
         event.preventDefault()
         const trimmedMessage = draftMessage.trim();
 
@@ -32,40 +43,26 @@ function Home() {
 
         setMessages((currentMessages) => [
             ...currentMessages,
-            { id: Date.now(), role: "user", text: trimmedMessage },
-            { id: "loading", role: "bot", text: "Finding greener ingredients…" }
+            {
+                id: Date.now(),
+                role: "user",
+                text: trimmedMessage
+            },
+            {
+                id: Date.now() + 1,
+                role: "bot",
+                text: "gathering your ingredients..."
+            }
         ]);
         setDraftMessage("");
 
-        try {
-            // no stores => search all stores; backend picks by overallScore
-            const res = await api.suggest(trimmedMessage);
-
-            const lines = res.picks?.length
-                ? res.picks
-                      .map((p) => `• ${p.name} — ${p.store}${p.price != null ? ` · $${p.price}` : ""}${p.overallScore != null ? ` · score ${p.overallScore}` : ""}`)
-                      .join("\n")
-                : "I couldn't find matching products for that.";
-
-            const summary = res.picks?.length
-                ? `\n\nTotal: $${res.totalCost} · avg score ${res.avgOverallScore}`
-                : "";
-
-            const text = `Here's a greener cart for "${trimmedMessage}":\n${lines}${summary}`;
-
-            setMessages((cur) => [
-                ...cur.filter((m) => m.id !== "loading"),
-                { id: Date.now() + 1, role: "bot", text }
-            ]);
-        } catch (err) {
-            const msg = /not authorized|token/i.test(err.message)
-                ? "Please log in again to use the chat."
-                : err.message;
-            setMessages((cur) => [
-                ...cur.filter((m) => m.id !== "loading"),
-                { id: Date.now() + 1, role: "bot", text: `⚠️ ${msg}` }
-            ]);
+        if (navigationTimerRef.current) {
+            clearTimeout(navigationTimerRef.current);
         }
+
+        navigationTimerRef.current = window.setTimeout(() => {
+            navigate("/cart");
+        }, 1500);
     }
 
     function handleTextareaKeyDown(event) {
