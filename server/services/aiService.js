@@ -3,6 +3,7 @@ const { identifyNeededItems } = require('./geminiClient');
 const { searchProducts, getProducts } = require('./externalProductAPI');
 const { calculateOverallScores, pickRecommended } = require('../utils/productScores');
 const { attachGreenExplanations } = require('./greenExplanationService');
+const { greenReasons, greenScore } = require('../utils/greenTags');
 
 // TWO-PHASE FLOW
 //   Phase 1: turn the user's request into a list of needed grocery items.
@@ -42,6 +43,9 @@ function toPick(product, scored, forItem) {
     environmentalScore: scored.environmentalScore,
     priceScore: scored.priceScore,
     environmentalDataAvailable: scored.environmentalDataAvailable,
+    // green layer (Member 1): score for sort/filter + reason chips for the UI
+    greenScore: greenScore(product).score,
+    reasons: greenReasons(product),
   };
 }
 
