@@ -8,23 +8,8 @@ function Dashboard() {
             <div className="dashboard-shell">
                 <h1>Dashboard</h1>
                 <div className="dashboard-content">
-                    <div className="dashboard-section">
-                        <div className="dashboard-section__header">
-                            <h2>Your Impact</h2>
-                        </div>
-                        <p className="dashboard-section__description">
-                            Track eco-friendly purchases and estimated carbon savings.
-                        </p>
-                        <div className="dashboard-placeholder" aria-hidden="true" />
-                    </div>
-                    <div className="dashboard-section">
-                        <div className="dashboard-section__header">
-                            <h2>Past Carts</h2>
-                        </div>
-                        <p className="dashboard-section__description">
-                            Review your most recent carts.
-                        </p>
-                        <div className="dashboard-placeholder" aria-hidden="true" />
+                    <div className="rating">
+                        
                     </div>
                 </div>
             </div>
