@@ -27,10 +27,14 @@ const INGREDIENTS = [
 	{ id: "bananas", name: "Bananas", category: "Produce", unit: "bunch", price: 1.29 }
 ];
 
+const STORE_OPTIONS = ["Walmart", "Target", "Publix"];
+
 function Cart() {
 	const [progress, setProgress] = useState(0);
 	const [cart, setCart] = useState({});
+	const [selectedStore, setSelectedStore] = useState(STORE_OPTIONS[0]);
 
+	const filteredIngredients = useMemo(() => INGREDIENTS, []);
 	const cartItems = useMemo(() => Object.values(cart), [cart]);
 	const cartTotal = useMemo(
 		() => cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
@@ -105,7 +109,7 @@ function Cart() {
 			<section className="cart-layout">
 				<div className="cart-top-panel">
 					<h1>Green Meter</h1>
-                    <p>Measures the average green rating of your cart!</p>
+					<p>Measures the average green rating of your cart!</p>
 					<div className="cart-progress" aria-label="Cart loading progress">
 						<div
 							className="cart-progress__fill"
@@ -118,11 +122,30 @@ function Cart() {
 					</div>
 					<p className="cart-progress__value">{progress}%</p>
 				</div>
+
 				<div className="cart-panels">
-					<div className="cart-panel">
-						<h2>Ingredients</h2>
+					<div className="cart-panel cart-panel--ingredients">
+						<div className="ingredients-panel__header">
+							<h2>Ingredients</h2>
+							<div className="ingredients-panel__store">
+								<span className="ingredients-panel__store-label">Store</span>
+								<select
+									className="ingredients-panel__select"
+									value={selectedStore}
+									onChange={(event) => setSelectedStore(event.target.value)}
+									aria-label="Select store"
+								>
+									{STORE_OPTIONS.map((store) => (
+										<option key={store} value={store}>
+											{store}
+										</option>
+									))}
+								</select>
+							</div>
+						</div>
+
 						<div className="cart-list" aria-label="Ingredient list">
-							{INGREDIENTS.map((ingredient) => (
+							{filteredIngredients.map((ingredient) => (
 								<div key={ingredient.id} className="ingredient-item">
 									<div className="ingredient-item__info">
 										<p className="ingredient-item__name">{ingredient.name}</p>
@@ -143,7 +166,8 @@ function Cart() {
 							))}
 						</div>
 					</div>
-					<div className="cart-panel">
+
+					<div className="cart-panel cart-panel--cart">
 						<div className="cart-panel__header">
 							<h2>Your Cart</h2>
 							{cartItems.length > 0 && (
@@ -152,63 +176,69 @@ function Cart() {
 								</button>
 							)}
 						</div>
-						<div className="cart-list" aria-live="polite" aria-label="User cart items">
-							{cartItems.length === 0 ? (
-								<div className="cart-empty">
-									<p className="cart-empty__title">Your cart is empty</p>
-									<p className="cart-empty__text">Add ingredients from the list to get started.</p>
-								</div>
-							) : (
-								cartItems.map((item) => (
-									<div key={item.id} className="cart-item">
-										<div className="cart-item__info">
-											<p>{item.name}</p>
-											<p className="cart-item__meta">
-												${item.price.toFixed(2)} / {item.unit}
-											</p>
-										</div>
-										<div className="cart-item__actions">
-											<button
-												type="button"
-												className="cart-item__remove"
-												onClick={() => handleRemoveOneItem(item.id)}
-												aria-label={`Remove one ${item.name}`}
-											>
-												-
-											</button>
-											<span className="cart-item__qty">{item.quantity}</span>
-											<button
-												type="button"
-												className="cart-item__add"
-												onClick={() => handleAddIngredient(item)}
-												aria-label={`Add one ${item.name}`}
-											>
-												+
-											</button>
-											<button
-												type="button"
-												className="cart-item__clear"
-												onClick={() => handleClearItem(item.id)}
-												aria-label={`Clear ${item.name} from cart`}
-											>
-												clear
-											</button>
-										</div>
+
+						<div className="cart-panel__items">
+							<div className="cart-list" aria-live="polite" aria-label="User cart items">
+								{cartItems.length === 0 ? (
+									<div className="cart-empty">
+										<p className="cart-empty__title">Your cart is empty</p>
+										<p className="cart-empty__text">Add ingredients from the list to get started.</p>
 									</div>
-								))
+								) : (
+									cartItems.map((item) => (
+										<div key={item.id} className="cart-item">
+											<div className="cart-item__info">
+												<p>{item.name}</p>
+												<p className="cart-item__meta">
+													${item.price.toFixed(2)} / {item.unit}
+												</p>
+											</div>
+											<div className="cart-item__actions">
+												<button
+													type="button"
+													className="cart-item__remove"
+													onClick={() => handleRemoveOneItem(item.id)}
+													aria-label={`Remove one ${item.name}`}
+												>
+													-
+												</button>
+												<span className="cart-item__qty">{item.quantity}</span>
+												<button
+													type="button"
+													className="cart-item__add"
+													onClick={() => handleAddIngredient(item)}
+													aria-label={`Add one ${item.name}`}
+												>
+													+
+												</button>
+												<button
+													type="button"
+													className="cart-item__clear"
+													onClick={() => handleClearItem(item.id)}
+													aria-label={`Clear ${item.name} from cart`}
+												>
+													clear
+												</button>
+											</div>
+										</div>
+									))
+								)}
+							</div>
+						</div>
+
+						<div className="cart-panel__footer">
+							{cartItems.length > 0 && (
+								<div className="cart-total">
+									<div className="cart-total__row">
+										<span>Total</span>
+										<span>${cartTotal.toFixed(2)}</span>
+									</div>
+									<button type="button" className="cart-total__checkout">
+										Continue
+									</button>
+								</div>
 							)}
 						</div>
-						{cartItems.length > 0 && (
-							<div className="cart-total">
-								<div className="cart-total__row">
-									<span>Total</span>
-									<span>${cartTotal.toFixed(2)}</span>
-								</div>
-								<button type="button" className="cart-total__checkout" onClick={incrementProgress}>
-									Checkout
-								</button>
-							</div>
-						)}
 					</div>
 				</div>
 			</section>

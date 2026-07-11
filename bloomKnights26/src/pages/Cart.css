@@ -111,7 +111,7 @@
 	border-radius: 1.5rem;
 	box-shadow: 0 20px 45px color-mix(in srgb, var(--color-text) 10%, transparent);
 	backdrop-filter: blur(10px);
-	overflow-y: auto;
+	overflow: hidden;
 }
 
 .cart-panel h1,
@@ -121,6 +121,44 @@
 	font-size: clamp(1.8rem, 3vw, 2.2rem);
 	font-weight: 600;
 	color: var(--color-text);
+}
+
+.ingredients-panel__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.ingredients-panel__header h2 {
+	text-align: left;
+}
+
+.ingredients-panel__store {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+}
+
+.ingredients-panel__store-label {
+	font-size: 0.86rem;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.ingredients-panel__select {
+	border: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
+	border-radius: 0.65rem;
+	background: var(--color-primary);
+	padding: 0.42rem 0.55rem;
+	font-size: 0.86rem;
+	color: var(--color-background);
+	outline: none;
+}
+
+.ingredients-panel__select:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
 }
 
 .cart-panel__header {
@@ -352,6 +390,30 @@
 	border-top: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
 	display: grid;
 	gap: 0.75rem;
+}
+
+.cart-panel--cart .cart-list {
+	margin-top: 0;
+	padding-right: 0;
+}
+
+.cart-panel--cart .cart-panel__items {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow-y: auto;
+	margin-top: 1rem;
+	padding-right: 0.15rem;
+}
+
+.cart-panel--ingredients .cart-list {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow-y: auto;
+}
+
+.cart-panel--cart .cart-panel__footer {
+	margin-top: auto;
+	flex-shrink: 0;
 }
 
 .cart-total__row {
