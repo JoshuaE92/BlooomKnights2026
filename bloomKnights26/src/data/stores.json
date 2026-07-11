@@ -1,0 +1,40 @@
+[
+  {
+    "storeId": "target-32828-01",
+    "retailer": "Target",
+    "storeName": "Target Waterford Lakes (Store #1760)",
+    "address": "325 N Alafaya Trl",
+    "city": "Orlando",
+    "state": "FL",
+    "zipCode": "32828-7012",
+    "latitude": null,
+    "longitude": null,
+    "sourceUrl": "https://www.target.com/store-locator/find-stores/orlando,FL"
+  },
+  {
+    "storeId": "publix-32828-01",
+    "retailer": "Publix",
+    "storeName": "Publix Super Market at The Shoppes at Eastwood (Store #0607)",
+    "address": "1921 S Alafaya Trl",
+    "city": "Orlando",
+    "state": "FL",
+    "zipCode": "32828",
+    "latitude": null,
+    "longitude": null,
+    "sourceUrl": "https://insiderx.com/pharmacy-near-me/publix/fl/orlando/1921-s-alafaya-trl/1730128604",
+    "notes": "Address confirmed via secondary source (insiderx.com); direct publix.com store page could not be independently re-fetched. Product pricing for this store has NOT been collected yet: Publix product pages load names/descriptions via static fetch but prices are loaded dynamically (Instacart-powered) and were not retrievable. See products.json placeholder entries."
+  },
+  {
+    "storeId": "walmart-32828-01",
+    "retailer": "Walmart",
+    "storeName": "Walmart Neighborhood Market (Store #3617)",
+    "address": "600 S Alafaya Trl",
+    "city": "Orlando",
+    "state": "FL",
+    "zipCode": "32828",
+    "latitude": null,
+    "longitude": null,
+    "sourceUrl": "https://www.walmart.com/store/3617-orlando-fl",
+    "notes": "Address confirmed via Yelp and third-party store listings (multiple independent sources); walmart.com blocked direct automated fetch with a bot/CAPTCHA verification page. Product pricing for this store has NOT been collected yet. See products.json placeholder entries."
+  }
+]
