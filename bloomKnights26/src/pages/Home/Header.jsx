@@ -11,7 +11,7 @@ function Header() {
 
     return (
         <header className="header">
-            <h1 className="header__title">Bloom Knights</h1>
+            <h1 className="header__title">Green Cart</h1>
             <nav className="header__nav">
                 <Link to="/" className="header__link">Home</Link>
                 {isLoggedIn ? (
