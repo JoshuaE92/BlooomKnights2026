@@ -1,0 +1,176 @@
+.home-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 30%),
+        radial-gradient(circle at top right, color-mix(in srgb, var(--color-secondary) 12%, transparent), transparent 28%),
+        radial-gradient(circle at bottom left, color-mix(in srgb, var(--color-tertiary) 14%, transparent), transparent 30%),
+        linear-gradient(135deg, color-mix(in srgb, var(--color-background) 92%, var(--color-primary)) 0%, color-mix(in srgb, var(--color-background) 86%, var(--color-secondary)) 52%, color-mix(in srgb, var(--color-background) 90%, var(--color-tertiary)) 100%);
+}
+
+.home-page > .header {
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.home-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem 1.25rem;
+}
+
+.home-subheader {
+    margin: 0;
+    text-align: center;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    text-transform: lowercase;
+}
+
+.chatbot-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-background);
+    border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 45px color-mix(in srgb, var(--color-text) 10%, transparent);
+    backdrop-filter: blur(10px);
+
+    width: min(36rem, 90vw);
+    min-height: 32rem;
+    padding: 2rem;
+}
+
+.chatbot-card__header {
+    display: grid;
+    gap: 0.35rem;
+    width: 100%;
+    text-align: center;
+}
+
+.chatbot-card__header h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.chatbot-card__header p {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-text) 78%, var(--color-background));
+    font-size: 0.95rem;
+}
+
+.chatbot-card__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 0.25rem 0;
+}
+
+.chatbot-card__message {
+    margin: 0;
+    max-width: 85%;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.chatbot-card__message--bot {
+    align-self: flex-start;
+    background: color-mix(in srgb, var(--color-secondary) 14%, var(--color-background));
+    color: var(--color-text);
+}
+
+.chatbot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.chatbot-form label {
+    margin-top: 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.chatbot-form textarea {
+    width: 100%;
+    min-height: 6.5rem;
+    resize: vertical;
+    padding: 0.95rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-radius: 0.95rem;
+    background: color-mix(in srgb, var(--color-background) 94%, var(--color-secondary));
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    font: inherit;
+}
+
+.chatbot-form textarea::placeholder {
+    color: color-mix(in srgb, var(--color-text) 36%, var(--color-background));
+}
+
+.chatbot-form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    transform: translateY(-1px);
+}
+
+.chatbot-form button {
+    margin-top: 0.35rem;
+    padding: 0.95rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: var(--color-background);
+    font-size: 0.96rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.chatbot-form button:hover {
+    background: color-mix(in srgb, var(--color-primary) 90%, var(--color-text));
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--color-text) 16%, transparent);
+    transform: translateY(-1px);
+}
+
+.chatbot-form button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .home-content {
+        padding: 1rem;
+    }
+
+    .chatbot-card {
+        width: min(100%, 24rem);
+        min-height: 30rem;
+        padding: 1.4rem;
+        border-radius: 1.25rem;
+    }
+}
