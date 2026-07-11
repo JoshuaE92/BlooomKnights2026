@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // One saved AI query = one user's prompt + the result we returned.
 // This is the "chat history per user" store (replaces the in-memory recipeStore).
 const recipeQuerySchema = new mongoose.Schema(
   {
-    // String for now (mock userId). When your friend's auth lands, change this
+    // String for now (mock userId). When auth is wired end-to-end, change this
     // to: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
     userId: { type: String, required: true, index: true },
 
@@ -27,4 +27,4 @@ const recipeQuerySchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('RecipeQuery', recipeQuerySchema);
+module.exports = mongoose.model('RecipeQuery', recipeQuerySchema);

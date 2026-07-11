@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import { listStores } from '../controllers/storeController.js';
+const { Router } = require('express');
+const { listStores } = require('../controllers/storeController');
 
 // Mounted at /api/stores in app.js.
 const router = Router();
 
 router.get('/', listStores);
 
-export default router;
+module.exports = router;

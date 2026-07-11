@@ -1,4 +1,4 @@
-import { env } from '../config/env.js';
+const env = require('../config/env');
 
 // Raw Gemini call — ONE job: turn a user's recipe/request into a list of
 // grocery items to shop for. It does NOT see the catalog and does NOT pick
@@ -10,7 +10,7 @@ import { env } from '../config/env.js';
 const MODEL = 'gemini-3.5-flash';
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
-export async function identifyNeededItems({ prompt, maxItems = 6 }) {
+async function identifyNeededItems({ prompt, maxItems = 6 }) {
   const instruction =
     `You are a sustainable-grocery assistant. Given a user's recipe or shopping request, ` +
     `list the grocery items needed to fulfill it (up to ${maxItems}). ` +
@@ -37,7 +37,7 @@ export async function identifyNeededItems({ prompt, maxItems = 6 }) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-goog-api-key': env.geminiApiKey,
+      'x-goog-api-key': env.GEMINI_API_KEY,
     },
     body: JSON.stringify(body),
   });
@@ -57,3 +57,5 @@ export async function identifyNeededItems({ prompt, maxItems = 6 }) {
     summary: parsed.summary || '',
   };
 }
+
+module.exports = { identifyNeededItems };

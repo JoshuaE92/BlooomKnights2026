@@ -1,28 +1,35 @@
-import express from 'express';
-import cors from 'cors';
-import { errorHandler, notFound } from './middleware/errorHandler.js';
-import productRoutes from './routes/productRoutes.js';
-import storeRoutes from './routes/storeRoutes.js';
-import aiRoutes from './routes/aiRoutes.js';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const env = require('./config/env');
+const authRoutes = require('./routes/authRoutes');
+const { notFound, errorHandler } = require('./middleware/errorHandler');
 
-// Builds the express app but does NOT start listening — that's server.js's job.
-// Keeping them separate makes the app importable in tests later.
 const app = express();
 
-app.use(cors());            // let the Vite frontend call us cross-origin
-app.use(express.json());    // parse JSON request bodies into req.body
+app.use(cors({ origin: env.CLIENT_URL, credentials: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Liveness check — hit this to prove the server is up.
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'bloomknights-server' });
+const DB_STATES = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+
+app.get('/api/health', (req, res) => {
+  const dbState = DB_STATES[mongoose.connection.readyState] || 'unknown';
+  const healthy = dbState === 'connected';
+  res.status(healthy ? 200 : 503).json({
+    success: healthy,
+    status: healthy ? 'ok' : 'degraded',
+    db: dbState,
+    uptime: Math.floor(process.uptime()),
+  });
 });
 
-// --- feature routes ---
-app.use('/api/products', productRoutes);
-app.use('/api/stores', storeRoutes);
-app.use('/api/ai', aiRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/stores', require('./routes/storeRoutes'));
+app.use('/api/ai', require('./routes/aiRoutes'));
 
-app.use(notFound);          // 404 for anything unmatched
-app.use(errorHandler);      // last: format any error into JSON
+app.use(notFound);
+app.use(errorHandler);
 
-export default app;
+module.exports = app;

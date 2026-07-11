@@ -25,7 +25,7 @@ function clamp(n, min, max) {
 }
 
 // Pure function: compute the score for one product.
-export function computeGreenImpact(product) {
+function computeGreenImpact(product) {
   const tags = product.tags || [];
   const score = tags.reduce((total, tag) => total + (TAG_WEIGHTS[tag] || 0), BASELINE);
   return Math.round(clamp(score, 0, 100));
@@ -33,6 +33,8 @@ export function computeGreenImpact(product) {
 
 // Convenience: return a copy of the product with greenImpact attached.
 // Use this at the edge (controller) so the raw catalog stays score-free.
-export function withGreenImpact(product) {
+function withGreenImpact(product) {
   return { ...product, greenImpact: computeGreenImpact(product) };
 }
+
+module.exports = { computeGreenImpact, withGreenImpact };

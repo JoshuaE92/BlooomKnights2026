@@ -1,9 +1,7 @@
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+const { readFile } = require('node:fs/promises');
+const path = require('node:path');
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = join(__dirname, '..', 'data', 'products.json');
+const DATA_PATH = path.join(__dirname, '..', 'data', 'products.json');
 
 async function loadCatalog() {
   const raw = await readFile(DATA_PATH, 'utf-8');
@@ -16,7 +14,7 @@ async function loadCatalog() {
 
 // Get every product for the given stores (used by the /api/products endpoint).
 // Mongo later: Product.find({ store: { $in: stores } })
-export async function getProducts({ stores } = {}) {
+async function getProducts({ stores } = {}) {
   const catalog = await loadCatalog();
   if (!stores || stores.length === 0) return catalog;
 
@@ -29,7 +27,7 @@ export async function getProducts({ stores } = {}) {
 // whole catalog at the AI, we narrow to a handful of relevant candidates here.
 //
 // Mongo later: Product.find({ store: { $in: stores }, $text: { $search: query } })
-export async function searchProducts({ stores, query, limit = 10 } = {}) {
+async function searchProducts({ stores, query, limit = 10 } = {}) {
   const catalog = await loadCatalog();
   const wanted = stores && stores.length ? new Set(stores.map((s) => s.toLowerCase())) : null;
 
@@ -49,3 +47,5 @@ export async function searchProducts({ stores, query, limit = 10 } = {}) {
     })
     .slice(0, limit);
 }
+
+module.exports = { getProducts, searchProducts };

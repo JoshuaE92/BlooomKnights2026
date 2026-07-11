@@ -7,20 +7,15 @@
 const queriesByUser = new Map(); // userId -> array of saved queries
 let nextId = 1;
 
-export function save({ userId, prompt, result }) {
-  const record = {
-    id: nextId++,
-    userId,
-    prompt,
-    result,
-    // No Date.now() here on purpose in this environment — the controller
-    // can stamp createdAt if it has a clock. Kept minimal for the mock.
-  };
+function save({ userId, prompt, result }) {
+  const record = { id: nextId++, userId, prompt, result };
   if (!queriesByUser.has(userId)) queriesByUser.set(userId, []);
   queriesByUser.get(userId).push(record);
   return record;
 }
 
-export function getByUser(userId) {
+function getByUser(userId) {
   return queriesByUser.get(userId) || [];
 }
+
+module.exports = { save, getByUser };

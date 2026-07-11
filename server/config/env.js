@@ -1,18 +1,39 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config();
 
-// Single place that reads process.env. Everything else imports `env`
-// from here so we never sprinkle process.env.* across the codebase.
-export const env = {
-  port: process.env.PORT || 5050,
-  nodeEnv: process.env.NODE_ENV || 'development',
-  // Your DB friend provides this connection string. Local example:
-  //   mongodb://127.0.0.1:27017/bloomknights
-  mongoUri: process.env.MONGO_URI,
-  // Google Gemini key. If missing, aiService falls back to the rule-based mock.
-  geminiApiKey: process.env.GEMINI_API_KEY,
-  // 'mock' = never call Gemini (free, for dev/testing). 'live' = use Gemini.
-  // Defaults to 'live' when unset. Set AI_MODE=mock to save quota while testing.
-  aiMode: (process.env.AI_MODE || 'live').toLowerCase(),
+const env = {
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  PORT: process.env.PORT || 5000,
+
+  MONGO_URI: process.env.MONGO_URI,
+
+  JWT_SECRET: process.env.JWT_SECRET,
+  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
+
+  // Gmail SMTP (use an App Password, not your real Gmail password)
+  SMTP_HOST: process.env.SMTP_HOST || 'smtp.gmail.com',
+  SMTP_PORT: process.env.SMTP_PORT || 465,
+  SMTP_USER: process.env.SMTP_USER,
+  SMTP_PASS: process.env.SMTP_PASS,
+  EMAIL_FROM: process.env.EMAIL_FROM || process.env.SMTP_USER,
+
+  // Used to build links inside emails (points at the frontend)
+  CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
+
+  // Google Gemini (product/AI layer). Optional — if missing, aiService uses the mock.
+  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+  // 'mock' = never call Gemini (free, dev/testing). 'live' = use Gemini. Default: live.
+  AI_MODE: (process.env.AI_MODE || 'live').toLowerCase(),
 };
+
+// Fail fast if critical secrets are missing
+const required = ['MONGO_URI', 'JWT_SECRET'];
+for (const key of required) {
+  if (!env[key]) {
+    console.error(`FATAL: Missing required environment variable: ${key}`);
+    process.exit(1);
+  }
+}
+
+module.exports = env;

@@ -1,7 +1,12 @@
-import app from './app.js';
-import { env } from './config/env.js';
+const env = require('./config/env');
+const connectDB = require('./config/db');
+const app = require('./app');
 
-// Entry point: start the HTTP server.
-app.listen(env.port, () => {
-  console.log(`🌱 BloomKnights server running on http://localhost:${env.port} [${env.nodeEnv}]`);
-});
+const start = async () => {
+  await connectDB();
+  app.listen(env.PORT, () => {
+    console.log(`Server running in ${env.NODE_ENV} mode on port ${env.PORT}`);
+  });
+};
+
+start();

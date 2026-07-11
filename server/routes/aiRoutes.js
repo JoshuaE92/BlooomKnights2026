@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { suggestCart, getHistory } from '../controllers/aiController.js';
+const { Router } = require('express');
+const { suggestCart, getHistory } = require('../controllers/aiController');
 
 // Mounted at /api/ai in app.js.
 const router = Router();
@@ -7,4 +7,4 @@ const router = Router();
 router.post('/suggest', suggestCart);
 router.get('/history/:userId', getHistory);
 
-export default router;
+module.exports = router;

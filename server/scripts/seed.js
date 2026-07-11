@@ -1,15 +1,13 @@
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+const { readFile } = require('node:fs/promises');
+const path = require('node:path');
+const mongoose = require('mongoose');
 
-import { connectDB, disconnectDB } from '../config/db.js';
-import Product from '../models/Product.js';
-import Store from '../models/Store.js';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const connectDB = require('../config/db');
+const Product = require('../models/Product');
+const Store = require('../models/Store');
 
 async function loadJson(fileName) {
-  const raw = await readFile(join(__dirname, '..', 'data', fileName), 'utf-8');
+  const raw = await readFile(path.join(__dirname, '..', 'data', fileName), 'utf-8');
   return JSON.parse(raw);
 }
 
@@ -30,8 +28,8 @@ async function seed() {
   await Product.insertMany(productDocs);
   await Store.insertMany(storeDocs);
 
-  console.log(`🌱 Seeded ${productDocs.length} products and ${storeDocs.length} stores`);
-  await disconnectDB();
+  console.log(`Seeded ${productDocs.length} products and ${storeDocs.length} stores`);
+  await mongoose.disconnect();
 }
 
 seed().catch((err) => {

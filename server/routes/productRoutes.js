@@ -1,10 +1,9 @@
-import { Router } from 'express';
-import { listProducts } from '../controllers/productController.js';
+const { Router } = require('express');
+const { listProducts } = require('../controllers/productController');
 
-// All paths here are relative to where this router is mounted in app.js
-// (mounted at /api/products, so router.get('/') = GET /api/products).
+// Mounted at /api/products in app.js.
 const router = Router();
 
 router.get('/', listProducts);
 
-export default router;
+module.exports = router;

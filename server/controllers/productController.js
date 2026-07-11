@@ -1,11 +1,11 @@
-import { getProducts } from '../services/externalProductAPI.js';
-import { withGreenImpact } from '../utils/greenImpactCalculator.js';
+const { getProducts } = require('../services/externalProductAPI');
+const { withGreenImpact } = require('../utils/greenImpactCalculator');
 
 // GET /api/products
 // Optional query: ?stores=walmart,costco  -> only those stores' products.
 // The controller's job is HTTP glue: read the request, call the service,
 // shape the response. It never touches files or knows where data comes from.
-export async function listProducts(req, res, next) {
+async function listProducts(req, res, next) {
   try {
     const stores = req.query.stores
       ? req.query.stores.split(',').map((s) => s.trim()).filter(Boolean)
@@ -23,3 +23,5 @@ export async function listProducts(req, res, next) {
     next(err); // hand off to errorHandler
   }
 }
+
+module.exports = { listProducts };

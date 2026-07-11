@@ -1,7 +1,7 @@
-import { env } from '../config/env.js';
-import { identifyNeededItems } from './geminiClient.js';
-import { searchProducts, getProducts } from './externalProductAPI.js';
-import { withGreenImpact } from '../utils/greenImpactCalculator.js';
+const env = require('../config/env');
+const { identifyNeededItems } = require('./geminiClient');
+const { searchProducts, getProducts } = require('./externalProductAPI');
+const { withGreenImpact } = require('../utils/greenImpactCalculator');
 
 // TWO-PHASE FLOW
 //   Phase 1: turn the user's request into a list of needed grocery items.
@@ -52,13 +52,13 @@ async function pickForItems({ stores, neededItems }) {
 }
 
 // --- public entry point -----------------------------------------------------
-export async function suggest({ prompt, stores, maxItems = 6 }) {
+async function suggest({ prompt, stores, maxItems = 6 }) {
   // Phase 1 — decompose the request into needed items.
   let neededItems;
   let summary = null;
   let source = 'mock';
 
-  if (env.aiMode === 'live' && env.geminiApiKey) {
+  if (env.AI_MODE === 'live' && env.GEMINI_API_KEY) {
     try {
       const r = await identifyNeededItems({ prompt, maxItems });
       neededItems = r.neededItems;
@@ -94,3 +94,5 @@ export async function suggest({ prompt, stores, maxItems = 6 }) {
     source,
   };
 }
+
+module.exports = { suggest };

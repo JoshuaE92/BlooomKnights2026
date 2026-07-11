@@ -1,17 +1,14 @@
-import mongoose from 'mongoose';
-import { env } from './env.js';
+const mongoose = require('mongoose');
+const env = require('./env');
 
-// Opens the MongoDB connection. Call this once at startup (server.js) and
-// before the seed script runs. Your DB friend owns the actual cluster/URI;
-// this file just connects to whatever MONGO_URI points at.
-export async function connectDB() {
-  if (!env.mongoUri) {
-    throw new Error('MONGO_URI is not set — add it to your .env');
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(env.MONGO_URI);
+    console.log(`MongoDB connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`MongoDB connection error: ${error.message}`);
+    process.exit(1);
   }
-  await mongoose.connect(env.mongoUri);
-  console.log('✅ MongoDB connected');
-}
+};
 
-export async function disconnectDB() {
-  await mongoose.disconnect();
-}
+module.exports = connectDB;

@@ -1,9 +1,9 @@
-import { suggest } from '../services/aiService.js';
-import * as recipeStore from '../services/recipeStore.js';
+const { suggest } = require('../services/aiService');
+const recipeStore = require('../services/recipeStore');
 
 // POST /api/ai/suggest
 // body: { userId, stores: ["walmart","costco"], prompt: "tacos for 4" }
-export async function suggestCart(req, res, next) {
+async function suggestCart(req, res, next) {
   try {
     const { userId, stores, prompt } = req.body || {};
 
@@ -24,7 +24,7 @@ export async function suggestCart(req, res, next) {
 }
 
 // GET /api/ai/history/:userId  -> this user's past queries.
-export async function getHistory(req, res, next) {
+async function getHistory(req, res, next) {
   try {
     const history = recipeStore.getByUser(req.params.userId);
     res.json({ userId: req.params.userId, count: history.length, history });
@@ -32,3 +32,5 @@ export async function getHistory(req, res, next) {
     next(err);
   }
 }
+
+module.exports = { suggestCart, getHistory };

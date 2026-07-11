@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // Store slug (e.g. "walmart") is the _id / natural key.
 const storeSchema = new mongoose.Schema(
@@ -29,4 +29,4 @@ const storeSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Store', storeSchema);
+module.exports = mongoose.model('Store', storeSchema);

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // We store the product slug (e.g. "walmart-organic-black-beans-15oz") as _id
 // so it stays the natural key across data sources. A toJSON transform renames
@@ -33,4 +33,4 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
