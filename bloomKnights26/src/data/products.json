@@ -22,7 +22,7 @@
     "unitPriceUnit": "oz",
     "upc": "076808280081",
     "availability": "in stock; order pickup, same day delivery, and standard shipping available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/680/828/0081/front_en.46.400.jpg",
     "productUrl": "https://www.target.com/p/barilla-spaghetti-pasta-16oz/-/A-13156213",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -70,7 +70,8 @@
       "isRecommended": false,
       "comparisonGroup": "spaghetti",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-barilla-penne-16oz",
@@ -94,7 +95,7 @@
     "unitPriceUnit": "oz",
     "upc": "076808280739",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/680/828/0739/front_en.137.400.jpg",
     "productUrl": "https://www.target.com/p/barilla-penne-pasta-16oz/-/A-13156215",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -144,7 +145,8 @@
       "isRecommended": false,
       "comparisonGroup": "penne",
       "comparisonGroupSize": 2
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-raos-marinara-24oz",
@@ -170,7 +172,7 @@
     "unitPriceUnit": "oz",
     "upc": "747479000079",
     "availability": "in stock; order pickup and same day delivery available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/074/747/900/0079/front_en.87.400.jpg",
     "productUrl": "https://www.target.com/p/rao-39-s-homemade-marinara-sauce-premium-quality-all-natural-tomato-sauce-38-pasta-sauce-keto-friendly-38-carb-conscious-24oz/-/A-13349580",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -218,7 +220,8 @@
       "isRecommended": false,
       "comparisonGroup": "marinara",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-vitd-whole-milk-1gal",
@@ -243,7 +246,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "085239284056",
     "availability": "in stock; order pickup, same day delivery, and shipping available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/928/4056/front_en.7.400.jpg",
     "productUrl": "https://www.target.com/p/vitamin-d-whole-milk-1gal-good-38-gather-8482/-/A-13276134",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -286,7 +289,8 @@
       "isRecommended": true,
       "comparisonGroup": "whole-milk",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-organic-whole-milk-1gal",
@@ -379,7 +383,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "085239284070",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/928/4070/front_en.26.400.jpg",
     "productUrl": "https://www.target.com/p/1-milk-1gal-good-38-gather-8482/-/A-13276131",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -425,7 +429,8 @@
       "isRecommended": true,
       "comparisonGroup": "low-fat-milk",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-oatly-original-oatmilk-64floz",
@@ -451,7 +456,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "190646641016",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/019/064/664/1016/front_en.190.400.jpg",
     "productUrl": "https://www.target.com/p/oatly-original-oatmilk-0-5gal/-/A-53328399",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -506,7 +511,8 @@
       "isRecommended": true,
       "comparisonGroup": "oat-milk",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-honey-nut-cheerios-10-8oz",
@@ -531,7 +537,7 @@
     "unitPriceUnit": "oz",
     "upc": "016000124790",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/600/012/4790/front_en.139.400.jpg",
     "productUrl": "https://www.target.com/p/honey-nut-cheerios-breakfast-cereal-10-8oz-general-mills/-/A-14767378",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -583,7 +589,8 @@
       "isRecommended": false,
       "comparisonGroup": "honey-nut-cereal",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-cheerios-original-20oz",
@@ -608,7 +615,7 @@
     "unitPriceUnit": "oz",
     "upc": "016000125414",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/600/012/5414/front_en.19.400.jpg",
     "productUrl": "https://www.target.com/p/cheerios-breakfast-cereal-20oz-general-mills/-/A-17088702",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -653,7 +660,8 @@
       "isRecommended": true,
       "comparisonGroup": "original-cereal",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-large-eggs-12ct",
@@ -746,7 +754,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239130612",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/913/0612/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/100-whole-wheat-bread-20oz-market-pantry-8482/-/A-14766199",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -789,7 +797,8 @@
       "isRecommended": true,
       "comparisonGroup": "whole-wheat-bread",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-enriched-rice-32oz",
@@ -814,7 +823,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239053188",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/905/3188/front_en.8.400.jpg",
     "productUrl": "https://www.target.com/p/enriched-long-grain-white-rice-32oz-good-38-gather-8482/-/A-54602335",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -857,7 +866,8 @@
       "isRecommended": true,
       "comparisonGroup": "long-grain-white-rice",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-organic-rice-30oz",
@@ -883,7 +893,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239189955",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/918/9955/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/organic-long-grain-white-rice-30oz-good-38-gather-8482/-/A-82065379",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -926,7 +936,8 @@
       "isRecommended": false,
       "comparisonGroup": "long-grain-white-rice",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-sharp-cheddar-shredded-8oz",
@@ -952,7 +963,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239038581",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/903/8581/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/shredded-sharp-cheddar-cheese-8oz-good-gather-8482/-/A-54337105",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -995,7 +1006,8 @@
       "isRecommended": false,
       "comparisonGroup": "shredded-cheddar",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-mild-cheddar-shredded-8oz",
@@ -1021,7 +1033,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239038468",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/903/8468/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/finely-shredded-mild-cheddar-cheese-8oz-good-gather-8482/-/A-54337110",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1064,7 +1076,8 @@
       "isRecommended": false,
       "comparisonGroup": "shredded-cheddar",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-black-beans-15-5oz",
@@ -1089,7 +1102,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239095539",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/909/5539/front_en.17.400.jpg",
     "productUrl": "https://www.target.com/p/black-beans-15-5oz-good-38-gather-8482/-/A-78666524",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1132,7 +1145,8 @@
       "isRecommended": false,
       "comparisonGroup": "black-beans",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-chobani-plain-nonfat-greek-yogurt-32oz",
@@ -1157,7 +1171,7 @@
     "unitPriceUnit": "oz",
     "upc": "894700010137",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/089/470/001/0137/front_en.838.400.jpg",
     "productUrl": "https://www.target.com/p/chobani-plain-nonfat-greek-yogurt-32oz/-/A-13173299",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1208,7 +1222,8 @@
       "isRecommended": false,
       "comparisonGroup": "greek-yogurt",
       "comparisonGroupSize": 2
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-chicken-breast-frozen-40oz",
@@ -1234,7 +1249,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239032077",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/903/2077/front_en.10.400.jpg",
     "productUrl": "https://www.target.com/p/boneless-38-skinless-chicken-breast-frozen-40oz-good-38-gather-8482/-/A-14777815",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1277,7 +1292,8 @@
       "isRecommended": true,
       "comparisonGroup": "chicken-breast",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-broccoli-cut-frozen-12oz",
@@ -1303,7 +1319,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239931264",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/993/1264/front_en.7.400.jpg",
     "productUrl": "https://www.target.com/p/frozen-cut-broccoli-12oz-good-38-gather-8482/-/A-79397107",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1348,7 +1364,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-broccoli",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-broccoli-florets-frozen-12oz",
@@ -1374,7 +1391,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239931240",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/993/1240/front_en.6.400.jpg",
     "productUrl": "https://www.target.com/p/frozen-broccoli-florets-12oz-good-38-gather-8482/-/A-79397039",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1419,7 +1436,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-broccoli",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-broccoli-cauliflower-carrot-blend-12oz",
@@ -1446,7 +1464,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239119259",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/9259/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/frozen-broccoli-cauliflower-38-carrots-blend-12oz-good-38-gather-8482/-/A-79580866",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1491,7 +1509,8 @@
       "isRecommended": true,
       "comparisonGroup": "frozen-vegetable-blend",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-diced-tomatoes-14-5oz",
@@ -1585,7 +1604,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239110843",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/0843/front_en.7.400.jpg",
     "productUrl": "https://www.target.com/p/crushed-tomatoes-28oz-good-38-gather-8482/-/A-79359691",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1628,7 +1647,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-tomatoes",
       "comparisonGroupSize": 5
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-italian-diced-tomatoes-14-5oz",
@@ -1654,7 +1674,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239110775",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/0775/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/italian-style-diced-tomatoes-14-5oz-good-38-gather-8482/-/A-79359682",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1697,7 +1717,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-tomatoes",
       "comparisonGroupSize": 5
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-creamy-peanut-butter-16oz",
@@ -1722,7 +1743,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239276495",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/927/6495/front_en.14.400.jpg",
     "productUrl": "https://www.target.com/p/creamy-peanut-butter-16oz-good-38-gather-8482/-/A-84067786",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1765,7 +1786,8 @@
       "isRecommended": true,
       "comparisonGroup": "peanut-butter",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-jif-creamy-peanut-butter-16oz",
@@ -1790,7 +1812,7 @@
     "unitPriceUnit": "oz",
     "upc": "051500255162",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/005/150/025/5162/front_en.197.400.jpg",
     "productUrl": "https://www.target.com/p/jif-creamy-peanut-butter-16oz/-/A-13292010",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1839,7 +1861,8 @@
       "isRecommended": false,
       "comparisonGroup": "peanut-butter",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-folgers-classic-medium-roast-coffee-25-9oz",
@@ -1863,7 +1886,7 @@
     "unitPriceUnit": "oz",
     "upc": "025500304076",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/550/030/4076/front_en.24.400.jpg",
     "productUrl": "https://www.target.com/p/folgers-classic-medium-roast-ground-coffee-25-9oz/-/A-13397813",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1906,7 +1929,8 @@
       "isRecommended": false,
       "comparisonGroup": "ground-coffee",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-simply-orange-juice-11-5floz",
@@ -1930,7 +1954,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "025000000249",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/500/000/0249/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/simply-orange-juice-original-11-5oz/-/A-13182985",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -1976,7 +2000,8 @@
       "isRecommended": false,
       "comparisonGroup": "orange-juice",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-banana-each",
@@ -2049,7 +2074,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239015025",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/901/5025/front_en.9.400.jpg",
     "productUrl": "https://www.target.com/p/all-natural-80-20-ground-beef-1lb-good-38-gather-8482/-/A-13287606",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2093,7 +2118,8 @@
       "isRecommended": true,
       "comparisonGroup": "ground-beef",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-landolakes-salted-butter-16oz",
@@ -2117,7 +2143,7 @@
     "unitPriceUnit": "oz",
     "upc": "034500151368",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/003/450/015/1368/front_en.32.400.jpg",
     "productUrl": "https://www.target.com/p/land-o-lakes-salted-butter-1lb/-/A-13227061",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2162,7 +2188,8 @@
       "isRecommended": false,
       "comparisonGroup": "butter",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-salted-butter-16oz",
@@ -2186,7 +2213,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239334317",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/933/4317/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/salted-butter-1lb-good-gather-8482/-/A-54445965",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2229,7 +2256,8 @@
       "isRecommended": false,
       "comparisonGroup": "butter",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-sour-cream-16oz",
@@ -2253,7 +2281,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239102497",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/910/2497/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/sour-cream-16oz-good-38-gather-8482/-/A-79556010",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2298,7 +2326,8 @@
       "isRecommended": false,
       "comparisonGroup": "sour-cream",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-kraft-singles-american-cheese-12oz",
@@ -2323,7 +2352,7 @@
     "unitPriceUnit": "oz",
     "upc": "021000604647",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/100/060/4647/front_en.84.400.jpg",
     "productUrl": "https://www.target.com/p/kraft-singles-american-cheese-slices-12oz-16ct/-/A-12955140",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2371,7 +2400,8 @@
       "isRecommended": false,
       "comparisonGroup": "american-cheese",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-deli-cheddar-slices-8oz",
@@ -2397,7 +2427,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239038871",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/903/8871/front_en.17.400.jpg",
     "productUrl": "https://www.target.com/p/reduced-fat-mild-cheddar-deli-sliced-cheese-8oz-12-slices-good-38-gather-8482/-/A-54340579",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2440,7 +2470,8 @@
       "isRecommended": true,
       "comparisonGroup": "deli-sliced-cheese",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-simple-blend-ketchup-32oz",
@@ -2464,7 +2495,7 @@
     "unitPriceUnit": "oz",
     "upc": "191907978872",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/019/190/797/8872/front_en.9.400.jpg",
     "productUrl": "https://www.target.com/p/simple-blend-ketchup-32oz-good-38-gather-8482/-/A-92961494",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2507,7 +2538,8 @@
       "isRecommended": false,
       "comparisonGroup": "condiments",
       "comparisonGroupSize": 8
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-marketpantry-yellow-mustard-14oz",
@@ -2532,7 +2564,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239047354",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/7354/front_en.18.400.jpg",
     "productUrl": "https://www.target.com/p/yellow-mustard-14oz-market-pantry-8482/-/A-13347661",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2575,7 +2607,8 @@
       "isRecommended": false,
       "comparisonGroup": "condiments",
       "comparisonGroupSize": 8
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-hellmanns-mayonnaise-15floz",
@@ -2599,7 +2632,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "048001213388",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/800/121/3388/front_en.30.400.jpg",
     "productUrl": "https://www.target.com/p/hellmann-39-s-mayonnaise-for-delicious-sandwiches-real-mayo-rich-in-omega-3-ala-15oz/-/A-13028013",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2642,7 +2675,8 @@
       "isRecommended": false,
       "comparisonGroup": "condiments",
       "comparisonGroupSize": 8
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-granulated-sugar-4lb",
@@ -2667,7 +2701,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239084533",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/908/4533/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2710,7 +2744,8 @@
       "isRecommended": true,
       "comparisonGroup": "baking",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-progresso-chicken-noodle-soup-19oz",
@@ -2734,7 +2769,7 @@
     "unitPriceUnit": "oz",
     "upc": "041196010886",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/119/601/0886/front_en.91.400.jpg",
     "productUrl": "https://www.target.com/p/progresso-traditional-chicken-noodle-soup-19oz/-/A-12955085",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2782,7 +2817,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-soup",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-chicken-noodle-soup-16oz",
@@ -2875,7 +2911,7 @@
     "unitPriceUnit": "oz",
     "upc": "076808516135",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/680/851/6135/front_en.67.400.jpg",
     "productUrl": "https://www.target.com/p/barilla-elbow-macaroni-pasta-16oz/-/A-13156086",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2923,7 +2959,8 @@
       "isRecommended": false,
       "comparisonGroup": "elbow-macaroni",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-barilla-rotini-16oz",
@@ -2947,7 +2984,7 @@
     "unitPriceUnit": "oz",
     "upc": "076808280982",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/680/828/0982/front_en.51.400.jpg",
     "productUrl": "https://www.target.com/p/barilla-rotini-pasta-16oz/-/A-13156094",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -2997,7 +3034,8 @@
       "isRecommended": true,
       "comparisonGroup": "rotini",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-elbow-macaroni-16oz",
@@ -3090,7 +3128,7 @@
     "unitPriceUnit": "oz",
     "upc": "071921428730",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/192/142/8730/front_en.15.400.jpg",
     "productUrl": "https://www.target.com/p/digiorno-wood-fired-four-cheese-frozen-pizza-14-6oz/-/A-94415303",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3133,7 +3171,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-pizza",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-margherita-pizza-15-5oz",
@@ -3158,7 +3197,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239098318",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/909/8318/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/signature-wood-fired-margherita-frozen-pizza-15-5oz-good-38-gather-8482/-/A-78862036",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3203,7 +3242,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-pizza",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-naturevalley-granola-bars-8-94oz",
@@ -3227,7 +3267,7 @@
     "unitPriceUnit": "oz",
     "upc": "016000264601",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/600/026/4601/front_en.60.400.jpg",
     "productUrl": "https://www.target.com/p/nature-valley-crunchy-oats-39-n-honey-granola-bars-6ct/-/A-12935981",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3278,7 +3318,8 @@
       "isRecommended": false,
       "comparisonGroup": "granola-bars",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-motts-applesauce-cups-24oz",
@@ -3302,7 +3343,7 @@
     "unitPriceUnit": "oz",
     "upc": "014800000108",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/480/000/0108/front_en.11.400.jpg",
     "productUrl": "https://www.target.com/p/mott-s-applesauce-6ct-4oz-cups/-/A-13062584",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3348,7 +3389,8 @@
       "isRecommended": false,
       "comparisonGroup": "applesauce",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-unsweetened-applesauce-46oz",
@@ -3372,7 +3414,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239045183",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/5183/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/unsweetened-applesauce-jar-46oz-good-gather-8482/-/A-54532245",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3415,7 +3457,8 @@
       "isRecommended": true,
       "comparisonGroup": "applesauce",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-old-fashioned-oats-18oz",
@@ -3440,7 +3483,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239111857",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/1857/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/old-fashioned-oats-18oz-good-38-gather-8482/-/A-79364883",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3483,7 +3526,8 @@
       "isRecommended": false,
       "comparisonGroup": "oats",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-quaker-old-fashioned-oats-42oz",
@@ -3507,7 +3551,7 @@
     "unitPriceUnit": "oz",
     "upc": "030000010402",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/003/000/001/0402/front_en.268.400.jpg",
     "productUrl": "https://www.target.com/p/quaker-oats-old-fashioned-oats-42oz/-/A-13331320",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3563,7 +3607,8 @@
       "isRecommended": false,
       "comparisonGroup": "oats",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-mild-salsa-16oz",
@@ -3588,7 +3633,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239120507",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/912/0507/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/mild-restaurant-style-salsa-16oz-good-38-gather-8482/-/A-79502415",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3634,7 +3679,8 @@
       "isRecommended": false,
       "comparisonGroup": "salsa",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-starkist-chunk-light-tuna-5oz",
@@ -3726,7 +3772,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239065211",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/906/5211/front_en.22.400.jpg",
     "productUrl": "https://www.target.com/p/chunk-light-tuna-in-water-2-6oz-good-38-gather-8482/-/A-76833341",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3775,7 +3821,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-tuna",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-snyders-pretzel-sticks-16oz",
@@ -3799,7 +3846,7 @@
     "unitPriceUnit": "oz",
     "upc": "077975080092",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/797/508/0092/front_en.28.400.jpg",
     "productUrl": "https://www.target.com/p/snyder-39-s-of-hanover-pretzel-sticks-family-size-16oz/-/A-12935862",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3848,7 +3895,8 @@
       "isRecommended": false,
       "comparisonGroup": "pretzels",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-cut-green-beans-14-5oz",
@@ -3872,7 +3920,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239116289",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/6289/front_en.17.400.jpg",
     "productUrl": "https://www.target.com/p/cut-green-beans-14-5oz-good-38-gather-8482/-/A-79466791",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3915,7 +3963,8 @@
       "isRecommended": true,
       "comparisonGroup": "canned-green-beans",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-whole-kernel-corn-15-25oz",
@@ -3940,7 +3989,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239116241",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/911/6241/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/golden-sweet-whole-kernel-corn-15-25oz-good-38-gather-8482/-/A-79466788",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -3983,7 +4032,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-corn",
       "comparisonGroupSize": 2
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-frozen-mixed-berries-12oz",
@@ -4009,7 +4059,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239048009",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/8009/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/frozen-mixed-berries-12oz-good-38-gather-8482/-/A-54532197",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4052,7 +4102,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-fruit",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-frozen-sliced-strawberries-16oz",
@@ -4077,7 +4128,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239047996",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/7996/front_en.11.400.jpg",
     "productUrl": "https://www.target.com/p/frozen-sliced-strawberries-16oz-good-38-gather-8482/-/A-54532155",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4123,7 +4174,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-fruit",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-oscarmayer-oven-roasted-turkey-9oz",
@@ -4148,7 +4200,7 @@
     "unitPriceUnit": "oz",
     "upc": "044700030509",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/470/003/0509/front_en.40.400.jpg",
     "productUrl": "https://www.target.com/p/oscar-mayer-deli-fresh-oven-roasted-turkey-breast-sliced-lunch-meat-9oz/-/A-12945881",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4196,7 +4248,8 @@
       "isRecommended": false,
       "comparisonGroup": "deli-meat",
       "comparisonGroupSize": 2
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-oscarmayer-honey-smoked-turkey-9oz",
@@ -4222,7 +4275,7 @@
     "unitPriceUnit": "oz",
     "upc": "044700030950",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/470/003/0950/front_en.41.400.jpg",
     "productUrl": "https://www.target.com/p/oscar-mayer-deli-fresh-honey-smoked-turkey-breast-sliced-lunch-meat-9oz/-/A-12945827",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4268,7 +4321,8 @@
       "isRecommended": true,
       "comparisonGroup": "deli-meat",
       "comparisonGroupSize": 2
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-mozzarella-string-cheese-12oz",
@@ -4294,7 +4348,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239293508",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/929/3508/front_en.22.400.jpg",
     "productUrl": "https://www.target.com/p/low-moisture-part-skim-mozzarella-string-cheese-12oz-12ct-good-38-gather-8482/-/A-84783437",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4337,7 +4391,8 @@
       "isRecommended": false,
       "comparisonGroup": "string-cheese",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-tostitos-original-tortilla-chips-12oz",
@@ -4361,7 +4416,7 @@
     "unitPriceUnit": "oz",
     "upc": "028400517997",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/840/051/7997/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/tostitos-original-restaurant-style-tortilla-chips-8211-12oz/-/A-12992590",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4406,7 +4461,8 @@
       "isRecommended": false,
       "comparisonGroup": "tortilla-chips",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-organic-white-corn-tortilla-chips-12oz",
@@ -4432,7 +4488,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239042670",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/2670/front_en.6.400.jpg",
     "productUrl": "https://www.target.com/p/organic-white-corn-tortilla-chips-12oz-good-gather-8482/-/A-54550864",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4483,7 +4539,8 @@
       "isRecommended": false,
       "comparisonGroup": "tortilla-chips",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-kraft-mac-and-cheese-7-25oz",
@@ -4507,7 +4564,7 @@
     "unitPriceUnit": "oz",
     "upc": "021000658831",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/100/065/8831/front_en.226.400.jpg",
     "productUrl": "https://www.target.com/p/kraft-original-mac-and-cheese-dinner-7-25oz/-/A-12954218",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4556,7 +4613,8 @@
       "isRecommended": false,
       "comparisonGroup": "boxed-mac-and-cheese",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-white-cheddar-mac-and-cheese-20oz",
@@ -4581,7 +4639,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239047736",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/7736/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/white-cheddar-mac-and-cheese-20oz-good-38-gather-8482/-/A-54550536",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4626,7 +4684,8 @@
       "isRecommended": true,
       "comparisonGroup": "prepared-mac-and-cheese",
       "comparisonGroupSize": 1
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-smuckers-strawberry-jam-32oz",
@@ -4650,7 +4709,7 @@
     "unitPriceUnit": "oz",
     "upc": "051500001639",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/005/150/000/1639/front_en.31.400.jpg",
     "productUrl": "https://www.target.com/p/smucker-39-s-strawberry-jam-32oz/-/A-13273822",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4695,7 +4754,8 @@
       "isRecommended": false,
       "comparisonGroup": "jam-jelly",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-vegetable-oil-48floz",
@@ -4719,7 +4779,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "085239058244",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/905/8244/front_en.15.400.jpg",
     "productUrl": "https://www.target.com/p/vegetable-oil-48oz-good-38-gather-8482/-/A-78376311",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4762,7 +4822,8 @@
       "isRecommended": false,
       "comparisonGroup": "cooking-oil",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-extra-virgin-olive-oil-16-9floz",
@@ -4787,7 +4848,7 @@
     "unitPriceUnit": "fl oz",
     "upc": "085239058336",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/905/8336/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/extra-virgin-olive-oil-16-9oz-good-38-gather-8482/-/A-77643078",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4830,7 +4891,8 @@
       "isRecommended": false,
       "comparisonGroup": "cooking-oil",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goldmedal-all-purpose-flour-2lb",
@@ -4854,7 +4916,7 @@
     "unitPriceUnit": "oz",
     "upc": "016000107106",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/600/010/7106/front_en.13.400.jpg",
     "productUrl": "https://www.target.com/p/gold-medal-all-purpose-flour-2lbs/-/A-13016243",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4897,7 +4959,8 @@
       "isRecommended": false,
       "comparisonGroup": "flour",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-unbleached-flour-5lb",
@@ -4922,7 +4985,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239077955",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/907/7955/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/unbleached-all-purpose-flour-5lb-good-38-gather-8482/-/A-77640693",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -4965,7 +5028,8 @@
       "isRecommended": false,
       "comparisonGroup": "flour",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-organic-baby-spinach-5oz",
@@ -4991,7 +5055,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239049044",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/9044/front_en.3.400.jpg",
     "productUrl": "https://www.target.com/p/organic-baby-spinach-5oz-good-38-gather-8482/-/A-54555537",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5036,7 +5100,8 @@
       "isRecommended": false,
       "comparisonGroup": "fresh-spinach",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-goodgather-baby-spinach-5oz",
@@ -5061,7 +5126,7 @@
     "unitPriceUnit": "oz",
     "upc": "085239049037",
     "availability": "in stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/904/9037/front_en.4.400.jpg",
     "productUrl": "https://www.target.com/p/baby-spinach-5oz-good-38-gather-8482/-/A-54555524",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5104,7 +5169,8 @@
       "isRecommended": true,
       "comparisonGroup": "fresh-spinach",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-spaghetti-16oz",
@@ -5129,7 +5195,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available; confirmed for zip 32828",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/508/0232/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/landing?product_id=311757&postal_code=32828&region_id=472660940&retailer_id=57",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5175,7 +5241,8 @@
       "isRecommended": true,
       "comparisonGroup": "spaghetti",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "target-barilla-spaghetti-16oz-publix",
@@ -5200,7 +5267,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available; BOGO promotion noted",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/007/680/828/0081/front_en.46.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/24738-barilla-classic-blue-box-pasta-spaghetti-16-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5249,7 +5316,8 @@
       "isRecommended": false,
       "comparisonGroup": "spaghetti",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-elbow-macaroni-16oz",
@@ -5394,7 +5462,7 @@
     "unitPriceUnit": "fl oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/500/1633/front_en.9.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/324942-publix-milk-whole-1-ea",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5440,7 +5508,8 @@
       "isRecommended": false,
       "comparisonGroup": "whole-milk",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-eggs-large-12ct",
@@ -5465,7 +5534,7 @@
     "unitPriceUnit": "count",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/500/2661/front_en.10.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/324877-publix-eggs-large-12-ct",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5513,7 +5582,8 @@
       "isRecommended": false,
       "comparisonGroup": "large-eggs",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-whitewheat-bread-20oz",
@@ -5586,7 +5656,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/516/7650/front_en.13.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/325148-publix-shredded-cheese-sharp-cheddar-8-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5634,7 +5704,8 @@
       "isRecommended": false,
       "comparisonGroup": "shredded-cheddar",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-honey-nut-cheerios-10-8oz",
@@ -5659,7 +5730,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/001/600/012/4790/front_en.139.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/18487456-honey-nut-cheerios-gluten-free-breakfast-cereal-10-800-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -5712,7 +5783,8 @@
       "isRecommended": false,
       "comparisonGroup": "honey-nut-cereal",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-white-rice-instant-28oz",
@@ -6075,7 +6147,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/550/030/4076/front_en.24.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/26704403-folgers-medium-roast-classic-roast-100-pure-ground-coffee-30-5-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6119,7 +6191,8 @@
       "isRecommended": false,
       "comparisonGroup": "ground-coffee",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-house-blend-coffee-12oz",
@@ -6144,7 +6217,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "out of stock",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/504/2070/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/382763-publix-premium-medium-roast-house-blend-arabica-ground-coffee-12-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6194,7 +6267,8 @@
       "isRecommended": false,
       "comparisonGroup": "ground-coffee",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-ketchup-tomato-64floz",
@@ -6218,7 +6292,7 @@
     "unitPriceUnit": "fl oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/502/2089/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/311704-publix-ketchup-tomato-64-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6264,7 +6338,8 @@
       "isRecommended": false,
       "comparisonGroup": "condiments",
       "comparisonGroupSize": 8
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-mayonnaise-real-15floz",
@@ -6409,7 +6484,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/008/523/907/7955/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/312959-publix-all-purpose-flour-2-lb",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6455,7 +6530,8 @@
       "isRecommended": false,
       "comparisonGroup": "flour",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-vegetable-oil-48floz",
@@ -6700,7 +6776,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/508/5534/front_en.10.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/3324261-publix-broccoli-florets-32-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6746,7 +6822,8 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-broccoli",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-diced-tomatoes-28oz",
@@ -6771,7 +6848,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/507/6419/front_en.4.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/3137831-publix-diced-tomatoes-28-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6817,7 +6894,8 @@
       "isRecommended": false,
       "comparisonGroup": "canned-tomatoes",
       "comparisonGroupSize": 5
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-old-fashioned-oats-42oz",
@@ -6842,7 +6920,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/502/1051/front_en.18.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/3325397-publix-oats-42-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -6888,7 +6966,8 @@
       "isRecommended": false,
       "comparisonGroup": "oats",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "walmart-great-value-spaghetti-16oz",
@@ -10081,7 +10160,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/519/9613/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/312258-publix-salsa-mild-16-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -10127,7 +10206,8 @@
       "isRecommended": false,
       "comparisonGroup": "salsa",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-starkist-tuna-12oz",
@@ -10200,7 +10280,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/002/840/004/7708/front_en.49.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/71723-rold-gold-sticks-pretzels-1-lb",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -10246,7 +10326,8 @@
       "isRecommended": false,
       "comparisonGroup": "pretzels",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-concord-grape-jelly-18oz",
@@ -10271,7 +10352,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/500/4191/front_en.8.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/325547-publix-concord-grape-jelly-18-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -10317,7 +10398,8 @@
       "isRecommended": false,
       "comparisonGroup": "jam-jelly",
       "comparisonGroupSize": 3
-    }
+    },
+    "imageSource": "open-food-facts"
   },
   {
     "id": "publix-mac-and-cheese-7-25oz",
@@ -10640,7 +10722,7 @@
     "unitPriceUnit": "oz",
     "upc": null,
     "availability": "delivery and pickup available",
-    "imageUrl": null,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/004/141/500/8465/front_en.3.400.jpg",
     "productUrl": "https://delivery.publix.com/store/publix/products/379038-publix-mixed-berries-12-oz",
     "priceCollectedAt": "2026-07-11",
     "source": {
@@ -10686,6 +10768,7 @@
       "isRecommended": false,
       "comparisonGroup": "frozen-fruit",
       "comparisonGroupSize": 4
-    }
+    },
+    "imageSource": "open-food-facts"
   }
 ]
