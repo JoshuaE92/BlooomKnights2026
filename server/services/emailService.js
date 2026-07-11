@@ -1,33 +1,35 @@
-const nodemailer = require('nodemailer');
 const env = require('../config/env');
 
-// Gmail SMTP — requires an App Password (Google Account > Security > App Passwords)
-const transporter = nodemailer.createTransport({
-  host: env.SMTP_HOST,
-  port: Number(env.SMTP_PORT),
-  secure: Number(env.SMTP_PORT) === 465, // true for 465, false for 587 (STARTTLS)
-  auth: {
-    user: env.SMTP_USER,
-    pass: env.SMTP_PASS,
-  },
-});
-
+// Resend HTTPS email API (https://resend.com) — works on Render free tier,
+// which blocks outbound SMTP. EMAIL_FROM must use the Resend-verified domain.
 const sendEmail = async ({ to, subject, html }) => {
-  await transporter.sendMail({
-    from: `"BloomKnights" <${env.EMAIL_FROM}>`,
-    to,
-    subject,
-    html,
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: `GreenCart <${env.EMAIL_FROM}>`,
+      to: [to],
+      subject,
+      html,
+    }),
   });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Resend API error (${response.status}): ${body}`);
+  }
 };
 
 const sendVerificationEmail = async (user, rawToken) => {
   const verifyUrl = `${env.CLIENT_URL}/verify-email/${rawToken}`;
   await sendEmail({
     to: user.email,
-    subject: 'Verify your BloomKnights email',
+    subject: 'Verify your GreenCart email',
     html: `
-      <h2>Welcome to BloomKnights, ${user.username}!</h2>
+      <h2>Welcome to GreenCart, ${user.username}!</h2>
       <p>Please confirm your email address by clicking the link below:</p>
       <p><a href="${verifyUrl}">Verify my email</a></p>
       <p>Or paste this URL into your browser:</p>
@@ -41,7 +43,7 @@ const sendPasswordResetEmail = async (user, rawToken) => {
   const resetUrl = `${env.CLIENT_URL}/reset-password/${rawToken}`;
   await sendEmail({
     to: user.email,
-    subject: 'Reset your BloomKnights password',
+    subject: 'Reset your GreenCart password',
     html: `
       <h2>Password reset requested</h2>
       <p>Hi ${user.username}, we received a request to reset your password.</p>
@@ -56,7 +58,7 @@ const sendPasswordResetEmail = async (user, rawToken) => {
 const sendUsernameReminderEmail = async (user) => {
   await sendEmail({
     to: user.email,
-    subject: 'Your BloomKnights username',
+    subject: 'Your GreenCart username',
     html: `
       <h2>Username reminder</h2>
       <p>You (or someone else) requested a reminder of the username for this email address.</p>
