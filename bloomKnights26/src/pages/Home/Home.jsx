@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import Header from './Header';
 import "./Home.css"
 
 function Home() {
     const [draftMessage, setDraftMessage] = useState("");
     const messagesContainerRef = useRef(null);
+    const navigationTimerRef = useRef(null);
+    const navigate = useNavigate();
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -21,6 +24,14 @@ function Home() {
         messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }, [messages]);
 
+    useEffect(() => {
+        return () => {
+            if (navigationTimerRef.current) {
+                clearTimeout(navigationTimerRef.current);
+            }
+        };
+    }, []);
+
     function handleSubmit(event) {
         event.preventDefault()
         const trimmedMessage = draftMessage.trim();
@@ -35,9 +46,22 @@ function Home() {
                 id: Date.now(),
                 role: "user",
                 text: trimmedMessage
+            },
+            {
+                id: Date.now() + 1,
+                role: "bot",
+                text: "gathering your ingredients..."
             }
         ]);
         setDraftMessage("");
+
+        if (navigationTimerRef.current) {
+            clearTimeout(navigationTimerRef.current);
+        }
+
+        navigationTimerRef.current = window.setTimeout(() => {
+            navigate("/cart");
+        }, 1500);
     }
 
     function handleTextareaKeyDown(event) {

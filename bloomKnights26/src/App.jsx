@@ -3,6 +3,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Home from "./pages/Home/Home"
 import Dashboard from "./pages/Dashboard"
+import Cart from "./pages/Cart"
 import "./App.css"
 
 const isLoggedIn = () => localStorage.getItem("isLoggedIn") === "true"
@@ -24,6 +25,10 @@ function App() {
         <Route
           path="/dashboard"
           element={isLoggedIn() ? <Dashboard /> : <Navigate to="/login" replace />}
+        />
+        <Route
+          path="/cart"
+          element={isLoggedIn() ? <Cart /> : <Navigate to="/login" replace />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
