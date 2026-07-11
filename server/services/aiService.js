@@ -1,25 +1,57 @@
 const env = require('../config/env');
 const { identifyNeededItems } = require('./geminiClient');
 const { searchProducts, getProducts } = require('./externalProductAPI');
-const { withGreenImpact } = require('../utils/greenImpactCalculator');
+const { calculateOverallScores, pickRecommended } = require('../utils/productScores');
 
 // TWO-PHASE FLOW
 //   Phase 1: turn the user's request into a list of needed grocery items.
 //            (Gemini if live; a simple keyword split as the mock fallback.)
-//   Phase 2: for EACH needed item, search the user's stores and pick the
-//            greenest matching product. Our code does the picking, so green
-//            scores stay authoritative — the AI never touches prices/scores.
+//   Phase 2: for EACH needed item, search the user's stores, score the
+//            candidates with the shared productScores logic, and pick the one
+//            with the best balanced overallScore (price + health + environment).
+//            The code does the ranking — the AI only figures out WHAT to buy.
 //
-// Same return shape regardless of source:
-//   { prompt, neededItems, picks, totalCost, avgGreenImpact, summary, source }
-// Each pick is a full product object + `forItem` (which needed item it fills).
+// Return shape:
+//   { prompt, neededItems, picks, totalCost, avgOverallScore, summary, source }
+// Each pick = { id, name, store, price, unit, forItem, overallScore,
+//               healthScore, environmentalScore, priceScore, environmentalDataAvailable }
+
+// Products carry the original scraped record in `raw`; scoring reads from there.
+function toScoreInput(p) {
+  return {
+    id: p.id,
+    price: p.price,
+    unitPrice: p.raw?.unitPrice,
+    openFoodFacts: p.raw?.openFoodFacts,
+  };
+}
+
+// Shape a chosen product for the response (drop the heavy `raw` blob).
+function toPick(product, scored, forItem) {
+  return {
+    id: product.id,
+    name: product.name,
+    store: product.store,
+    price: product.price,
+    unit: product.unit,
+    forItem,
+    overallScore: scored.overallScore,
+    healthScore: scored.healthScore,
+    environmentalScore: scored.environmentalScore,
+    priceScore: scored.priceScore,
+    environmentalDataAvailable: scored.environmentalDataAvailable,
+  };
+}
 
 function computeStats(picks) {
-  const totalCost = Number(picks.reduce((sum, p) => sum + p.price, 0).toFixed(2));
-  const avgGreenImpact = picks.length
-    ? Math.round(picks.reduce((sum, p) => sum + p.greenImpact, 0) / picks.length)
+  const priced = picks.filter((p) => p.price != null);
+  const totalCost = Number(priced.reduce((s, p) => s + p.price, 0).toFixed(2));
+
+  const scored = picks.filter((p) => p.overallScore != null);
+  const avgOverallScore = scored.length
+    ? Math.round(scored.reduce((s, p) => s + p.overallScore, 0) / scored.length)
     : 0;
-  return { totalCost, avgGreenImpact };
+  return { totalCost, avgOverallScore };
 }
 
 // --- Phase 1 fallback: naive decomposition when Gemini is off/unavailable ---
@@ -32,21 +64,25 @@ function mockDecompose(prompt) {
     .filter((w) => w.length > 2 && !STOPWORDS.has(w));
 }
 
-// --- Phase 2: search stores per item, pick greenest not already chosen ------
+// --- Phase 2: search stores per item, pick best overallScore not already used ---
 async function pickForItems({ stores, neededItems }) {
   const picks = [];
   const seen = new Set();
 
   for (const item of neededItems) {
-    const candidates = (await searchProducts({ stores, query: item, limit: 10 }))
-      .map(withGreenImpact)
-      .sort((a, b) => b.greenImpact - a.greenImpact);
+    const candidates = await searchProducts({ stores, query: item, limit: 10 });
+    if (!candidates.length) continue;
 
-    const best = candidates.find((c) => !seen.has(c.id)); // greenest still available
-    if (best) {
-      seen.add(best.id);
-      picks.push({ ...best, forItem: item });
-    }
+    const scored = calculateOverallScores(candidates.map(toScoreInput));
+    const scoredById = new Map(scored.map((s) => [s.id, s]));
+
+    // best balanced product for this item that we haven't already picked
+    const available = scored.filter((s) => !seen.has(s.id));
+    const bestId = pickRecommended(available);
+    if (!bestId) continue;
+
+    seen.add(bestId);
+    picks.push(toPick(candidates.find((c) => c.id === bestId), scoredById.get(bestId), item));
   }
   return picks;
 }
@@ -72,17 +108,21 @@ async function suggest({ prompt, stores, maxItems = 6 }) {
     neededItems = mockDecompose(prompt);
     source = 'mock';
   }
+  neededItems = neededItems.slice(0, maxItems);
 
-  // Phase 2 — search the stores for each item and pick the greenest.
+  // Phase 2 — search + rank per item.
   let picks = await pickForItems({ stores, neededItems });
 
-  // Safety net: nothing matched any item → just offer the greenest in-store.
+  // Safety net: nothing matched any item → best-overall products in-store.
   if (!picks.length) {
-    picks = (await getProducts({ stores }))
-      .map(withGreenImpact)
-      .sort((a, b) => b.greenImpact - a.greenImpact)
+    const all = await getProducts({ stores });
+    const scored = calculateOverallScores(all.map(toScoreInput));
+    const byId = new Map(all.map((p) => [p.id, p]));
+    picks = scored
+      .filter((s) => s.overallScore != null)
+      .sort((a, b) => b.overallScore - a.overallScore)
       .slice(0, maxItems)
-      .map((p) => ({ ...p, forItem: null }));
+      .map((s) => toPick(byId.get(s.id), s, null));
   }
 
   return {
@@ -90,7 +130,7 @@ async function suggest({ prompt, stores, maxItems = 6 }) {
     neededItems,
     picks,
     ...computeStats(picks),
-    summary: summary || `Found ${picks.length} greener items for "${prompt}".`,
+    summary: summary || `Found ${picks.length} items for "${prompt}".`,
     source,
   };
 }
