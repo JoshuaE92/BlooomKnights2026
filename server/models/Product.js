@@ -18,6 +18,13 @@ const productSchema = new mongoose.Schema(
 
     // --- CATCH-ALL: stash any scraped/API fields we haven't formalized yet ---
     raw: { type: mongoose.Schema.Types.Mixed },
+
+    // Cached Gemini "why greener" sentence (see greenExplanationService).
+    // Regenerated when absent; wiped harmlessly by re-seeds.
+    greenExplanation: {
+      text: { type: String },
+      generatedAt: { type: Date },
+    },
   },
   {
     timestamps: true,

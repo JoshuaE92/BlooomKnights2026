@@ -22,6 +22,10 @@ const env = {
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   // 'mock' = never call Gemini (free, dev/testing). 'live' = use Gemini. Default: live.
   AI_MODE: (process.env.AI_MODE || 'live').toLowerCase(),
+
+  // GNews (https://gnews.io) — "learn more" articles per green tag.
+  // Optional: without it, /api/ai/articles returns empty lists.
+  GNEWS_API_KEY: process.env.GNEWS_API_KEY,
 };
 
 // Fail fast if critical secrets are missing

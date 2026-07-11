@@ -1,4 +1,5 @@
 const { suggest } = require('../services/aiService');
+const { getArticlesByTags } = require('../services/newsArticleService');
 const RecipeQuery = require('../models/RecipeQuery');
 
 // POST /api/ai/suggest   (protected)
@@ -31,4 +32,25 @@ async function getHistory(req, res, next) {
   }
 }
 
-module.exports = { suggestCart, getHistory };
+// GET /api/ai/articles?tags=organic,fair-trade   (protected)
+// "Learn more" articles for green tags. Cached daily per tag server-side.
+async function getArticles(req, res, next) {
+  try {
+    const tags = (req.query.tags || '')
+      .split(',')
+      .map((t) => t.trim().toLowerCase())
+      .filter(Boolean)
+      .slice(0, 10); // cap to protect the news API quota
+
+    if (!tags.length) {
+      return res.status(400).json({ success: false, message: 'Query param "tags" is required, e.g. ?tags=organic,fair-trade' });
+    }
+
+    const articlesByTag = await getArticlesByTags(tags);
+    res.json({ tags, articlesByTag });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { suggestCart, getHistory, getArticles };
