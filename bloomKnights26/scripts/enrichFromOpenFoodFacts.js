@@ -30,6 +30,10 @@ function buildEnrichmentRecord(offProduct, matchMethod, matchConfidence) {
     matched: true,
     matchMethod,
     matchConfidence,
+    // Audit fields (not in the original project schema): retained so match
+    // correctness can be spot-checked after the fact.
+    offProductName: p.product_name ?? null,
+    offBrand: p.brands ?? null,
     barcode: p.code ?? null,
     nutrition: {
       nutriScoreGrade: p.nutriscore_grade ?? null,
