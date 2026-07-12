@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "description": "Curated 'learn more' articles per green tag — real, current sources on global impact a shopper can affect. Static (not live-fetched). Keys match the canonical tags in server/utils/greenTags.js.",
+    "sourcedAt": "2026-07"
+  },
+  "organic": [
+    {
+      "title": "Benefits of Organic",
+      "url": "https://www.nationalorganiccoalition.org/organic-benefits",
+      "source": "National Organic Coalition",
+      "summary": "How organic farming reduces toxic pesticides, protects water quality, and builds biodiversity."
+    },
+    {
+      "title": "The Environmental Benefits of Going Organic",
+      "url": "https://www.organicvoices.org/the-environmental-benefits-of-going-organic-a-deep-dive-for-earth-day/",
+      "source": "Organic Voices",
+      "summary": "Organic farms support ~30% more species and cut water contamination by up to 75% vs conventional."
+    }
+  ],
+  "plastic-packaging": [
+    {
+      "title": "The FoodPrint of Food Packaging",
+      "url": "https://foodprint.org/reports/the-foodprint-of-food-packaging/",
+      "source": "FoodPrint",
+      "summary": "How food packaging drives waste and pollution — packaging is ~28% of US municipal waste."
+    },
+    {
+      "title": "The Plastic Problem: How Food Packaging Impacts the Environment",
+      "url": "https://www.foodfacts.org/articles/the-plastic-problem-how-food-packaging-impacts",
+      "source": "FoodFacts.org",
+      "summary": "~8M metric tons of plastic enter the oceans yearly; single-use food packaging is a top contributor."
+    }
+  ],
+  "recyclable-packaging": [
+    {
+      "title": "The FoodPrint of Food Packaging",
+      "url": "https://foodprint.org/reports/the-foodprint-of-food-packaging/",
+      "source": "FoodPrint",
+      "summary": "Why choosing recyclable/renewable packaging (glass, cardboard) diverts waste from landfills."
+    }
+  ],
+  "plant-based": [
+    {
+      "title": "Your Guide to Climate Action: Food",
+      "url": "https://www.un.org/en/actnow/food",
+      "source": "United Nations",
+      "summary": "The UN's guide to how food choices — especially eating more plants — cut personal emissions."
+    },
+    {
+      "title": "Swapping Meat and Dairy for Plant-Based Foods Cuts Climate Pollution by 35%",
+      "url": "https://www.pcrm.org/news/news-releases/swapping-meat-and-dairy-plant-based-foods-cuts-climate-pollution-35-randomized",
+      "source": "Physicians Committee (PCRM)",
+      "summary": "A clinical trial: shifting to plant-based cut diet emissions ~35% (≈600 fewer miles driven/yr)."
+    }
+  ],
+  "fair-trade": [
+    {
+      "title": "Fair Trade & The Environment: Protecting the Planet",
+      "url": "https://www.fairtradecertified.org/why-fair-trade/issues/environment/",
+      "source": "Fair Trade Certified",
+      "summary": "Certified farms ban deforestation and harmful pesticides while supporting farmer livelihoods."
+    },
+    {
+      "title": "Does Fairtrade Really Work?",
+      "url": "https://www.foodunfolded.com/article/does-fairtrade-really-work",
+      "source": "FoodUnfolded",
+      "summary": "A balanced look at how Fairtrade certification helps (and its limits) for farming communities."
+    }
+  ],
+  "sustainable-seafood": [
+    {
+      "title": "Sustainable Seafood — Marine Stewardship Council",
+      "url": "https://www.msc.org/en-us",
+      "source": "Marine Stewardship Council (MSC)",
+      "summary": "How the MSC blue-tick label and consumer choices help end overfishing and protect oceans."
+    },
+    {
+      "title": "Buy Sustainable Seafood",
+      "url": "https://wwf.panda.org/act/live_green/out_shopping/seafood/",
+      "source": "WWF",
+      "summary": "A shopper's guide to seafood choices that reduce pressure on overfished stocks."
+    }
+  ]
+}

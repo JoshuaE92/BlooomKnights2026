@@ -1,0 +1,124 @@
+.news {
+    width: min(64rem, 100%);
+    margin: 2.5rem auto 0;
+    padding: 1.25rem 1.25rem 1.5rem;
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--color-background) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+    box-shadow: 0 12px 34px color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+.news__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+    padding: 0 0.25rem;
+}
+
+.news__title {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.09em;
+}
+
+.news__hint {
+    color: color-mix(in srgb, var(--color-text) 45%, transparent);
+    font-size: 0.8rem;
+}
+
+/* Viewport clips the track and fades the edges. */
+.news__viewport {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+
+.news__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: news-scroll 45s linear infinite;
+}
+
+/* Pause the marquee on hover so a user can click a card. */
+.news__viewport:hover .news__track {
+    animation-play-state: paused;
+}
+
+@keyframes news-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .news__track { animation: none; }
+    .news__viewport { overflow-x: auto; }
+}
+
+.news-card {
+    flex: 0 0 20rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background);
+    border: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.news-card__art {
+    position: relative;
+    height: 9.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-card__emoji {
+    font-size: 3.25rem;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.news-card__badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    background: var(--color-background);
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+}
+
+.news-card__body {
+    padding: 0.95rem 1.05rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1 1 auto;
+}
+
+.news-card__headline {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.news-card__read {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: auto;
+}

@@ -1,117 +1,87 @@
-import { useEffect, useRef, useState } from "react";
-import Header from './Header';
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import Header from "./Header";
+import NewsCarousel from "./NewsCarousel";
 import { api } from "../../api";
-import "./Home.css"
+import "./Home.css";
 
 function Home() {
-    const [draftMessage, setDraftMessage] = useState("");
-    const messagesContainerRef = useRef(null);
-    const [messages, setMessages] = useState([
-        {
-            id: 1,
-            role: "bot",
-            text: "Hello, send a meal you would like to cook and I will provide you with a renewable ingredient list"
-        }
-    ]);
-
-    useEffect(() => {
-        if (!messagesContainerRef.current) {
-            return;
-        }
-
-        messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-    }, [messages]);
+    const navigate = useNavigate();
+    const [prompt, setPrompt] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     async function handleSubmit(event) {
-        event.preventDefault()
-        const trimmedMessage = draftMessage.trim();
+        event.preventDefault();
+        const trimmed = prompt.trim();
+        if (!trimmed || loading) return;
 
-        if (!trimmedMessage) {
-            return;
-        }
-
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            { id: Date.now(), role: "user", text: trimmedMessage },
-            { id: "loading", role: "bot", text: "Finding greener ingredients…" }
-        ]);
-        setDraftMessage("");
-
+        setError("");
+        setLoading(true);
         try {
-            // no stores => search all stores; backend picks by overallScore
-            const res = await api.suggest(trimmedMessage);
-
-            const lines = res.picks?.length
-                ? res.picks
-                      .map((p) => `• ${p.name} — ${p.store}${p.price != null ? ` · $${p.price}` : ""}${p.overallScore != null ? ` · score ${p.overallScore}` : ""}`)
-                      .join("\n")
-                : "I couldn't find matching products for that.";
-
-            const summary = res.picks?.length
-                ? `\n\nTotal: $${res.totalCost} · avg score ${res.avgOverallScore}`
-                : "";
-
-            const text = `Here's a greener cart for "${trimmedMessage}":\n${lines}${summary}`;
-
-            setMessages((cur) => [
-                ...cur.filter((m) => m.id !== "loading"),
-                { id: Date.now() + 1, role: "bot", text }
-            ]);
+            const res = await api.suggest(trimmed);
+            // Hand the result to the results page (Dashboard reads it).
+            sessionStorage.setItem("greenCart", JSON.stringify({ prompt: trimmed, ...res }));
+            navigate("/dashboard");
         } catch (err) {
-            const msg = /not authorized|token/i.test(err.message)
-                ? "Please log in again to use the chat."
-                : err.message;
-            setMessages((cur) => [
-                ...cur.filter((m) => m.id !== "loading"),
-                { id: Date.now() + 1, role: "bot", text: `⚠️ ${msg}` }
-            ]);
-        }
-    }
-
-    function handleTextareaKeyDown(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            handleSubmit(event);
+            setError(
+                /not authorized|token/i.test(err.message)
+                    ? "Please log in again to generate your list."
+                    : err.message || "Something went wrong. Try again."
+            );
+        } finally {
+            setLoading(false);
         }
     }
 
     return (
-    <main className="home-page">
-        <Header />
-        <div className="home-content">
-            <p className="home-subheader">start your recipe chat</p>
-            <section className="chatbot-card" aria-labelledby="chatbot-title">
-                <div className="chatbot-card__header">
-                    <h2 id="chatbot-title">Dr. Green :0</h2>
-                    <p>Enter a meal you would like to cook</p>
-                </div>
-                <div className="chatbot-card__messages" aria-live="polite" ref={messagesContainerRef}>
-                    {messages.map((message) => (
-                        <p
-                            key={message.id}
-                            className={`chatbot-card__message chatbot-card__message--${message.role}`}
-                            style={{ whiteSpace: "pre-line" }}
-                        >
-                            {message.text}
-                        </p>
-                    ))}
-                </div>
-                <form className="chatbot-form" onSubmit={handleSubmit}>
-                    <label htmlFor="chatbot-message">You:</label>
-                    <textarea
-                        id="chatbot-message"
-                        name="chatbot-message"
-                        placeholder="Ask about ingredients, recipes, or swaps"
-                        rows="3"
-                        value={draftMessage}
-                        onChange={(event) => setDraftMessage(event.target.value)}
-                        onKeyDown={handleTextareaKeyDown}
-                    />
-                    <button type="submit">send</button>
+        <main className="home-page">
+            <Header />
+
+            <section className="home-hero">
+                <span className="home-badge">✦ AI-powered sustainable shopping</span>
+                <h1 className="home-title">Start your recipe</h1>
+                <p className="home-subtitle">
+                    Tell us what you're cooking. We'll build a curated shopping list with the
+                    greenest ingredients — ranked by carbon impact, sourcing, and freshness.
+                </p>
+
+                <form className="home-card" onSubmit={handleSubmit}>
+                    <label className="home-card__label" htmlFor="recipe-input">
+                        WHAT WOULD YOU LIKE TO COOK?
+                    </label>
+                    <div className="home-card__row">
+                        <input
+                            id="recipe-input"
+                            className="home-card__input"
+                            type="text"
+                            placeholder="e.g. spaghetti bolognese, Thai green curry, weeknight tacos..."
+                            value={prompt}
+                            onChange={(e) => setPrompt(e.target.value)}
+                            autoComplete="off"
+                        />
+                        <button className="home-card__btn" type="submit" disabled={loading}>
+                            {loading ? "Generating…" : "Generate"}
+                            <span aria-hidden="true">➤</span>
+                        </button>
+                    </div>
+                    <p className={`home-card__hint${error ? " home-card__hint--error" : ""}`}>
+                        {error ? `⚠️ ${error}` : "Press Enter to generate your greenest shopping list."}
+                    </p>
                 </form>
+
+                <NewsCarousel />
             </section>
-        </div>
-    </main>
+
+            <footer className="home-footer">
+                <span className="home-footer__brand">🌿 © 2026 Green Cart — shop greener, live better.</span>
+                <span className="home-footer__links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </span>
+            </footer>
+        </main>
     );
 }
 
