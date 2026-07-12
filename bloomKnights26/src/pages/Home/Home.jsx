@@ -1,140 +1,97 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
-import Header from './Header';
+import Header from "./Header";
+import NewsCarousel from "./NewsCarousel";
 import { api } from "../../api";
-import "./Home.css"
+import "./Home.css";
 
-// Cart page reads this to preload the AI's picks.
+// Cart page reads this key to preload the AI's picks. Keep it exported —
+// src/pages/Cart.jsx imports it. (Changing/removing it breaks the Cart page.)
 export const AI_SUGGESTION_STORAGE_KEY = "aiSuggestion";
 
-function formatSuggestion(result) {
-    const lines = (result.picks || []).map((pick) => {
-        const price = pick.price != null ? ` — $${pick.price.toFixed(2)}` : "";
-        const why = pick.greenExplanation ? `\n   ${pick.greenExplanation}` : "";
-        return `• ${pick.name}${price}${why}`;
-    });
-
-    const total = result.totalCost != null ? `\n\nEstimated total: $${result.totalCost.toFixed(2)}` : "";
-    return `${result.summary}\n\n${lines.join("\n")}${total}\n\nTaking you to your cart…`;
-}
-
 function Home() {
-    const [draftMessage, setDraftMessage] = useState("");
-    const [sending, setSending] = useState(false);
-    const messagesContainerRef = useRef(null);
-    const navigationTimerRef = useRef(null);
     const navigate = useNavigate();
-    const [messages, setMessages] = useState([
-        {
-            id: 1,
-            role: "bot",
-            text: "Hello, send a meal you would like to cook and I will provide you with a renewable ingredient list"
-        }
-    ]);
-
-    useEffect(() => {
-        if (!messagesContainerRef.current) {
-            return;
-        }
-
-        messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-    }, [messages]);
-
-    useEffect(() => {
-        return () => {
-            if (navigationTimerRef.current) {
-                clearTimeout(navigationTimerRef.current);
-            }
-        };
-    }, []);
-
-    function appendMessage(role, text) {
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            { id: Date.now() + Math.random(), role, text }
-        ]);
-    }
+    const [prompt, setPrompt] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     async function handleSubmit(event) {
-        event.preventDefault()
-        const trimmedMessage = draftMessage.trim();
+        event.preventDefault();
+        const trimmed = prompt.trim();
+        if (!trimmed || loading) return;
 
-        if (!trimmedMessage || sending) {
-            return;
-        }
-
-        appendMessage("user", trimmedMessage);
-        appendMessage("bot", "gathering your ingredients...");
-        setDraftMessage("");
-        setSending(true);
-
+        setError("");
+        setLoading(true);
         try {
-            const result = await api.suggest(trimmedMessage);
+            const result = await api.suggest(trimmed);
 
             if (!result.picks?.length) {
-                appendMessage("bot", "I couldn't find matching products for that — try describing the meal differently.");
+                setError("I couldn't find matching products for that — try describing the meal differently.");
                 return;
             }
 
-            // Cart page preloads these picks.
+            // Hand the picks to the Cart page, then go there (Home -> Cart -> Dashboard).
             localStorage.setItem(AI_SUGGESTION_STORAGE_KEY, JSON.stringify(result));
-
-            appendMessage("bot", formatSuggestion(result));
-
-            navigationTimerRef.current = window.setTimeout(() => {
-                navigate("/cart");
-            }, 2500);
+            navigate("/cart");
         } catch (err) {
-            appendMessage("bot", `Something went wrong: ${err.message}. Please try again.`);
+            setError(
+                /not authorized|token/i.test(err.message)
+                    ? "Please log in again to generate your list."
+                    : err.message || "Something went wrong. Try again."
+            );
         } finally {
-            setSending(false);
-        }
-    }
-
-    function handleTextareaKeyDown(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            handleSubmit(event);
+            setLoading(false);
         }
     }
 
     return (
-    <main className="home-page">
-        <Header />
-        <div className="home-content">
-            <p className="home-subheader">start your recipe chat</p>
-            <section className="chatbot-card" aria-labelledby="chatbot-title">
-                <div className="chatbot-card__header">
-                    <h2 id="chatbot-title">Dr. Green :0</h2>
-                    <p>Enter a meal you would like to cook</p>
-                </div>
-                <div className="chatbot-card__messages" aria-live="polite" ref={messagesContainerRef}>
-                    {messages.map((message) => (
-                        <p
-                            key={message.id}
-                            className={`chatbot-card__message chatbot-card__message--${message.role}`}
-                            style={{ whiteSpace: "pre-line" }}
-                        >
-                            {message.text}
-                        </p>
-                    ))}
-                </div>
-                <form className="chatbot-form" onSubmit={handleSubmit}>
-                    <label htmlFor="chatbot-message">You:</label>
-                    <textarea
-                        id="chatbot-message"
-                        name="chatbot-message"
-                        placeholder="Ask about ingredients, recipes, or swaps"
-                        rows="3"
-                        value={draftMessage}
-                        onChange={(event) => setDraftMessage(event.target.value)}
-                        onKeyDown={handleTextareaKeyDown}
-                    />
-                    <button type="submit" disabled={sending}>{sending ? "thinking…" : "send"}</button>
+        <main className="home-page">
+            <Header />
+
+            <section className="home-hero">
+                <span className="home-badge">✦ AI-powered sustainable shopping</span>
+                <h1 className="home-title">Start your recipe</h1>
+                <p className="home-subtitle">
+                    Tell us what you're cooking. We'll build a curated shopping list with the
+                    greenest ingredients — ranked by carbon impact, sourcing, and freshness.
+                </p>
+
+                <form className="home-card" onSubmit={handleSubmit}>
+                    <label className="home-card__label" htmlFor="recipe-input">
+                        WHAT WOULD YOU LIKE TO COOK?
+                    </label>
+                    <div className="home-card__row">
+                        <input
+                            id="recipe-input"
+                            className="home-card__input"
+                            type="text"
+                            placeholder="e.g. spaghetti bolognese, Thai green curry, weeknight tacos..."
+                            value={prompt}
+                            onChange={(e) => setPrompt(e.target.value)}
+                            autoComplete="off"
+                        />
+                        <button className="home-card__btn" type="submit" disabled={loading}>
+                            {loading ? "Generating…" : "Generate"}
+                            <span aria-hidden="true">➤</span>
+                        </button>
+                    </div>
+                    <p className={`home-card__hint${error ? " home-card__hint--error" : ""}`}>
+                        {error ? `⚠️ ${error}` : "Press Enter to generate your greenest shopping list."}
+                    </p>
                 </form>
+
+                <NewsCarousel />
             </section>
-        </div>
-    </main>
+
+            <footer className="home-footer">
+                <span className="home-footer__brand">🌿 © 2026 Green Cart — shop greener, live better.</span>
+                <span className="home-footer__links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </span>
+            </footer>
+        </main>
     );
 }
 
