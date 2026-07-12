@@ -401,3 +401,19 @@
 	color: var(--color-primary);
 	background: color-mix(in srgb, var(--color-primary) 14%, var(--color-background));
 }
+
+/* Negative tags (plastic packaging, ultra-processed, ...) — muted red chip */
+.dashboard-good-tag--negative {
+	color: #b3402a;
+	background: color-mix(in srgb, #b3402a 12%, var(--color-background));
+}
+
+/* Tag row under each previous-cart product list */
+.dashboard-cart-card__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 0.7rem;
+	padding-top: 0.7rem;
+	border-top: 1px dashed color-mix(in srgb, var(--color-text) 15%, transparent);
+}

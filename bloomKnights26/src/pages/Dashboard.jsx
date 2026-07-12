@@ -14,19 +14,36 @@ function formatCartItemName(item) {
         .join(" ");
 }
 
-// Distinct positive environmental tags across a cart's items — shown under the
-// green score for the most recent cart.
-function collectGoodTags(cart) {
+// All distinct environmental tags across a cart's items (deduped by tag).
+// Shown under the green score for the latest cart and under each previous
+// cart's product list. Positive tags render green, negative ones muted red.
+function collectTags(cart) {
     if (!cart?.items) return [];
     const seen = new Map();
     for (const item of cart.items) {
         for (const reason of item.reasons || []) {
-            if (reason?.polarity === "positive" && !seen.has(reason.tag)) {
-                seen.set(reason.tag, reason.label);
+            if (reason?.tag && !seen.has(reason.tag)) {
+                seen.set(reason.tag, { tag: reason.tag, label: reason.label, polarity: reason.polarity });
             }
         }
     }
     return [...seen.values()];
+}
+
+function TagChips({ tags, className, label }) {
+    if (!tags.length) return null;
+    return (
+        <div className={className} aria-label={label}>
+            {tags.map((t) => (
+                <span
+                    key={t.tag}
+                    className={`dashboard-good-tag${t.polarity === "negative" ? " dashboard-good-tag--negative" : ""}`}
+                >
+                    {t.label}
+                </span>
+            ))}
+        </div>
+    );
 }
 
 function Dashboard() {
@@ -50,7 +67,7 @@ function Dashboard() {
         [snapshot]
     );
     const greenScore = snapshot?.greenScore ?? 0;
-    const goodTags = useMemo(() => collectGoodTags(snapshot), [snapshot]);
+    const snapshotTags = useMemo(() => collectTags(snapshot), [snapshot]);
     const arcLength = 100;
     const arcOffset = arcLength - greenScore;
 
@@ -91,13 +108,11 @@ function Dashboard() {
                                             <strong>{greenScore}%</strong>
                                         </div>
                                     </div>
-                                    {goodTags.length > 0 && (
-                                        <div className="dashboard-overview__tags" aria-label="Environmental highlights">
-                                            {goodTags.slice(0, 6).map((label) => (
-                                                <span key={label} className="dashboard-good-tag">{label}</span>
-                                            ))}
-                                        </div>
-                                    )}
+                                    <TagChips
+                                        tags={snapshotTags}
+                                        className="dashboard-overview__tags"
+                                        label="Environmental tags from this cart's ingredients"
+                                    />
                                 </div>
                             ) : (
                                 <p className="dashboard-empty">
@@ -206,6 +221,11 @@ function Dashboard() {
                                                     <span>Total</span>
                                                     <strong>${cartEntry.total.toFixed(2)}</strong>
                                                 </div>
+                                                <TagChips
+                                                    tags={collectTags(cartEntry)}
+                                                    className="dashboard-cart-card__tags"
+                                                    label={`Environmental tags in the ${cartEntry.store} cart`}
+                                                />
                                             </div>
                                         </div>
                                     );
