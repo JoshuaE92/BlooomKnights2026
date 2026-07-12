@@ -6,7 +6,8 @@ import { AI_SUGGESTION_STORAGE_KEY } from "./Home/Home";
 import "./Cart.css";
 
 // Quantity-weighted average green score of the cart (0-100).
-// Items without a greenScore fall back to overallScore; unscored items are skipped.
+// Uses each item's real greenScore (falls back to overallScore); unscored items
+// are skipped. Recomputed whenever the cart changes, so it accumulates live.
 function computeGreenMeter(items) {
 	let weighted = 0;
 	let quantity = 0;
@@ -21,6 +22,20 @@ function computeGreenMeter(items) {
 	return quantity ? Math.round(weighted / quantity) : 0;
 }
 
+// Small env-tag chips (organic, recyclable packaging, plastic packaging, ...).
+function ReasonTags({ reasons }) {
+	if (!reasons?.length) return null;
+	return (
+		<div className="ingredient-item__tags">
+			{reasons.slice(0, 4).map((r) => (
+				<span key={r.tag} className={`ing-tag ing-tag--${r.polarity}`}>
+					{r.label}
+				</span>
+			))}
+		</div>
+	);
+}
+
 function Cart() {
 	const navigate = useNavigate();
 	const [stores, setStores] = useState([]);
@@ -29,21 +44,20 @@ function Cart() {
 	const [loadingProducts, setLoadingProducts] = useState(true);
 	const [saving, setSaving] = useState(false);
 	const [error, setError] = useState("");
-	const [cart, setCart] = useState(() => {
-		// Preload the AI chatbot's picks (saved by the Home page), one of each.
+
+	// Cart starts EMPTY — items are only added by the user.
+	const [cart, setCart] = useState({});
+
+	// The AI's recipe picks (saved by Home) are shown as SUGGESTIONS to add,
+	// not auto-loaded into the cart.
+	const [suggestions] = useState(() => {
 		try {
 			const stored = localStorage.getItem(AI_SUGGESTION_STORAGE_KEY);
-			if (!stored) return {};
+			if (!stored) return [];
 			localStorage.removeItem(AI_SUGGESTION_STORAGE_KEY);
-
-			const suggestion = JSON.parse(stored);
-			const preloaded = {};
-			for (const pick of suggestion.picks || []) {
-				preloaded[pick.id] = { ...pick, quantity: 1 };
-			}
-			return preloaded;
+			return JSON.parse(stored).picks || [];
 		} catch {
-			return {};
+			return [];
 		}
 	});
 
@@ -77,7 +91,6 @@ function Cart() {
 	function handleAddIngredient(product) {
 		setCart((previousCart) => {
 			const existingItem = previousCart[product.id];
-
 			return {
 				...previousCart,
 				[product.id]: {
@@ -91,23 +104,16 @@ function Cart() {
 	function handleRemoveOneItem(itemId) {
 		setCart((previousCart) => {
 			const existingItem = previousCart[itemId];
-
-			if (!existingItem) {
-				return previousCart;
-			}
+			if (!existingItem) return previousCart;
 
 			if (existingItem.quantity <= 1) {
 				const updatedCart = { ...previousCart };
 				delete updatedCart[itemId];
 				return updatedCart;
 			}
-
 			return {
 				...previousCart,
-				[itemId]: {
-					...existingItem,
-					quantity: existingItem.quantity - 1
-				}
+				[itemId]: { ...existingItem, quantity: existingItem.quantity - 1 }
 			};
 		});
 	}
@@ -125,9 +131,7 @@ function Cart() {
 	}
 
 	async function handleContinue() {
-		if (cartItems.length === 0 || saving) {
-			return;
-		}
+		if (cartItems.length === 0 || saving) return;
 
 		setSaving(true);
 		setError("");
@@ -151,6 +155,34 @@ function Cart() {
 		} finally {
 			setSaving(false);
 		}
+	}
+
+	// One ingredient row (used for both AI suggestions and store products).
+	function renderIngredient(product) {
+		const score = product.greenScore ?? product.overallScore;
+		return (
+			<div key={product.id} className="ingredient-item">
+				<div className="ingredient-item__info">
+					<p className="ingredient-item__name">{product.name}</p>
+					<p className="ingredient-item__meta">
+						${(product.price ?? 0).toFixed(2)}{product.unit ? ` / ${product.unit}` : ""}
+						{product.store ? ` · ${product.store}` : ""}
+					</p>
+					{score != null && (
+						<span className="ingredient-item__badge">🌱 {score}</span>
+					)}
+					<ReasonTags reasons={product.reasons} />
+				</div>
+				<button
+					type="button"
+					className="ingredient-item__add"
+					onClick={() => handleAddIngredient(product)}
+					aria-label={`Add ${product.name} to cart`}
+				>
+					+
+				</button>
+			</div>
+		);
 	}
 
 	return (
@@ -197,34 +229,20 @@ function Cart() {
 						</div>
 
 						<div className="cart-list" aria-label="Ingredient list">
+							{suggestions.length > 0 && (
+								<>
+									<p className="ingredients-panel__suggested">✨ Suggested for your recipe</p>
+									{suggestions.map(renderIngredient)}
+									<p className="ingredients-panel__all">All products</p>
+								</>
+							)}
+
 							{loadingProducts ? (
 								<div className="cart-empty">
 									<p className="cart-empty__title">Loading products…</p>
 								</div>
 							) : (
-								products.map((product) => (
-									<div key={product.id} className="ingredient-item">
-										<div className="ingredient-item__info">
-											<p className="ingredient-item__name">{product.name}</p>
-											<p className="ingredient-item__meta">
-												${(product.price ?? 0).toFixed(2)}{product.unit ? ` / ${product.unit}` : ""}
-											</p>
-											{(product.greenScore ?? product.overallScore) != null && (
-												<span className="ingredient-item__badge">
-													green {product.greenScore ?? product.overallScore}
-												</span>
-											)}
-										</div>
-										<button
-											type="button"
-											className="ingredient-item__add"
-											onClick={() => handleAddIngredient(product)}
-											aria-label={`Add ${product.name} to cart`}
-										>
-											+
-										</button>
-									</div>
-								))
+								products.map(renderIngredient)
 							)}
 						</div>
 					</div>
@@ -253,6 +271,9 @@ function Cart() {
 												<p>{item.name}</p>
 												<p className="cart-item__meta">
 													${(item.price ?? 0).toFixed(2)}{item.unit ? ` / ${item.unit}` : ""}
+													{(item.greenScore ?? item.overallScore) != null
+														? ` · 🌱 ${item.greenScore ?? item.overallScore}`
+														: ""}
 												</p>
 											</div>
 											<div className="cart-item__actions">

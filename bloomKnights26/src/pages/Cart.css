@@ -461,3 +461,47 @@
 		border-radius: 1.25rem;
 	}
 }
+
+/* --- env tag chips + suggestion labels (green tags on ingredients) --- */
+.ingredient-item__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.3rem;
+	margin-top: 0.4rem;
+}
+
+.ing-tag {
+	font-size: 0.68rem;
+	font-weight: 600;
+	padding: 0.12rem 0.5rem;
+	border-radius: 999px;
+	line-height: 1.4;
+}
+
+.ing-tag--positive {
+	color: var(--color-primary);
+	background: color-mix(in srgb, var(--color-primary) 14%, var(--color-background));
+}
+
+.ing-tag--negative {
+	color: #c0392b;
+	background: color-mix(in srgb, #c0392b 12%, var(--color-background));
+}
+
+.ingredients-panel__suggested {
+	margin: 0 0 0.5rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: var(--color-primary);
+}
+
+.ingredients-panel__all {
+	margin: 1rem 0 0.5rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: color-mix(in srgb, var(--color-text) 55%, var(--color-background));
+	border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+	padding-top: 0.75rem;
+}
