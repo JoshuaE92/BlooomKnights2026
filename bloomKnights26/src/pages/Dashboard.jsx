@@ -14,6 +14,21 @@ function formatCartItemName(item) {
         .join(" ");
 }
 
+// Distinct positive environmental tags across a cart's items — shown under the
+// green score for the most recent cart.
+function collectGoodTags(cart) {
+    if (!cart?.items) return [];
+    const seen = new Map();
+    for (const item of cart.items) {
+        for (const reason of item.reasons || []) {
+            if (reason?.polarity === "positive" && !seen.has(reason.tag)) {
+                seen.set(reason.tag, reason.label);
+            }
+        }
+    }
+    return [...seen.values()];
+}
+
 function Dashboard() {
     const [carts, setCarts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -35,6 +50,7 @@ function Dashboard() {
         [snapshot]
     );
     const greenScore = snapshot?.greenScore ?? 0;
+    const goodTags = useMemo(() => collectGoodTags(snapshot), [snapshot]);
     const arcLength = 100;
     const arcOffset = arcLength - greenScore;
 
@@ -75,6 +91,13 @@ function Dashboard() {
                                             <strong>{greenScore}%</strong>
                                         </div>
                                     </div>
+                                    {goodTags.length > 0 && (
+                                        <div className="dashboard-overview__tags" aria-label="Environmental highlights">
+                                            {goodTags.slice(0, 6).map((label) => (
+                                                <span key={label} className="dashboard-good-tag">{label}</span>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             ) : (
                                 <p className="dashboard-empty">
@@ -124,11 +147,6 @@ function Dashboard() {
                     <section className="dashboard-section dashboard-section--items">
                         <div className="dashboard-section__header">
                             <h2>Previous Carts</h2>
-                            {snapshot?.createdAt && (
-                                <span className="dashboard-chip">
-                                    {new Date(snapshot.createdAt).toLocaleDateString()}
-                                </span>
-                            )}
                         </div>
 
                         {cartHistory.length ? (

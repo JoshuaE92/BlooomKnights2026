@@ -131,7 +131,13 @@
 }
 
 .ingredients-panel__header h2 {
+	margin: 0;
 	text-align: left;
+	line-height: 1.2;
+}
+
+.ingredients-panel__store {
+	flex-shrink: 0;
 }
 
 .ingredients-panel__store {

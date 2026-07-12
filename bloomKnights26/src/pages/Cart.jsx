@@ -144,7 +144,8 @@ function Cart() {
 					price: item.price,
 					unit: item.unit,
 					quantity: item.quantity,
-					greenScore: item.greenScore ?? item.overallScore ?? null
+					greenScore: item.greenScore ?? item.overallScore ?? null,
+					reasons: item.reasons ?? []
 				}))
 			});
 			navigate("/dashboard");

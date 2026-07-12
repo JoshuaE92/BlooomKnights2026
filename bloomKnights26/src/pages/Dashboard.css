@@ -371,3 +371,33 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* --- receipt column alignment: right-align numeric headers to match values --- */
+.dashboard-cart-card__receipt-head span:not(:first-child) {
+	text-align: right;
+}
+
+/* Total line: label left, amount right (not stuck in the grid's Qty column) */
+.dashboard-cart-card__receipt-total {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+/* --- good environmental tags under the green score (most recent cart) --- */
+.dashboard-overview__tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	margin-top: 0.85rem;
+}
+
+.dashboard-good-tag {
+	font-size: 0.72rem;
+	font-weight: 600;
+	padding: 0.2rem 0.6rem;
+	border-radius: 999px;
+	color: var(--color-primary);
+	background: color-mix(in srgb, var(--color-primary) 14%, var(--color-background));
+}
