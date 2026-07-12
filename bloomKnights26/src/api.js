@@ -2,7 +2,9 @@
 // In dev, paths are same-origin ('/api/...') and Vite proxies them to the
 // backend (see vite.config.js) — no CORS. In prod, set VITE_API_BASE to the
 // backend URL.
-const BASE = import.meta.env.VITE_API_BASE || '';
+// Trailing slash stripped so "https://backend.com/" + "/api/..." can't
+// produce a "//api/..." path.
+const BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/+$/, '');
 
 function getToken() {
   return localStorage.getItem('token');
