@@ -22,7 +22,11 @@ async function request(path, { method = 'GET', body, auth = false } = {}) {
 
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    throw new Error(data.message || data.error || `Request failed (${res.status})`);
+    const error = new Error(data.message || data.error || `Request failed (${res.status})`);
+    // Let callers branch on the response (e.g. login's needsVerification flag).
+    error.status = res.status;
+    error.data = data;
+    throw error;
   }
   return data;
 }
