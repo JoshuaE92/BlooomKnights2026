@@ -5,6 +5,10 @@ import NewsCarousel from "./NewsCarousel";
 import { api } from "../../api";
 import "./Home.css";
 
+// Cart page reads this key to preload the AI's picks. Keep it exported —
+// src/pages/Cart.jsx imports it. (Changing/removing it breaks the Cart page.)
+export const AI_SUGGESTION_STORAGE_KEY = "aiSuggestion";
+
 function Home() {
     const navigate = useNavigate();
     const [prompt, setPrompt] = useState("");
@@ -19,10 +23,16 @@ function Home() {
         setError("");
         setLoading(true);
         try {
-            const res = await api.suggest(trimmed);
-            // Hand the result to the results page (Dashboard reads it).
-            sessionStorage.setItem("greenCart", JSON.stringify({ prompt: trimmed, ...res }));
-            navigate("/dashboard");
+            const result = await api.suggest(trimmed);
+
+            if (!result.picks?.length) {
+                setError("I couldn't find matching products for that — try describing the meal differently.");
+                return;
+            }
+
+            // Hand the picks to the Cart page, then go there (Home -> Cart -> Dashboard).
+            localStorage.setItem(AI_SUGGESTION_STORAGE_KEY, JSON.stringify(result));
+            navigate("/cart");
         } catch (err) {
             setError(
                 /not authorized|token/i.test(err.message)

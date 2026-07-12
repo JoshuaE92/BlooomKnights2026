@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import Header from "./Home/Header";
-import { api, saveAuth } from "../api";
+import { api } from "../api";
 import "./Login.css";
 
-function Login() {
+// Sends the password-reset email. The emailed link lands on /reset-password/:token.
+function ForgotPassword() {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
     async function handleSubmit(event) {
         event.preventDefault();
         setError("");
+        setMessage("");
         setLoading(true);
         try {
-            // backend login accepts an "identifier" (username OR email)
-            const data = await api.login(email.trim(), password);
-            saveAuth(data);
-            window.location.replace("/");
+            const data = await api.forgotPassword(email.trim());
+            setMessage(data.message || "If an account exists for that email, a reset link has been sent.");
         } catch (err) {
-            setError(err.message || "Login failed.");
+            setError(err.message || "Something went wrong.");
         } finally {
             setLoading(false);
         }
@@ -30,10 +30,10 @@ function Login() {
         <main className="login-page">
             <Header />
             <div className="login-content">
-                <p className="subheader">start shopping green today</p>
+                <p className="subheader">we all forget sometimes</p>
                 <div className="login-card">
                     <div className="login-card__header">
-                        <h2 id="login-title">login</h2>
+                        <h2>forgot password</h2>
                     </div>
 
                     <form className="login-form" onSubmit={handleSubmit}>
@@ -42,31 +42,20 @@ function Login() {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="test@example.com"
+                            placeholder="you@example.com"
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                         />
-
-                        <label htmlFor="password">password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="greenCart123"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                        />
-
-                        <button type="submit" disabled={loading}>{loading ? "logging in…" : "login"}</button>
+                        <button type="submit" disabled={loading}>
+                            {loading ? "sending…" : "send reset link"}
+                        </button>
                     </form>
 
+                    {message && <p>{message}</p>}
                     {error && <p>{error}</p>}
 
                     <p className="login-footer">
-                        Don&apos;t have an account? <Link to="/signup">Sign up here</Link>
-                    </p>
-                    <p className="login-footer">
-                        <Link to="/forgot-password">Forgot your password?</Link>
+                        Remembered it? <Link to="/login">Log in here</Link>
                     </p>
                 </div>
             </div>
@@ -74,4 +63,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default ForgotPassword;

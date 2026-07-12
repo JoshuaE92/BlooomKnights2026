@@ -1,6 +1,7 @@
 const { getProducts } = require('../services/externalProductAPI');
 const { calculateOverallScores } = require('../utils/productScores');
 const { synthesize } = require('../services/greenSynthesisService');
+const { greenReasons, greenScore } = require('../utils/greenTags');
 
 // GET /api/products
 // Optional query: ?stores=target,walmart  -> only those stores' products.
@@ -22,7 +23,8 @@ async function listProducts(req, res, next) {
     );
 
     const products = raw
-      .map(({ raw: _raw, ...p }) => {
+      .map((full) => {
+        const { raw: _raw, ...p } = full;
         const s = scoreById.get(p.id) || {};
         return {
           ...p,
@@ -30,6 +32,9 @@ async function listProducts(req, res, next) {
           healthScore: s.healthScore ?? null,
           environmentalScore: s.environmentalScore ?? null,
           priceScore: s.priceScore ?? null,
+          // green layer (Member 1): 0-100 score + reason chips for the UI
+          greenScore: greenScore(full).score,
+          reasons: greenReasons(full),
         };
       })
       .sort((a, b) => (b.overallScore ?? -1) - (a.overallScore ?? -1));
