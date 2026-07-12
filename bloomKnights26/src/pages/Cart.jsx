@@ -5,21 +5,19 @@ import { api } from "../api";
 import { AI_SUGGESTION_STORAGE_KEY } from "./Home/Home";
 import "./Cart.css";
 
-// Quantity-weighted average green score of the cart (0-100).
-// Uses each item's real greenScore (falls back to overallScore); unscored items
-// are skipped. Recomputed whenever the cart changes, so it accumulates live.
+// Green Meter = the average green score of the items in the cart (0-100).
+// Each item contributes its real greenScore (falls back to overallScore).
+// Items with no score are ignored. Recomputed on every add/remove, so the bar
+// rises/falls with the average as you build the cart.
 function computeGreenMeter(items) {
-	let weighted = 0;
-	let quantity = 0;
+	const scores = items
+		.map((item) => item.greenScore ?? item.overallScore)
+		.filter((score) => score != null);
 
-	for (const item of items) {
-		const score = item.greenScore ?? item.overallScore;
-		if (score == null) continue;
-		weighted += score * item.quantity;
-		quantity += item.quantity;
-	}
+	if (scores.length === 0) return 0;
 
-	return quantity ? Math.round(weighted / quantity) : 0;
+	const sum = scores.reduce((total, score) => total + score, 0);
+	return Math.round(sum / scores.length);
 }
 
 // Small env-tag chips (organic, recyclable packaging, plastic packaging, ...).
