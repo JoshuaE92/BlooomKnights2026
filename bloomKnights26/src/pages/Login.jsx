@@ -9,10 +9,14 @@ function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [needsVerification, setNeedsVerification] = useState(false);
+    const [resendStatus, setResendStatus] = useState(""); // "" | "sending" | "sent"
 
     async function handleSubmit(event) {
         event.preventDefault();
         setError("");
+        setNeedsVerification(false);
+        setResendStatus("");
         setLoading(true);
         try {
             // backend login accepts an "identifier" (username OR email)
@@ -21,8 +25,24 @@ function Login() {
             window.location.replace("/");
         } catch (err) {
             setError(err.message || "Login failed.");
+            // Backend flags accounts that exist but haven't verified their email.
+            if (err.data?.needsVerification) {
+                setNeedsVerification(true);
+            }
         } finally {
             setLoading(false);
+        }
+    }
+
+    async function handleResend() {
+        if (resendStatus === "sending") return;
+        setResendStatus("sending");
+        try {
+            await api.resendVerification(email.trim());
+            setResendStatus("sent");
+        } catch (err) {
+            setResendStatus("");
+            setError(err.message || "Could not resend the email.");
         }
     }
 
@@ -61,6 +81,21 @@ function Login() {
                     </form>
 
                     {error && <p>{error}</p>}
+
+                    {needsVerification && (
+                        resendStatus === "sent" ? (
+                            <p>Verification email sent — check your inbox (and spam folder).</p>
+                        ) : (
+                            <button
+                                type="button"
+                                className="login-resend"
+                                onClick={handleResend}
+                                disabled={resendStatus === "sending"}
+                            >
+                                {resendStatus === "sending" ? "sending…" : "resend verification email"}
+                            </button>
+                        )
+                    )}
 
                     <p className="login-footer">
                         Don&apos;t have an account? <Link to="/signup">Sign up here</Link>

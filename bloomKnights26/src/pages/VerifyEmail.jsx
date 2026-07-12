@@ -10,7 +10,21 @@ function VerifyEmail() {
     const { token } = useParams();
     const [status, setStatus] = useState("verifying"); // verifying | success | error
     const [message, setMessage] = useState("");
+    const [resendEmail, setResendEmail] = useState("");
+    const [resendStatus, setResendStatus] = useState(""); // "" | "sending" | "sent"
     const requestedRef = useRef(false);
+
+    async function handleResend(event) {
+        event.preventDefault();
+        if (!resendEmail.trim() || resendStatus === "sending") return;
+        setResendStatus("sending");
+        try {
+            await api.resendVerification(resendEmail.trim());
+            setResendStatus("sent");
+        } catch {
+            setResendStatus("");
+        }
+    }
 
     useEffect(() => {
         // Guard against React StrictMode double-invoking the effect — the
@@ -48,9 +62,29 @@ function VerifyEmail() {
                         </p>
                     )}
                     {status === "error" && (
-                        <p className="login-footer">
-                            <Link to="/login">Back to login</Link>
-                        </p>
+                        <>
+                            {resendStatus === "sent" ? (
+                                <p>New verification email sent — check your inbox (and spam folder).</p>
+                            ) : (
+                                <form className="login-form" onSubmit={handleResend}>
+                                    <label htmlFor="resend-email">email</label>
+                                    <input
+                                        type="email"
+                                        id="resend-email"
+                                        name="resend-email"
+                                        placeholder="you@example.com"
+                                        value={resendEmail}
+                                        onChange={(event) => setResendEmail(event.target.value)}
+                                    />
+                                    <button type="submit" disabled={resendStatus === "sending"}>
+                                        {resendStatus === "sending" ? "sending…" : "resend verification email"}
+                                    </button>
+                                </form>
+                            )}
+                            <p className="login-footer">
+                                <Link to="/login">Back to login</Link>
+                            </p>
+                        </>
                     )}
                 </div>
             </div>

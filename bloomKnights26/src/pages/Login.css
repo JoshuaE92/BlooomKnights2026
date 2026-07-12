@@ -159,3 +159,25 @@
         border-radius: 1.25rem;
     }
 }
+.login-resend {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--color-primary);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.login-resend:hover {
+    background: var(--color-primary);
+    color: var(--color-background);
+}
+
+.login-resend:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
